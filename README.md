@@ -19,7 +19,7 @@ It imports movies data from a public API and has basic search bar functionality.
 
 ## End Product View
 
-![Screenshot of the app](public/readme/example.png)
+![Screenshot of the app](frontend/public/readme/example.png)
 
 ## Resources Citation
 
