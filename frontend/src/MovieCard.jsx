@@ -1,23 +1,24 @@
 import React from 'react';
 
-const MovieCard = ({ movie }) => {
+const RoverCard = ({ rover }) => {
   return (
-    <div className="movie">
+    <div className="rover">
       <div>
-        <p>{ movie.Year }</p>
+        <h1>{ rover.name }</h1>
       </div>
-      <div>
+      {/* <div>
         <img 
-          src={ movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400' }
-          alt={ movie.Title }
+          src={ rover.Poster !== 'N/A' ? rover.Poster : 'https://via.placeholder.com/400' }
+          alt={ rover.Title }
         />
-      </div>
+      </div> */}
       <div>
-        <span>{ movie.Type }</span>
-        <h3>{ movie.Title }</h3>
+        <h4>{ rover.landing_date }</h4>
+        <h4>{ rover.launch_date }</h4>
+        <h4>{ rover.status }</h4>
       </div>
     </div>
   );
 }
 
-export default MovieCard;
+export default RoverCard;
