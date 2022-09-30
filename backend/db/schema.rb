@@ -14,25 +14,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_182835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "action_items", force: :cascade do |t|
-    t.string "assignees"
-    t.text "description"
-    t.string "status"
-    t.string "deadline"
-    t.integer "action_plan_id"
+  create_table "photos", force: :cascade do |t|
+    t.integer "external_id"
+    t.string "earth_date"
+    t.integer "sol"
+    t.text "source"
+    t.integer "rover_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "action_plans", force: :cascade do |t|
-    t.string "creator"
-    t.string "collaborators"
+  create_table "rovers", force: :cascade do |t|
+    t.integer "external_id"
+    t.string "name"
+    t.string "landing_date"
+    t.string "launch_date"
     t.string "status"
-    t.string "goal"
-    t.string "deadline"
-    t.string "deadline_reason"
-    t.string "category"
-    t.decimal "percent_complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
