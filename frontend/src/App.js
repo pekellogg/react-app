@@ -1,41 +1,61 @@
-import { useState, useEffect } from 'react';
-import MovieCard from './MovieCard.jsx';
+import { useState, useEffect, useInsertionEffect } from 'react';
+// import MovieCard from './MovieCard.jsx';
 import './App.css';
-import SearchIcon from './search.svg';
+// import SearchIcon from './search.svg';
 
 // const photosEndPoint = "http://127.0.0.1:3000/api/v1/photos"
-const roversEndPoint = "http://127.0.0.1:3000/api/v1/rovers"
-// const endPoint = 'http://www.omdbapi.com/?i=tt3896198&apikey=f152334e';
+
 
 function App() {
-  const [rovers, setRovers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  // rovers resource
+  const roversEndPoint = "http://127.0.0.1:3000/api/v1/rovers";
 
-  const searchRovers = async (rover) => {
-    const response = await fetch(`${roversEndPoint}&s=${rover}`);
-    // const response = await fetch(`${endPoint}&s=${rover}`);
-    const data = await response.json();
-    console.log(data);
-    // setRovers(data.Search);
-  }
+  const [rovers, setRovers] = useState([]); // init get/set
+  // const [searchTerm, setSearchTerm] = useState('');
+
+  // listen for changes to state
+  useEffect(() => {
+
+    const fetchRovers = async () => { // async arrow func
+      try {
+        const response = await fetch(roversEndPoint);
+        const roversList = await response.json();
+        console.log(roversList); // confirm 
+        setRovers(roversList);
+      } catch (error) {
+        console.log(error) // error.stack more info
+      }
+    }
+
+    (async () => await fetchRovers())(); // IIFE syntax; invoke at app init to populate Rovers
+
+  }, []) // arr arg makes run 1x at load/runtime
+
+  // const searchRovers = async (rover) => {
+  //   const response = await fetch(`${roversEndPoint}&s=${rover}`);
+  //   // const response = await fetch(`${endPoint}&s=${rover}`);
+  //   const data = await response.json();
+  //   console.log(data);
+  //   // setRovers(data.Search);
+  // }
 
   return (
     <div className="App">
       <h1>Mars Rovers Photos</h1>
       <div className="search">
-        <input
+        {/* <input
           placeholder="Find photos taken by a Mars rover"
           value={searchTerm}
           onChange={ e => setSearchTerm(e.target.value) }
-        />
-        <img
+        /> */}
+        {/* <img
           src={SearchIcon}
           alt="search"
           onClick={() => searchRovers(searchTerm)}
-        />
+        /> */}
       </div>
 
-      { rovers?.length > 0 ? 
+      {/* { rovers?.length > 0 ? 
         (
           <div className="container">
             { rovers.map(m => <MovieCard movie={ m }/>) }
@@ -46,7 +66,7 @@ function App() {
             <h2>Could not find rovers.</h2>
           </div>
         )
-      }
+      } */}
     </div>
   );
   
