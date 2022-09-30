@@ -11,6 +11,8 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 # gem "pg", "~> 1.1"
 gem "pg"
 
+gem "rest-client"
+
 # no external serializers needed if Rails version >= 5
 # Use ActiveModel::Serializer
 gem "active_model_serializers"
