@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import RoverCard from './RoverCard.jsx';
-import roverInitData from './RoverInitData.js';
+import React, { Component } from "react";
+import RoverCard from "./RoverCard.jsx";
+import roverInitData from "./RoverInitData.js";
 
 export default class RoverShowcase extends Component {
 
