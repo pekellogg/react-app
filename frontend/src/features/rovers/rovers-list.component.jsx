@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import RoverCard from "./rover-card.component.jsx";
-import roverInitData from "../../data/init-rover-data.component.jsx";
+import initRovers from "../../data/init-rover-data.component.jsx";
 
 export default class RoverShowcase extends Component {
 
 	createRoverCards = () => {
-		return roverInitData.map((rover, index) =>
+		return initRovers.map((rover, index) =>
       <RoverCard
         key={index}
         name={rover.name}
