@@ -1,4 +1,4 @@
-export const initRovers = [
+const initRovers = [
   {externalID: 5,                                                       
   name: "Curiosity",                                                    
   landingDate: "2012-08-06",                                           
@@ -23,3 +23,5 @@ export const initRovers = [
   launchDate: "2020-07-30",
   status: "active"}
 ];
+
+export default initRovers;
