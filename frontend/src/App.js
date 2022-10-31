@@ -1,6 +1,6 @@
 import React from "react";
-import RoverShowcase from "./RoverShowcase";
-import "./App.css";
+import RoverShowcase from "./features/rovers/rovers-list.component";
+import "./styles/App.css"
 
 export default class App extends React.Component {
   render () {
