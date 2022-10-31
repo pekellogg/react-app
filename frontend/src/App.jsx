@@ -2,17 +2,38 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./routes/home";
 import About from "./routes/about";
-import RoverShowcase from "./features/rovers/rovers-list.component";
-import Navigation from "./features/navigation.component";
+import RoversList from "./features/rovers/rovers-list.component";
 import "./styles/index.css";
 
 export default class App extends React.Component {
 
-  render () {
+  componentDidMount() {
+    let url = "http://localhost:3000/api/v1/rovers";
+    // if (selectedRover) {
+    //   url = `http://localhost:3000/rovers/${selectedRover.name}/photos`;
+    // }
+    fetch(url)
+    .then((response) => response.json())
+    .then((rovers) => console.log(rovers));
+  };
+
+	// const createRoverCards = () => {
+	// 	return rovers.map((rover) => {
+  //     return (
+  //       <RoverCard
+  //         key={rover.externalID}
+  //         name={rover.name}
+  //         landingDate={rover.landingDate}
+  //         launchDate={rover.launchDate}
+  //         status={rover.status}
+  //       />
+  //     )
+  //   });
+	// };
+  
+  render() {
     return (
-      <div className="app">
-        <Navigation/>
-        <Switch>
+      <Switch>
         <Route exact path="/">
           <Home />
         </Route>
@@ -20,11 +41,10 @@ export default class App extends React.Component {
           <About />
         </Route>
         <Route path="/rovers">
-          <RoverShowcase />
+          <RoversList />
         </Route>
       </Switch>
-      </div>
-    );
+    )
   }
 
 };
