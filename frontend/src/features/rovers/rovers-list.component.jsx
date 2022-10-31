@@ -1,30 +1,38 @@
 import React, { Component } from "react";
-import RoverCard from "./rover-card.component.jsx";
-import initRovers from "../../data/init-rover-data.component.jsx";
+// import initRovers from "../../data/init-rover-data.component.jsx";
+// import RoverCard from "./rover-card.component.jsx";
 
 export default class RoverShowcase extends Component {
 
-	createRoverCards = () => {
-		return initRovers.map((rover) => {
-      return (
-        <RoverCard
-          key={rover.externalID}
-          name={rover.name}
-          landingDate={rover.landingDate}
-          launchDate={rover.launchDate}
-          status={rover.status}
-        />
-      )
-    });
-    
-	};
+  // const [rovers, setRovers] = useState([]);
 
-	render() {
-		return (
-      <div id="rover-showcase">
-        {this.createRoverCards()}
-      </div>
-    );
-	}
+  // useEffect(() => {
+  //   return fetch("http://localhost:3000/rovers")
+  //     .then((response) => response.json())
+  //     .then((rovers) => setRovers(rovers));
+  // }, []);
+
+	// createRoverCards = () => {
+	// 	return initRovers.map((rover) => {
+  //     return (
+  //       <RoverCard
+  //         key={rover.externalID}
+  //         name={rover.name}
+  //         landingDate={rover.landingDate}
+  //         launchDate={rover.launchDate}
+  //         status={rover.status}
+  //       />
+  //     )
+  //   });
+    
+	// };
+
+	// render() {
+	// 	return (
+  //     <div className="showcase">
+  //       {this.createRoverCards()}
+  //     </div>
+  //   );
+	// }
 
 };

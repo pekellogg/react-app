@@ -1,30 +1,27 @@
-# Movies-Search
-
-This application was built to illustrate fundamentals of event-based programming and React applications major concepts including:
-
-<li>components</li>
-<li>state</li>
-<li>props</li>
-<li>hooks</li>
-
-It imports movies data from a public API and has basic search bar functionality.
+# Mars Rovers
 
 ## Usage
 
-1. Fork & clone this repository, or build your own from scratch for practice.
-2. cd movies-search
-3. Request an <a href="http://www.omdbapi.com/apikey.aspx">API key</a> and modify endPoint with your API information.
-4. Run `npm install`
-5. Run `npm start`
+1. Fork & clone this repository
+2. cd backend
+3. bundle install
+4. rails db:reset
+5. rails db:seed
+6. rails s
+7. cd ../frontend
+8. npm install
+9. npm start
+10. Run `npm install`
+11. Run `npm start`
 
 ## End Product View
 
-![Screenshot of the app](frontend/public/readme/example.png)
+<!-- ![Screenshot of the app] -->
 
 ## Resources Citation
 
-This application is an example of what is built by viewing the tutorial published by the <a href="https://www.youtube.com/c/JavaScriptMastery">JavaScript Mastery YouTube channel</a>. It imports movies data from the <a href="http://www.omdbapi.com/">OMDb</a> API, The Open Movie Database.
+This application leverages the Mars API
 
 ## Contributing
 
-This application was built to practice building and getting comfortable with React. If you want to build this project, request a free <a href="http://www.omdbapi.com/apikey.aspx">API key</a> and follow the <a href="https://www.youtube.com/watch?v=b9eMGE7QtTk">tutorial</a>.
+Pull requests and suggestions are welcomed.

@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class RoverCard extends React.Component {
 
 	render() {
 		return (
-			<div className="rover-card">
-				<h1>{this.props.name}</h1>
-				<h2>Mission status: {this.props.status}</h2>
-				<h2>Launch date: {this.props.launchDate}</h2>
-				<h2>Landing date: {this.props.landingDate}</h2>
+			<div className="card">
+				<Link className="button"><h2>{this.props.name}</h2></Link>
+				<div className="details">
+					<p>Mission status: {this.props.status}</p>
+					<p>Launch date: {this.props.launchDate}</p>
+					<p>Landing date: {this.props.landingDate}</p>
+				</div>
 			</div>
 		);
 	}

@@ -1,0 +1,197 @@
+:root {
+  --black: #030416;
+  --white: #f1f1f1;
+  --grey: #d6e2e7;
+  --dark-grey: #7f8a8e;
+  --blue: #338fff;
+  --blue-dark: #145cb3;
+  --color: var(--white);
+  --background: var(--black);
+  --primary: var(--white);
+}
+
+/* layout */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial Narrow", sans-serif;
+  font-size: 16px;
+  color: var(--color);
+  background-color: var(--background);
+}
+
+.app {
+  color: var(--color);
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+/* buttons */
+button, .button {
+  appearance: auto;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--background);
+  border: 2px solid var(--blue-dark);
+  transition: background-color 0.2s;
+}
+
+button.active,
+button:focus,
+button:hover,
+.button.active,
+.button:focus,
+.button:hover {
+  outline: none;
+  /* color: var(--white); */
+  background-color: var(--blue-dark);
+  border: 2px solid var(--primary);
+}
+
+button:disabled,
+.button:disabled {
+  cursor: not-allowed;
+  color: var(--dark-grey);
+  background-color: var(--grey);
+}
+
+button.blue,
+.button.blue {
+  border: 2px solid var(--blue-dark);
+  color: var(--blue);
+}
+
+button.blue.active,
+button.blue:focus,
+button.blue:hover,
+.button.blue.active,
+.button.blue:focus,
+.button.blue:hover {
+  color: var(--white);
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+
+/* links */
+a {
+  color: var(--color);
+  border-bottom: 1px solid var(--color);
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+}
+
+/* header */
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-content: center;
+}
+
+/* forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  border: 2px solid var(--blue-dark);
+  padding: 1.75rem;
+}
+
+input,
+textarea,
+select {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all 0.3s;
+  border: 2px solid var(--color);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+}
+
+.form button[type="submit"] {
+  width: 50%;
+  cursor: pointer;
+}
+
+/* cards */
+.showcase {
+  border: 2px solid var(--primary);
+  margin: 0 auto;
+  padding: 2rem;
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border: 6px solid var(--primary);
+  padding: 1rem;
+  max-width: 400px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border: 2px solid var(--blue-dark);
+}
+
+nav {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.navigation * {
+  margin: 0 0.5rem;
+}
+
+.branding {
+  display: flex;
+}
+
+header h1 a {
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+}
+
+header h1 a:hover {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 1000px;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+}
