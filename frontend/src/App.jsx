@@ -9,14 +9,27 @@ import "./styles/index.css";
 export default class App extends React.Component {
 
   componentDidMount() {
-    let url = "http://localhost:3000/api/v1/rovers";
-    // if (selectedRover) {
-    //   url = `http://localhost:3000/api/v1/rovers/${selectedRover.name}/photos`;
+    this.fetchRovers = () => {
+      let roversURL = "http://localhost:3000/api/v1/rovers";
+      fetch(roversURL)
+      .then(response => response.json())
+      .then(rovers => this.createRoverCards(rovers));
+    }
+    // this.fetchPhotos = () => {
+    //   let photosURL = "http://localhost:3000/api/v1/photos";
+    //   fetch(photosURL)
+    //   .then(response => console.log(response.json()))
+    //   .then(photos => this.createPhotos(photos));
     // }
-    fetch(url)
-    .then((response) => response.json())
-    .then((rovers) => this.createRoverCards(rovers));
   };
+
+  // createPhotos = (photos) => {
+	// 	return photos.map((photo) => {
+  //     return (
+  //       <img src="" alt=""/>
+  //     )
+  //   });
+	// };
 
 	createRoverCards = (rovers) => {
 		return rovers.map((rover) => {
