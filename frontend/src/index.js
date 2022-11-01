@@ -4,19 +4,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./styles/index.css";
 import Navigation from "./features/navigation.component";
 import App from "./App";
-import store from "./redux/store";
-import { Provider } from "react-redux";
+// import store from "./redux/store";
+// import { Provider } from "react-redux";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <Router>
           <Navigation/>
           <App />
         </Router>
-    </Provider>
+    {/* </Provider> */}
   </React.StrictMode>
 );
