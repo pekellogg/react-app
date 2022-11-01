@@ -7,7 +7,7 @@ export default class RoversList extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/rovers/:id">
+        <Route exact path="/rovers/:external_id">
           <RoverCard />
         </Route>
       </Switch>
