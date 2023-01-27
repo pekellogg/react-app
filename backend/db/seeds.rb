@@ -1,9 +1,22 @@
 require "rest-client"
 require "pry"
 
-# https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/latest_photos?
+# testing
+# http://127.0.0.1:3000/api/v1/rovers
+# http://127.0.0.1:3000/api/v1/photos
+# http://127.0.0.1:3000/api/v1/comments
+
+# rovers
+#https://mars-photos.herokuapp.com/api/v1/rovers/
+
+# example
+# https://mars-photos.herokuapp.com/api/v1/rovers/{ROVER_NAME}/latest_photos?
+
+# external sources to query
 BASE = "https://mars-photos.herokuapp.com/api/v1/rovers/"
 RESOURCE = "/latest_photos?"
+
+# rovers - v1 (hard-coded)
 ROVERS = ["curiosity", "spirit", "opportunity", "perseverance"]
                                                  
 Rover.create([{external_id: 5,                                                       
@@ -30,15 +43,7 @@ landing_date: "2021-02-18",
 launch_date: "2020-07-30",
 status: "active"}])
 
-# new_rover = {}
-# new_rover["external_id"] = blob["rover"]["id"]
-# new_rover["name"] = blob["rover"]["name"]
-# new_rover["landing_date"] = blob["rover"]["landing_date"]
-# new_rover["launch_date"] = blob["rover"]["launch_date"]
-# new_rover["status"] = blob["rover"]["status"]
-# Rover.create(new_rover)
-
-
+# collect all latest photos for each rover
 ROVERS.each do |rover|
   
   uri = BASE + rover + RESOURCE
