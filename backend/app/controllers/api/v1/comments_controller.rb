@@ -1,3 +1,5 @@
+# require "pry"
+
 class Api::V1::CommentsController < ApplicationController
 
   def index
@@ -6,8 +8,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(comment_params)
-    if @comment.save
+    if @comment = Comment.create(comment_params)
       render json: @comment 
     else
       # client error if not saved; 400 Bad Request
@@ -42,7 +43,8 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment)#.permit(:id, :assignees, :status, :deadline, :created_at, :updated_at)
+    params.permit(:text, :rover_id)
+    # params.require(:text)#.permit(:text)
   end
   
 end
