@@ -34,7 +34,7 @@
     ]
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.8.6",
+    "@reduxjs/toolkit": "^1.9.1",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0"
