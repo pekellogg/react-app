@@ -8,3 +8,6 @@ backend/rails_javascript_test
 # frontend
 frontend/.gitignore
 frontend/node_modules
+
+# personal settings
+.vscode/
