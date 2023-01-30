@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./ui/NavBar";
-import About from "./components/about";
+import Home from "./components/Home";
+import Data from "./components/Data";
 import RoversContainer from "./containers/RoversContainer";
 import PhotosContainer from "./containers/PhotosContainer";
 // import CommentsContainer from "./containers/CommentsContainer";
@@ -13,9 +14,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/rovers" component={RoversContainer} />
             <Route exact path="/photos" component={PhotosContainer} />
+            <Route exact path="/data" component={Data} />
             {/* <Route exact path="/comments" component={CommentsContainer} /> */}
 
 

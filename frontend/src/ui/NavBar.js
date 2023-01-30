@@ -7,17 +7,17 @@ class NavBar extends Component {
 		return (
       <header>
         <nav className="navigation">
-          {/* <NavLink className="button" exact to="/">
+          <NavLink style={{ marginRight: '10px' }} to="/">
             Home
-          </NavLink> */}
-          <NavLink style={{ marginRight: '10px' }} to="/about">
-            About
           </NavLink>
           <NavLink style={{ marginRight: '10px' }} to="/rovers">
             Rovers
           </NavLink>
           <NavLink style={{ marginRight: '10px' }} to="/photos">
             Photos
+          </NavLink>
+          <NavLink style={{ marginRight: '10px' }} to="/data">
+            Data
           </NavLink>
           {/* <NavLink style={{ marginRight: '10px' }} to="/comments">
             Comments
