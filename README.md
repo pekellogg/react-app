@@ -2,18 +2,18 @@
 
 ## Usage
 <h4>Set up & Start the Rails Server</h4>
-1. Fork & clone this repository
-2. cd backend
-3. bundle install
-4. rails db:reset
-5. rails db:seed
-6. rails s
+<p>1. Fork & clone this repository</p>
+<p>2. cd backend</p>
+<p>3. bundle install</p>
+<p>4. rails db:reset</p>
+<p>5. rails db:seed</p>
+<p>6. rails s</p>
 <h4>View the Front End in Browser</h4>
-7. cd ../frontend
-8. npm install
-9. npm start
-10. Run `npm install`
-11. Run `npm start`
+<p>7. cd ../frontend</p>
+<p>8. npm install</p>
+<p>9. npm start</p>
+<p>10. Run `npm install`</p>
+<p>11. Run `npm start`</p>
 
 ## End Product View
 
@@ -27,4 +27,4 @@
 
 ## Contributing
 
-Pull requests and constructive feedback are welcomed.
+<p>Pull requests and constructive feedback are welcomed.</p>
