@@ -44,6 +44,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRovers: () => dispatch(fetchRovers()),
+    // addComment: (comment) => dispatch({ type: "ADD_COMMENT", comment }),
+    // deleteComment: (commentId) => dispatch({ type: "DELETE_COMMENT", commentId }),
   };
 };
 
