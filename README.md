@@ -1,5 +1,5 @@
 # Mars Rovers
-<p>This web application was built to statisfy Flatiron School's software engineering curriculum. It showcases knowledge of Ruby on Rails for its backend server framework and ReactSJ for its frontend UI.</p>
+<p>This web application was built to statisfy Flatiron School's software engineering curriculum. It showcases knowledge of Ruby on Rails for its backend server framework and ReactJS for its frontend UI.</p>
 
 ## Installation
 <h4>Set up & Start the Rails Server</h4>
