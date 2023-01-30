@@ -4,12 +4,13 @@ class Rover extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <p>Name: {this.props.name}</p>
         <p>Launched: {this.props.landingDate}</p>
         <p>Landed on Mars: {this.props.landingDate}</p>
         <p>Mission Status: {this.props.status}</p>
-      </div>
+      </>
+
     );
   };
 

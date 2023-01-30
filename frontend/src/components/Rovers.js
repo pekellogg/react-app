@@ -6,14 +6,16 @@ class Rovers extends React.Component {
   displayRovers = () => {
     return (
       this.props.rovers.map((rover) => (
-        < Rover
-          key={rover.external_id}
-          externalId={rover.external_id}
-          name={rover.name}
-          landingDate={rover.landing_date}
-          launchDate={rover.launch_date}
-          status={rover.status}
-        />
+        <div id={rover.external_id} key={rover.external_id} >
+          < Rover
+            key={rover.external_id}
+            id={rover.external_id}
+            name={rover.name}
+            landingDate={rover.landing_date}
+            launchDate={rover.launch_date}
+            status={rover.status}
+          />
+        </div>
       ))
     );
   };
