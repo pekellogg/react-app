@@ -1,21 +1,22 @@
 # Mars Rovers
+<p>This web application was built to statisfy Flatiron School's software engineering curriculum. It showcases knowledge of Ruby on Rails for its backend server framework and ReactSJ for its frontend UI.</p>
 
-## Usage
+## Installation
 <h4>Set up & Start the Rails Server</h4>
-<p>1. Fork & clone this repository</p>
-<p>2. cd backend</p>
-<p>3. bundle install</p>
-<p>4. rails db:reset</p>
-<p>5. rails db:seed</p>
-<p>6. rails s</p>
+<li>1. Fork & clone this repository</li>
+<li>2. cd backend</li>
+<li>3. bundle install</li>
+<li>4. rails db:reset</li>
+<li>5. rails db:seed</li>
+<li>6. rails s</li>
 <h4>View the Front End in Browser</h4>
-<p>7. cd ../frontend</p>
-<p>8. npm install</p>
-<p>9. npm start</p>
-<p>10. Run `npm install`</p>
-<p>11. Run `npm start`</p>
+<li>7. cd ../frontend</li>
+<li>8. npm install</li>
+<li>9. npm start</li>
+<li>10. Run `npm install`</li>
+<li>11. Run `npm start`</li>
 
-## End Product View
+<!-- ## End Product View -->
 
 <!-- ![Screenshot of the app] -->
 
