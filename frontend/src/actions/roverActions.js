@@ -1,17 +1,11 @@
 export const fetchRovers = () => {
   
   return (dispatch) => {
-    console.log(dispatch);
-    dispatch({ type: "LOADING_ROVERS" });
+    dispatch({ type: "LOADING_ROVERS", loading: true });
     
     fetch("http://127.0.0.1:3000/api/v1/rovers")
-      .then((response) => {
-        return response.json();
-      })
-      .then((rovers) => {
-        dispatch({ type: "FETCH_ROVERS", rovers: rovers });
-      });
-
+      .then((response) => response.json())
+      .then((rovers) => dispatch({ type: "FETCHED_ROVERS", loading: false, rovers }));
   };
 
 };

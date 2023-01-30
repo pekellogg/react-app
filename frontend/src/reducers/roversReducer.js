@@ -1,27 +1,21 @@
-const roversReducer = (state = {
-  rovers: [],
-  loading: false
- },
- action) => {
+function roversReducer(state = { all: [], loading: false }, action) {
  switch (action.type) {
+   case "LOADING_ROVERS":
+    return { 
+      ...state,
+      all: [...state.all],
+      loading: action.loading,
+    };
 
-   case "LOAD_ROVERS":
-     return {
-       ...state,
-       rovers: [...state.rovers],
-       loading: true,
-     };
-
-   case "FETCH_ROVERS":
-    // console.log(action.rovers);
-     return {
-       ...state,
-       rovers: action.rovers,
-       loading: false,
-     };
+   case "FETCHED_ROVERS":
+    return {
+      ...state,
+      all: action.rovers,
+      loading: action.loading,
+    };
      
    default:
-     return state;
+    return state;
  }
 };
 

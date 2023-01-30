@@ -4,7 +4,7 @@ class Rover extends React.Component {
 
   render() {
     return (
-      <div className="rovers">
+      <div>
         <p>Name: {this.props.name}</p>
         <p>Launched: {this.props.landingDate}</p>
         <p>Landed on Mars: {this.props.landingDate}</p>

@@ -4,7 +4,7 @@ class Photo extends React.Component {
 
   render() {
     return (
-      <div className="photos">
+      <div>
         <img
           src={this.props.source}
           alt="a photo of Mars"

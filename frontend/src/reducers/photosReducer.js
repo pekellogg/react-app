@@ -1,26 +1,21 @@
-const photosReducer = (state = {
-  photos: [],
-  loading: false
- },
- action) => {
+function photosReducer(state = { all: [], loading: false }, action) {
  switch (action.type) {
+   case "LOADING_PHOTOS":
+    return { 
+      ...state,
+      all: [...state.all],
+      loading: action.loading,
+    }
 
-   case "LOAD_PHOTOS":
-     return {
-       ...state,
-       photos: [...state.photos],
-       loading: true,
-     };
-
-   case "FETCH_PHOTOS":
-     return {
-       ...state,
-       photos: action.photos,
-       loading: false,
-     };
+   case "FETCHED_PHOTOS":
+    return {
+      ...state,
+      all: action.photos,
+      loading: action.loading,
+    }
      
    default:
-     return state;
+    return state;
  }
 };
 

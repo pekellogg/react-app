@@ -4,7 +4,6 @@ import Rover from "./Rover";
 class Rovers extends React.Component {
 
   displayRovers = () => {
-    console.log(this.props);
     return (
       this.props.rovers.map((rover) => (
         < Rover

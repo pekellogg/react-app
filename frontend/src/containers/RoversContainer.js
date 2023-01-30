@@ -5,10 +5,6 @@ import Rovers from "../components/Rovers";
 
 class RoversContainer extends Component {
 
-  constructor() {
-    super();
-  };
-
   componentDidMount() {
     this.props.fetchRovers();
   };
@@ -40,10 +36,8 @@ class RoversContainer extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    rovers: state.rovers,
-    loading: state.loading,
+    rovers: state.rovers.all,
   };
 };
 

@@ -5,10 +5,6 @@ import Photos from "../components/Photos";
 
 class PhotosContainer extends Component {
 
-  constructor() {
-    super();
-  };
-
   componentDidMount() {
     this.props.fetchPhotos();
   };
@@ -40,8 +36,7 @@ class PhotosContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    photos: state.photos,
-    loading: state.loading,
+    photos: state.photos.all,
   };
 };
 
