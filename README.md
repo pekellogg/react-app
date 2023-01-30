@@ -18,7 +18,7 @@
 
 <h4>Set Up Front End & View in Browser</h4>
 
-  <h5>Install Dependencies</5>
+  <h5>Install Dependencies</h5>
   <li>cd ../frontend</li>
   <li>Run `npm install`</li>
 
