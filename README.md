@@ -6,8 +6,7 @@
 <li>Fork & clone this repository</li>
 <li>cd backend</li>
 <li>bundle install</li>
-<li>rails db:reset</li>
-<li>rails db:seed</li>
+<li>rails db:setup</li>
 <li>rails s</li>
 <h4>View the Front End in Browser</h4>
 <li>cd ../frontend</li>
