@@ -3,18 +3,18 @@
 
 ## Installation
 <h4>Set up & Start the Rails Server</h4>
-<li>1. Fork & clone this repository</li>
-<li>2. cd backend</li>
-<li>3. bundle install</li>
-<li>4. rails db:reset</li>
-<li>5. rails db:seed</li>
-<li>6. rails s</li>
+<li>Fork & clone this repository</li>
+<li>cd backend</li>
+<li>bundle install</li>
+<li>rails db:reset</li>
+<li>rails db:seed</li>
+<li>rails s</li>
 <h4>View the Front End in Browser</h4>
-<li>7. cd ../frontend</li>
-<li>8. npm install</li>
-<li>9. npm start</li>
-<li>10. Run `npm install`</li>
-<li>11. Run `npm start`</li>
+<li>cd ../frontend</li>
+<li>npm install</li>
+<li>npm start</li>
+<li>Run `npm install`</li>
+<li>Run `npm start`</li>
 
 <!-- ## End Product View -->
 
