@@ -5,22 +5,22 @@
 <li>Fork & clone this repository</li>
 
 <h4>Set Up & Start the Rails Server</h4>
-  <h5>Install Rails dependencies</h5>
+  <i>Install Rails dependencies</i>
   <li>cd backend</li>
   <li>bundle install</li>
 
-  <h5>Create and Seed the DB</h5>
+  <i>Create and Seed the DB</i>
   <li>rails db:setup</li>
 
-  <h5>Start the Server</h5>
+  <i>Start the Server</i>
   <li>rails s</li>
 
 <h4>Set Up Front End & View in Browser</h4>
-  <h5>Install Dependencies</h5>
+  <i>Install Dependencies</i>
   <li>cd ../frontend</li>
   <li>Run `npm install`</li>
 
-  <h5>View in Browser</5>
+  <i>View in Browser</i>
   <li>Run `npm start`</li>
 
 <!-- ## End Product View -->
