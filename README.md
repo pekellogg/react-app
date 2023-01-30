@@ -1,29 +1,42 @@
-# Mars Rovers
-<p>This web application was built to statisfy Flatiron School's software engineering curriculum. It showcases knowledge of Ruby on Rails for its backend server framework and ReactJS for its frontend UI.</p>
+# Background
+
+This web application was built to statisfy Flatiron School's software engineering curriculum. It showcases knowledge of Ruby on Rails for its backend server framework and ReactJS for its frontend UI.
 
 ## Installation
-<p>Fork & clone this repository</p>
 
-<h4>Set Up & Start the Rails Server</h4>
-  *Install Rails dependencies*
-  ```bash
-  cd backend
-  bundle install
-  ```
+Fork & clone this repository
 
-  *Create and Seed the DB*
-  <p>rails db:setup</p>
+### Set Up & Start the Rails Server: Install Rails dependencies
 
-  *Start the Server*
-  <p>rails s</p>
+```bash
+cd backend
+bundle install
+```
 
-<h4>Set Up Front End & View in Browser</h4>
-  *Install Dependencies*
-  <p>cd ../frontend</p>
-  <p>Run `npm install`</p>
+### Create and Seed the DB
 
-  *View in Browser*
-  <p>Run `npm start`</p>
+```bash
+rails db:setup
+```
+
+### Start the Server
+
+```bash
+rails s
+```
+
+### Install Frontend Dependencies
+
+```bash
+cd ../frontend
+npm install
+```
+
+### View in Browser
+
+```bash
+Run npm start
+```
 
 <!-- ## End Product View -->
 
@@ -31,9 +44,9 @@
 
 ## Resources Citation
 
-<p>This application derives data from the Mars Photo API maintained by chrisccerami.</p>
-<p>Explore the <a href="https://github.com/chrisccerami/mars-photo-api">official repository</a>.</p>
+This application derives data from the Mars Photo API maintained by chrisccerami.
+Explore the [repository](https://github.com/chrisccerami/mars-photo-api).
 
-## Contributing
+### Contributing
 
-<p>Pull requests and constructive feedback are welcomed.</p>
+Pull requests with constructive feedback welcomed
