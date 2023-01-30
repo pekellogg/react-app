@@ -7,11 +7,13 @@ class Photos extends React.Component {
     // console.log(this.props.photos);
     return (
       this.props.photos.map((photo) => (
-        < Photo
-          key={photo.external_id}
-          externalId={photo.external_id}
-          source={photo.source}
-        />
+        <div id={photo.external_id} key={photo.external_id} >
+          < Photo
+            key={photo.external_id}
+            externalId={photo.external_id}
+            source={photo.source}
+          />
+        </div>
       ))
     );
   };
