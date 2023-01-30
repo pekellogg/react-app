@@ -5,7 +5,6 @@
 <li>Fork & clone this repository</li>
 
 <h4>Set Up & Start the Rails Server</h4>
-
   <h5>Install Rails dependencies</h5>
   <li>cd backend</li>
   <li>bundle install</li>
@@ -17,7 +16,6 @@
   <li>rails s</li>
 
 <h4>Set Up Front End & View in Browser</h4>
-
   <h5>Install Dependencies</h5>
   <li>cd ../frontend</li>
   <li>Run `npm install`</li>
