@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchRovers: () => dispatch(fetchRovers()),
     addComment: (comment) => dispatch(addComment(comment)),
     editComment: (comment) => dispatch(editComment(comment)),
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    deleteComment: (commentId, roverId) => dispatch(deleteComment(commentId, roverId)),
   };
 };
 

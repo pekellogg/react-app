@@ -98,7 +98,7 @@ export const editComment = (comment) => {
   };
 };
 
-export const deleteComment = (commentId) => {
+export const deleteComment = (commentId, roverId) => {
   return (dispatch) => {
     dispatch({
       type: "DELETING_COMMENT",
@@ -116,6 +116,7 @@ export const deleteComment = (commentId) => {
         dispatch({
           type: "COMMENT_DELETED",
           id: commentId,
+          roverId
         })
         return response.status
       })

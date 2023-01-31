@@ -29,7 +29,7 @@ class Comment extends React.Component {
     if (event.target.name === "edit") {
       this.setState({ showEditForm: true})
     } else if (event.target.name === "delete") {
-      this.props.delete(this.props.id);
+      this.props.delete(this.props.id, this.props.roverId);
     }
   };
 
