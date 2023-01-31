@@ -14,6 +14,7 @@ class Rovers extends React.Component {
         >
           < Rover
             addComment={this.props.addComment}
+            editComment={this.props.editComment}
             key={rover.external_id}
             id={rover.external_id}
             name={rover.name}

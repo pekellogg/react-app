@@ -14,6 +14,7 @@ class Rover extends React.Component {
         <p>Mission Status: {this.props.status}</p>
         <CommentsContainer
           addComment={this.props.addComment}
+          editComment={this.props.editComment}
           roverId={this.props.id}
           comments={this.props.comments}
         />

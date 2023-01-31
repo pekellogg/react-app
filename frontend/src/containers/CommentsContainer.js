@@ -9,6 +9,7 @@ class CommentsContainer extends Component {
         {/* {console.log(this.props)} */}
         <Comments
           addComment={this.props.addComment}
+          editComment={this.props.editComment}
           comments={this.props.comments}
           roverId={this.props.roverId}
         />
