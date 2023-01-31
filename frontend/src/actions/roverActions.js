@@ -64,11 +64,8 @@ export const addComment = (comment) => {
   };
 };
 
-export const editComment = (id, updatedText) => {
 
-  console.log(`id`, id);
-  console.log(`updatedText`, updatedText);
-
+export const editComment = (comment) => {
   return (dispatch) => {
     dispatch({
       type: "EDITING_COMMENT",
@@ -76,15 +73,14 @@ export const editComment = (id, updatedText) => {
     });
     // fetch() returns a Promise 
     // it resolves to the Response object
-    fetch(`http://127.0.0.1:3000/api/v1/comments/${id}`, {
+    fetch(`http://127.0.0.1:3000/api/v1/comments/${comment.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedText)
+      body: JSON.stringify(comment)
     })
       // Promise.then() returns another Promise
       // it takes 2 args: fulfilled callback, rejected callback
       .then((response) => {
-        // console.log(response);
         // response.json() returns another Promise
         // it resolves with the result of parsing the response body text as JSON
         return response.json()

@@ -6,7 +6,6 @@ class CommentsContainer extends Component {
   render() {
     return (
       <div className="rover-comments">
-        {/* {console.log(this.props)} */}
         <Comments
           addComment={this.props.addComment}
           editComment={this.props.editComment}

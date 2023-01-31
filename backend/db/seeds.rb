@@ -49,7 +49,7 @@ ROVERS.each do |rover|
   uri = BASE + rover + RESOURCE
   response = RestClient.get(uri)
   body = JSON.parse(response.body) if response.code == 200
-
+  # binding.pry
   body["latest_photos"].each do |blob|
 
     new_photo = {}

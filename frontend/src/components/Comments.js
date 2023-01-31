@@ -5,58 +5,21 @@ class Comments extends React.Component {
 
   state = {
     text: "",
-    textToEdit: "",
-    showEditForm: false,
   };
 
-  // constructor(props) {
-    // super(props);
-    // this.onChangeTitle = this.onChangeTitle.bind(this);
-    // this.state = {
-    //   text: "",
-    //   textToEdit: "",
-    //   showEditForm: false,
-    // };
-  // }
-
-  handleOnChange = (event) => {
-    if (event.target.name === "edit") {
-      this.setState({ textToEdit: event.target.value })
-    } else {
-      this.setState({ text: event.target.value })
-    }
+  onChangeHandler = (event) => {
+    this.setState({ text: event.target.value })
   };
 
-  handleOnSubmit = (event) => {
+  submitHandler = (event) => {
     event.preventDefault();
-    if (event.target.name === "edit") {
-      this.setState({ textToEdit: event.target.value })
-    } else {
-      const comment = {
-        text: this.state.text,
-        rover_id: this.props.roverId,
-      }
-      this.props.addComment(comment)
-      this.setState({text: ""})
+    const comment = {
+      text: this.state.text,
+      rover_id: this.props.roverId,
     }
-    // const comment = {
-    //   text: this.state.text,
-    //   rover_id: this.props.roverId,
-    // }
-    // this.props.addComment(comment)
-    // this.setState({text: ""})
-  };
-
-  clickHandler = (event) => {
-    console.log(event.target);
-    if (event.target.name === "edit") {
-      this.setState({ showEditForm: true})
-      // this.props.editComment();
-      
-    } else {
-      // this.props.deleteComment();
-    }
-  };
+    this.props.addComment(comment)
+    this.setState({ text: "" })
+  }
 
   displayComments = () => {
     if (this.props.comments.length > 0) {
@@ -66,11 +29,10 @@ class Comments extends React.Component {
             {...comment}
             id={comment.id}
             key={comment.id}
-            clickHandler={this.clickHandler}
-            handleOnEdit={this.handleOnChange}
-            showEditForm={this.state.showEditForm}
-            submitHandler={this.handleOnSubmit}
-            textToEdit={this.state.textToEdit}
+            submitHandler={this.submitHandler}
+            edit={this.props.editComment}
+            roverId={this.props.roverId}
+            // delete={}
           />
         ))
       );
@@ -82,12 +44,12 @@ class Comments extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleOnSubmit}>
+        <form onSubmit={this.submitHandler}>
           <input
             name="text"
             type="text"
             placeholder="Add comment"
-            onChange={this.handleOnChange}
+            onChange={this.onChangeHandler}
             value={this.state.text}
           />
           <input type="submit" />

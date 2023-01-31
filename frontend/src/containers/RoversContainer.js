@@ -31,7 +31,6 @@ class RoversContainer extends Component {
     return (
       <div>
         <h1>Mars Rovers</h1>
-        {/* {console.log(this.props)} */}
         {this.handleLoading()}
       </div>
     );
@@ -49,7 +48,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchRovers: () => dispatch(fetchRovers()),
     addComment: (comment) => dispatch(addComment(comment)),
-    editComment: (id, updatedText) => dispatch(editComment(id, updatedText)),
+    editComment: (comment) => dispatch(editComment(comment)),
+    // editComment: (id, updatedText) => dispatch(editComment(id, updatedText)),
     // deleteComment: (commentId) => dispatch({ type: "DELETE_COMMENT", commentId }),
   };
 };

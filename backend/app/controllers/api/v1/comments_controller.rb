@@ -44,7 +44,7 @@ class Api::V1::CommentsController < ApplicationController
 
   def comment_params
     # easiest for testing: works
-    params.permit(:comment, :text, :rover_id)
+    params.permit(:id, :comment, :text, :rover_id)
 
     # better: works
     # params.require(:comment).permit(:text, :rover_id)
