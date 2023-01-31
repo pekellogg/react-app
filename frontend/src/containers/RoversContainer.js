@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComment, editComment, fetchRovers } from "../actions/roverActions";
+import { addComment, deleteComment, editComment, fetchRovers } from "../actions/roverActions";
 import Rovers from "../components/Rovers";
 
 class RoversContainer extends Component {
@@ -21,6 +21,7 @@ class RoversContainer extends Component {
         <Rovers
           addComment={this.props.addComment}
           editComment={this.props.editComment}
+          deleteComment={this.props.deleteComment}
           rovers={this.props.rovers}
         />
       );
@@ -49,8 +50,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchRovers: () => dispatch(fetchRovers()),
     addComment: (comment) => dispatch(addComment(comment)),
     editComment: (comment) => dispatch(editComment(comment)),
-    // editComment: (id, updatedText) => dispatch(editComment(id, updatedText)),
-    // deleteComment: (commentId) => dispatch({ type: "DELETE_COMMENT", commentId }),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   };
 };
 

@@ -14,14 +14,13 @@ class Comment extends React.Component {
 
   submitHandler = (event) => {
     event.preventDefault();
+    const comment = {
+      id: this.props.id,
+      text: this.state.text,
+      rover_id: this.props.roverId
+    }
     if (event.target.name === "edit") {
-      const comment = {
-        id: this.props.id,
-        text: this.state.text,
-        rover_id: this.props.roverId
-      }
       this.props.edit(comment)
-      // this.props.edit(this.props.id, this.state.text)
       this.setState({ text: "", showEditForm: false });
     }
   };
@@ -29,10 +28,9 @@ class Comment extends React.Component {
   clickHandler = (event) => {
     if (event.target.name === "edit") {
       this.setState({ showEditForm: true})
+    } else if (event.target.name === "delete") {
+      this.props.delete(this.props.id);
     }
-    // else {
-    //   // this.props.deleteComment();
-    // }
   };
 
   render() {

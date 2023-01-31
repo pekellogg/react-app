@@ -13,6 +13,7 @@ class Rovers extends React.Component {
         >
           < Rover
             addComment={this.props.addComment}
+            deleteComment={this.props.deleteComment}
             editComment={this.props.editComment}
             key={rover.external_id}
             id={rover.external_id}

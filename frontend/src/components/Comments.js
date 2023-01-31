@@ -30,9 +30,9 @@ class Comments extends React.Component {
             id={comment.id}
             key={comment.id}
             submitHandler={this.submitHandler}
+            delete={this.props.deleteComment}
             edit={this.props.editComment}
             roverId={this.props.roverId}
-            // delete={}
           />
         ))
       );

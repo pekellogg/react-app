@@ -8,6 +8,7 @@ class CommentsContainer extends Component {
       <div className="rover-comments">
         <Comments
           addComment={this.props.addComment}
+          deleteComment={this.props.deleteComment}
           editComment={this.props.editComment}
           comments={this.props.comments}
           roverId={this.props.roverId}

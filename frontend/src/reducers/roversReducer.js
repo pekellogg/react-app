@@ -1,4 +1,4 @@
-function roversReducer(state = { all: [], loading: false, saveInProgress: false, editInProgress: false }, action) {
+function roversReducer(state = { all: [], loading: false, saveInProgress: false, editInProgress: false, deleteInProgress: false }, action) {
  switch (action.type) {
    case "LOADING_ROVERS":
     return { 
@@ -190,12 +190,16 @@ function roversReducer(state = { all: [], loading: false, saveInProgress: false,
         }
       }
     }
-    // add messaging keys from action
-    // case "DELETING_COMMENT":
-    //   return { ...state };
+    case "DELETING_COMMENT":
+      return { 
+        ...state,
+        all: [...state.all],
+        deleteInProgress: action.deleteInProgress,
+      };
 
-    // case "COMMENT_DELETED":
-    //   return { ...state };
+    case "COMMENT_DELETED":
+      
+      return { ...state };
 
    default:
     return state;

@@ -98,14 +98,26 @@ export const editComment = (comment) => {
   };
 };
 
-// export const deleteComment = (commentId) => {
-//   return (dispatch) => {
-//     dispatch({ type: "DELETING_COMMENT", commentId });
-//     fetch(`http://127.0.0.1:3000/api/v1/comments/${commentId}`, {
-//       method: "DELETE",
-//       headers: { "Content-Type": "application/json" },
-//     })
-//       .then((response) => response)
-//       .then(dispatch({ type: "COMMENT_DELETED", response }))
-//   };
-// };
+export const deleteComment = (commentId) => {
+  return (dispatch) => {
+    dispatch({
+      type: "DELETING_COMMENT",
+      deleteInProgress: true,
+    });
+    // fetch() returns a Promise 
+    // it resolves to the Response object
+    fetch(`http://127.0.0.1:3000/api/v1/comments/${commentId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      // Promise.then() returns another Promise
+      // it takes 2 args: fulfilled callback, rejected callback
+      .then((response) => {
+        dispatch({
+          type: "COMMENT_DELETED",
+          id: commentId,
+        })
+        return response.status
+      })
+  };
+};
