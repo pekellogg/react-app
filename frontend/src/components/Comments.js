@@ -4,42 +4,35 @@ import Comment from "./Comment";
 class Comments extends React.Component {
 
   state = {
-    text: ""
+    text: "",
   };
 
   handleOnChange = (event) => {
-    this.setState({ text: event.target.value })
+    this.setState({
+      text: event.target.value,
+    })
   };
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    const body = {
+    const comment = {
       text: this.state.text,
       rover_id: this.props.roverId,
     }
-    // console.log(this.props);
-    fetch(`http://127.0.0.1:3000/api/v1/rovers/${this.props.roverId}/comments`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body)
-      }
-    )
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    this.props.addComment(comment)
     this.setState({text: ""})
   };
 
   displayComments = () => {
     if (this.props.comments.length > 0) {
-      // console.log(this.props.comments)
       return (
         this.props.comments.map((comment) => (
           < Comment
             key={comment.id}
             id={comment.id}
             {...comment}
-            // addComment={this.props.addComment}
-            // deleteComment={this.props.deleteComment}
+            editComment={this.props.editComment}
+            deleteComment={this.props.deleteComment}
           />
         ))
       );
@@ -50,7 +43,8 @@ class Comments extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
+        {/* {console.log(this.props)} */}
         <form onSubmit={this.handleOnSubmit}>
           <input
             name="text"
@@ -59,10 +53,10 @@ class Comments extends React.Component {
             onChange={this.handleOnChange}
             value={this.state.text}
           />
-          <p><input type="submit" /></p>
+          <input type="submit" />
         </form>
         {this.displayComments()}
-      </div>
+      </>
     );
   };
 

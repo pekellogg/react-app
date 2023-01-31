@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchRovers } from "../actions/roverActions";
+import { addComment, fetchRovers } from "../actions/roverActions";
 import Rovers from "../components/Rovers";
 
 class RoversContainer extends Component {
@@ -18,7 +18,10 @@ class RoversContainer extends Component {
       );
     } else {
       return (
-        <Rovers rovers={this.props.rovers} />
+        <Rovers
+          addComment={this.props.addComment}
+          rovers={this.props.rovers}
+        />
       );
     }
   };
@@ -27,8 +30,8 @@ class RoversContainer extends Component {
     return (
       <div>
         <h1>Mars Rovers</h1>
+        {/* {console.log(this.props)} */}
         {this.handleLoading()}
-        {/* < CommentContainer comments={} addComment={this.props.addComment} deleteComment={this.props.deleteComment} /> */}
       </div>
     );
   };
@@ -44,7 +47,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRovers: () => dispatch(fetchRovers()),
-    // addComment: (comment) => dispatch({ type: "ADD_COMMENT", comment }),
+    addComment: (comment) => dispatch(addComment(comment)),
+    // editComment: (id, updatedText) => dispatch({ type: "EDIT_COMMENT"}),
     // deleteComment: (commentId) => dispatch({ type: "DELETE_COMMENT", commentId }),
   };
 };

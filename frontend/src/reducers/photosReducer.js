@@ -1,4 +1,4 @@
-function photosReducer(state = { all: [], loading: false }, action) {
+function photosReducer(state = { all: [], loading: false, saveInProgress: false }, action) {
  switch (action.type) {
    case "LOADING_PHOTOS":
     return { 

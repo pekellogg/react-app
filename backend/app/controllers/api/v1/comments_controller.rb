@@ -1,4 +1,4 @@
-# require "pry"
+require "pry"
 
 class Api::V1::CommentsController < ApplicationController
 
@@ -43,8 +43,14 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:text, :rover_id)
-    # params.require(:text)#.permit(:text)
+    # easiest for testing: works
+    params.permit(:comment, :text, :rover_id)
+
+    # better: works
+    # params.require(:comment).permit(:text, :rover_id)
+
+    # good: works
+    # params.permit(:text, :rover_id)
   end
   
 end
