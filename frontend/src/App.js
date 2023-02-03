@@ -5,7 +5,6 @@ import Home from "./components/Home";
 import Data from "./components/Data";
 import RoversContainer from "./containers/RoversContainer";
 import PhotosContainer from "./containers/PhotosContainer";
-// import CommentsContainer from "./containers/CommentsContainer";
 
 class App extends Component {
   
@@ -15,14 +14,9 @@ class App extends Component {
         <div className="App">
           <NavBar />
             <Route exact path="/" component={Home} />
-            <Route exact path="/rovers" component={RoversContainer} />
+            <Route path="/rovers" component={RoversContainer} />
             <Route exact path="/photos" component={PhotosContainer} />
             <Route exact path="/data" component={Data} />
-            {/* <Route exact path="/comments" component={CommentsContainer} /> */}
-
-
-            {/* Implement Nested Routes for Below: */}
-            {/* <Route path="/rovers" render={(routerProps) => <RoversContainer {...routerProps} rovers={this.state.rovers} />} /> */}
         </div>
       </Router>
     );

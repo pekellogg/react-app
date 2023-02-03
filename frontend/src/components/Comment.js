@@ -17,7 +17,8 @@ class Comment extends React.Component {
     const comment = {
       id: this.props.id,
       text: this.state.text,
-      rover_id: this.props.roverId
+      rover_id: this.props.roverId,
+      updated_at: null,
     }
     if (event.target.name === "edit") {
       this.props.edit(comment)

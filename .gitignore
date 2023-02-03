@@ -11,3 +11,6 @@ frontend/node_modules
 
 # personal settings
 .vscode/
+
+# personal notes
+wip-scratch.txt

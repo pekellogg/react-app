@@ -86,6 +86,7 @@ export const editComment = (comment) => {
         return response.json()
       })
       .then((data) => {
+        console.log(data);
         // reminder: all attrs from server not avail here from response.json()
         // e.g. => {text: 'working with promises can be tricky', id: 16, rover_id: 5}
         dispatch({

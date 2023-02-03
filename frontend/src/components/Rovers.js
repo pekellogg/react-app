@@ -4,8 +4,9 @@ import Rover from "./Rover";
 class Rovers extends React.Component {
 
   displayRovers = () => {
+    // console.log(this.props.rovers.all)
     return (
-      this.props.rovers.map((rover) => (
+      this.props.rovers.all.map((rover) => (
         <div
           className="rover"
           id={rover.external_id}

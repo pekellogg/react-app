@@ -41,7 +41,7 @@ class RoversContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    rovers: state.rovers.all,
+    rovers: state.rovers,
   };
 };
 
