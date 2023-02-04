@@ -30,10 +30,10 @@ class RoversContainer extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h1>Mars Rovers</h1>
         {this.handleLoading()}
-      </div>
+      </>
     );
   };
 
