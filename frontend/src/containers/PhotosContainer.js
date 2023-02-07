@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPhotos } from "../actions/photoActions";
 import Photos from "../components/Photos";
 
 class PhotosContainer extends Component {
-
-  componentDidMount() {
-    this.props.fetchPhotos();
-  };
 
   handleLoading = () => {
     if (this.props.loading) {
@@ -18,7 +13,7 @@ class PhotosContainer extends Component {
       );
     } else {
       return (
-        <Photos photos={this.props.photos} />
+        <Photos photos={this.props.photos.all} />
       );
     }
   };
@@ -34,16 +29,6 @@ class PhotosContainer extends Component {
 
 };
 
-const mapStateToProps = (state) => {
-  return {
-    photos: state.photos.all,
-  };
-};
+const mapStateToProps = (state) => ({ photos: state.photos });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchPhotos: () => dispatch(fetchPhotos()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PhotosContainer);
+export default connect(mapStateToProps)(PhotosContainer);
