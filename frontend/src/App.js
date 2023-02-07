@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchRovers } from "./actions/roverActions";
 import NavBar from "./ui/NavBar";
 import Home from "./components/Home";
 import Data from "./components/Data";
@@ -7,6 +9,10 @@ import RoversContainer from "./containers/RoversContainer";
 import PhotosContainer from "./containers/PhotosContainer";
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchRovers();
+  };
   
   render() {
     return (
@@ -24,4 +30,10 @@ class App extends Component {
 
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchRovers: () => dispatch(fetchRovers()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

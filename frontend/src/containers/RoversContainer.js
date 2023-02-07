@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComment, deleteComment, editComment, fetchRovers } from "../actions/roverActions";
+import { addComment, deleteComment, editComment } from "../actions/roverActions";
 import Rovers from "../components/Rovers";
 
 class RoversContainer extends Component {
-
-  componentDidMount() {
-    this.props.fetchRovers();
-  };
 
   handleLoading = () => {
     if (this.props.loading) {
@@ -39,15 +35,10 @@ class RoversContainer extends Component {
 
 };
 
-const mapStateToProps = (state) => {
-  return {
-    rovers: state.rovers,
-  };
-};
+const mapStateToProps = (state) => ({ rovers: state.rovers });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchRovers: () => dispatch(fetchRovers()),
     addComment: (comment) => dispatch(addComment(comment)),
     editComment: (comment) => dispatch(editComment(comment)),
     deleteComment: (commentId, roverId) => dispatch(deleteComment(commentId, roverId)),
