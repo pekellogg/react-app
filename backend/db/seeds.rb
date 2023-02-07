@@ -1,65 +1,58 @@
 require "rest-client"
-require "pry"
 
-# testing
-# http://127.0.0.1:3000/api/v1/rovers
-# http://127.0.0.1:3000/api/v1/photos
-# http://127.0.0.1:3000/api/v1/comments
-
-# rovers
-#https://mars-photos.herokuapp.com/api/v1/rovers/
-
-# example
-# https://mars-photos.herokuapp.com/api/v1/rovers/{ROVER_NAME}/latest_photos?
-
-# external sources to query
-BASE = "https://mars-photos.herokuapp.com/api/v1/rovers/"
-RESOURCE = "/latest_photos?"
-
-# rovers - v1 (hard-coded)
-ROVERS = ["curiosity", "spirit", "opportunity", "perseverance"]
-                                                 
-Rover.create([{external_id: 5,                                                       
-name: "Curiosity",                                                    
-landing_date: "2012-08-06",                                           
-launch_date: "2011-11-26",                                            
-status: "active"},
-                                                                               
-{external_id: 7,                                                       
-name: "Spirit",                                                       
-landing_date: "2004-01-04",
-launch_date: "2003-06-10",
-status: "complete"},
-
-{external_id: 6,
-name: "Opportunity",
-landing_date: "2004-01-25",
-launch_date: "2003-07-07",
-status: "complete"},
-
-{external_id: 8,
-name: "Perseverance",
-landing_date: "2021-02-18",
-launch_date: "2020-07-30",
-status: "active"}])
-
-# collect all latest photos for each rover
-ROVERS.each do |rover|
-  
-  uri = BASE + rover + RESOURCE
+def fetch_rovers
+  uri = [ENV["EXTERNAL_BASE_URI"], ENV["BASE_RESOURCE_OBJECTS"]].join("/")
   response = RestClient.get(uri)
-  body = JSON.parse(response.body) if response.code == 200
-  # binding.pry
-  body["latest_photos"].each do |blob|
-
-    new_photo = {}
-    new_photo["external_id"] = blob["id"]
-    new_photo["sol"] = blob["sol"]
-    new_photo["source"] = blob["img_src"]
-    new_photo["earth_date"] = blob["earth_date"]
-    new_photo["rover_id"] = blob["rover"]["id"]
-    Photo.create(new_photo)
-
+  if response.code == 200
+    body = JSON.parse(response.body)
+    body[ENV["BASE_RESOURCE_OBJECTS"]].each do |rover|
+      new_rover = {}
+      new_rover["external_id"] = rover["id"]
+      new_rover["name"] = rover["name"]
+      new_rover["landing_date"] = rover["landing_date"]
+      new_rover["launch_date"] = rover["launch_date"]
+      new_rover["status"] = rover["status"]
+      new_rover["max_sol"] = rover["max_sol"]
+      new_rover["max_date"] = rover["max_date"]
+      new_rover["total_photos"] = rover["total_photos"]
+      # "cameras"=>[{}]
+      Rover.create(new_rover)
+    end
+  else
+    puts "fetch_rovers failed!"
+    puts "code: #{response.code}"
+    puts "description: #{response.description}"
   end
-
 end
+
+fetch_rovers
+
+def fetch_rovers_latest_photos
+  Rover.all.each do |rover|
+    uri = [
+      ENV["EXTERNAL_BASE_URI"],
+      ENV["BASE_RESOURCE_OBJECTS"],
+      rover.name.downcase,
+      ENV["PHOTOS_RESOURCE"]
+    ].join("/") + "?"
+    response = RestClient.get(uri)
+    if response.code == 200
+      body = JSON.parse(response.body)[ENV["PHOTOS_RESOURCE"]]
+      body.each do |photo|
+        new_photo = {}
+        new_photo["external_id"] = photo["id"]
+        new_photo["sol"] = photo["sol"]
+        new_photo["source"] = photo["img_src"]
+        new_photo["earth_date"] = photo["earth_date"]
+        new_photo["rover_id"] = photo["rover"]["id"]
+        Photo.create(new_photo)
+      end
+    else
+      puts "fetch_rovers_latest_photos failed!"
+      puts "code: #{response.code}"
+      puts "description: #{response.description}"
+    end
+  end
+end
+
+fetch_rovers_latest_photos
