@@ -1,11 +1,11 @@
 require "rest-client"
 
 def fetch_rovers
-  uri = [ENV["EXTERNAL_BASE_URI"], ENV["BASE_RESOURCE_OBJECTS"]].join("/")
+  uri = [ENV["URI"], ENV["ROVERS"]].join("/")
   response = RestClient.get(uri)
   if response.code == 200
     body = JSON.parse(response.body)
-    body[ENV["BASE_RESOURCE_OBJECTS"]].each do |rover|
+    body[ENV["ROVERS"]].each do |rover|
       new_rover = {}
       new_rover["external_id"] = rover["id"]
       new_rover["name"] = rover["name"]
@@ -30,14 +30,14 @@ fetch_rovers
 def fetch_rovers_latest_photos
   Rover.all.each do |rover|
     uri = [
-      ENV["EXTERNAL_BASE_URI"],
-      ENV["BASE_RESOURCE_OBJECTS"],
+      ENV["URI"],
+      ENV["ROVERS"],
       rover.name.downcase,
-      ENV["PHOTOS_RESOURCE"]
+      ENV["PHOTOS"]
     ].join("/") + "?"
     response = RestClient.get(uri)
     if response.code == 200
-      body = JSON.parse(response.body)[ENV["PHOTOS_RESOURCE"]]
+      body = JSON.parse(response.body)[ENV["PHOTOS"]]
       body.each do |photo|
         new_photo = {}
         new_photo["external_id"] = photo["id"]
