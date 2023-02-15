@@ -4,7 +4,6 @@ import Rover from "./Rover";
 class Rovers extends React.Component {
 
   displayRovers = () => {
-    // console.log(this.props.rovers.all)
     return (
       this.props.rovers.all.map((rover) => (
         <div
@@ -14,15 +13,16 @@ class Rovers extends React.Component {
         >
           < Rover
             addComment={this.props.addComment}
+            comments={rover.comments}
             deleteComment={this.props.deleteComment}
             editComment={this.props.editComment}
-            key={rover.external_id}
             id={rover.external_id}
-            name={rover.name}
+            key={rover.external_id}
             landingDate={rover.landing_date}
             launchDate={rover.launch_date}
+            name={rover.name}
+            profilePic={rover.profile_pic}
             status={rover.status}
-            comments={rover.comments}
           />
         </div>
       ))
@@ -32,6 +32,7 @@ class Rovers extends React.Component {
   render() {
     return (
       <div>
+        {console.log(this.props.rovers.all)}
         {this.displayRovers()}
       </div>
     );

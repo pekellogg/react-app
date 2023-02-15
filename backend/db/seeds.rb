@@ -1,4 +1,5 @@
 require "rest-client"
+require "pry"
 
 def fetch_rovers
   uri = [ENV["URI"], ENV["ROVERS"]].join("/")
@@ -16,7 +17,15 @@ def fetch_rovers
       new_rover["max_date"] = rover["max_date"]
       new_rover["total_photos"] = rover["total_photos"]
       # "cameras"=>[{}]
-      Rover.create(new_rover)
+      chomped_base = ENV["URI"].chomp("/api/v1")
+      uri = [
+        chomped_base,
+        ENV["ROVER_IMG_RESOURCE"],
+        new_rover["name"],
+        "_rover.jpg"
+      ].join("")
+      new_rover["profile_pic"] = uri
+      puts Rover.create(new_rover)
     end
   else
     puts "fetch_rovers failed!"
@@ -56,3 +65,8 @@ def fetch_rovers_latest_photos
 end
 
 fetch_rovers_latest_photos
+
+# https://mars-photos.herokuapp.com/explore/images/Curiosity_rover.jpg
+# https://mars-photos.herokuapp.com/explore/images/Spirit_rover.jpg
+# https://mars-photos.herokuapp.com/explore/images/Opportunity_rover.jpg
+# https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg

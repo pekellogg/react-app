@@ -44,7 +44,6 @@ export const addComment = (comment) => {
       // Promise.then() returns another Promise
       // it takes 2 args: fulfilled callback, rejected callback
       .then((response) => {
-        // console.log(response);
         // response.json() returns another Promise
         // it resolves with the result of parsing the response body text as JSON
         return response.json()
@@ -86,7 +85,6 @@ export const editComment = (comment) => {
         return response.json()
       })
       .then((data) => {
-        console.log(data);
         // reminder: all attrs from server not avail here from response.json()
         // e.g. => {text: 'working with promises can be tricky', id: 16, rover_id: 5}
         dispatch({

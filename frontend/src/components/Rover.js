@@ -6,6 +6,10 @@ class Rover extends React.Component {
   render() {
     return (
       <>
+        <img
+          alt={`Mars rover, ${this.props.name}`}
+          src={this.props.profilePic}
+        />
         <p>Name: {this.props.name}</p>
         <p>Launched: {this.props.landingDate}</p>
         <p>Landed on Mars: {this.props.landingDate}</p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_07_042419) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_202333) do
   create_table "comments", force: :cascade do |t|
     t.text "text"
     t.datetime "created_at", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_042419) do
     t.integer "max_sol"
     t.string "max_date"
     t.integer "total_photos"
+    t.string "profile_pic"
   end
 
 end
