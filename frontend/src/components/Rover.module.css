@@ -1,0 +1,21 @@
+.roverContainer {
+  background: rgb(240, 234, 214);
+  border: solid;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
+  height: 50%;
+  margin: 5% 0;
+  padding: 1em;
+  width: 50%;
+}
+
+.imgContainer {
+  height: 90%;
+  width: 90%;
+}
+
+img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}

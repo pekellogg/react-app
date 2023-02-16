@@ -16,9 +16,8 @@ class Comment extends React.Component {
     event.preventDefault();
     const comment = {
       id: this.props.id,
-      text: this.state.text,
       rover_id: this.props.roverId,
-      updated_at: null,
+      text: this.state.text
     }
     if (event.target.name === "edit") {
       this.props.edit(comment)
@@ -38,23 +37,20 @@ class Comment extends React.Component {
     return (
       <div className={`${classes.comment} comment`}>
         <p>{ this.props.text }</p>
-        <p><i>Created: { this.props.created_at }</i></p>
-        <p><i>Updated: { this.props.updated_at }</i></p>
         <button
+          name="edit"
           onClick={this.clickHandler}
           type="submit"
-          name="edit"
         >
           Edit
         </button>
         {this.state.showEditForm ?
           <form name="edit" onSubmit={this.submitHandler}>
             <input
-              // id={this.props.id}
               name="edit"
-              type="text"
-              placeholder={this.props.text}
               onChange={this.onChangeHandler}
+              placeholder={this.props.text}
+              type="text"
               value={this.state.text}
             />
             <input type="submit" />

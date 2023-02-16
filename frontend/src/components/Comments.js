@@ -14,8 +14,8 @@ class Comments extends React.Component {
   submitHandler = (event) => {
     event.preventDefault();
     const comment = {
-      text: this.state.text,
       rover_id: this.props.roverId,
+      text: this.state.text
     }
     this.props.addComment(comment)
     this.setState({ text: "" })
@@ -26,18 +26,16 @@ class Comments extends React.Component {
       return (
         this.props.comments.map((comment) => (
           < Comment
-            {...comment}
-            id={comment.id}
-            key={comment.id}
-            submitHandler={this.submitHandler}
+            { ...comment }
             delete={this.props.deleteComment}
             edit={this.props.editComment}
+            id={comment.id}
+            key={comment.id}
             roverId={this.props.roverId}
+            submitHandler={this.submitHandler}
           />
         ))
       );
-    } else {
-      return "Be the first to add a comment!"
     }
   };
 
@@ -47,9 +45,9 @@ class Comments extends React.Component {
         <form onSubmit={this.submitHandler}>
           <input
             name="text"
-            type="text"
-            placeholder="Add comment"
             onChange={this.onChangeHandler}
+            placeholder="Add comment"
+            type="text"
             value={this.state.text}
           />
           <input type="submit" />
