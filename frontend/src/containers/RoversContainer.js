@@ -28,7 +28,6 @@ class RoversContainer extends Component {
   render() {
     return (
       <>
-        <h1>Mars Rovers</h1>
         <div className={`${style.roversContainer}`}>
           {this.handleLoading()}
         </div>
