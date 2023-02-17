@@ -32,7 +32,6 @@ class Rovers extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props.rovers.all)}
         {this.displayRovers()}
       </div>
     );

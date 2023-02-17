@@ -1,32 +1,24 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Card from "./Card";
+import style from "./NavBar.module.css";
 
 class NavBar extends Component {
 
 	render() {
 		return (
-      <Card>
-        <header>
-          <nav className="navigation">
-            <NavLink style={{ marginRight: '10px' }} to="/">
-              Home
-            </NavLink>
-            <NavLink style={{ marginRight: '10px' }} to="/rovers">
-              Rovers
-            </NavLink>
-            <NavLink style={{ marginRight: '10px' }} to="/photos">
-              Photos
-            </NavLink>
-            <NavLink style={{ marginRight: '10px' }} to="/data">
-              Data
-            </NavLink>
-            {/* <NavLink style={{ marginRight: '10px' }} to="/comments">
-              Comments
-            </NavLink> */}
-          </nav>
-        </header>
-      </Card>
+      <header>
+        <nav className={style.nav}>
+          <NavLink to="/">
+            About
+          </NavLink>
+          <NavLink to="/rovers">
+            Rovers
+          </NavLink>
+          <NavLink to="/photos">
+            Photos
+          </NavLink>
+        </nav>
+      </header>
     );
 	};
 

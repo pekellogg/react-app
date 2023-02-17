@@ -1,3 +1,8 @@
 .roversContainer {
+  /* align-items: center; */
   display: flex; /* child items become flex items */
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }

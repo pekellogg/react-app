@@ -9,9 +9,9 @@ class CommentsContainer extends Component {
       <div className={`${style.commentsContainer}`}>
         <Comments
           addComment={this.props.addComment}
+          comments={this.props.comments}
           deleteComment={this.props.deleteComment}
           editComment={this.props.editComment}
-          comments={this.props.comments}
           roverId={this.props.roverId}
         />
       </div>

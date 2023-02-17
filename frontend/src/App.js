@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { fetchRovers } from "./actions/roverActions";
 import { fetchPhotos } from "./actions/photoActions";
 import NavBar from "./ui/NavBar";
-import Home from "./components/Home";
-import Data from "./components/Data";
+import About from "./components/About";
 import RoversContainer from "./containers/RoversContainer";
 import PhotosContainer from "./containers/PhotosContainer";
+import "./App.css";
 
 class App extends Component {
 
@@ -21,10 +21,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={About} />
             <Route path="/rovers" component={RoversContainer} />
             <Route exact path="/photos" component={PhotosContainer} />
-            <Route exact path="/data" component={Data} />
         </div>
       </Router>
     );
