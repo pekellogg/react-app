@@ -6,6 +6,11 @@ import style from "./RoversContainer.module.css";
 
 class RoversContainer extends Component {
 
+  displayDate = (date) => {
+    const [year, month, day] = date.split("-")
+    return month + "/" + day + "/" + year;
+  }
+
   handleLoading = () => {
     if (this.props.loading) {
       return (
@@ -17,8 +22,9 @@ class RoversContainer extends Component {
       return (
         <Rovers
           addComment={this.props.addComment}
-          editComment={this.props.editComment}
           deleteComment={this.props.deleteComment}
+          displayDate={this.displayDate}
+          editComment={this.props.editComment}
           rovers={this.props.rovers}
         />
       );

@@ -7,21 +7,19 @@ class Rover extends React.Component {
   render() {
     return (
       <div className={`${style.roverContainer}`}>
-        <h2>{this.props.name}</h2>
-        <div id={`${this.props.externalId} status`}>
+        <div className="details">
+          <h2>{this.props.name}</h2>
           {this.props.status}
-        </div>
-        <div className={`${style.imgContainer}`}>
+          <p>Launched {this.props.displayDate(this.props.launchDate)}</p>
+          <p>Landed {this.props.displayDate(this.props.landingDate)}</p>
+          
           <img
             alt={`Mars rover, ${this.props.name}`}
             className={`${style.img}`}
             src={this.props.profilePic}
           />
         </div>
-        <div className="land-launch-details">
-          <p>Launched: {this.props.launchDate}</p>
-          <p>Landed on Mars: {this.props.landingDate}</p>
-        </div>
+
         <CommentsContainer
           addComment={this.props.addComment}
           deleteComment={this.props.deleteComment}
