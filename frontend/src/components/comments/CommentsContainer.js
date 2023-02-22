@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Comments from "../components/Comments";
-import style from "./CommentsContainer.module.css";
+import Comments from "./Comments";
+import "./CommentsContainer.css";
 
 class CommentsContainer extends Component {
 
   render() {
     return (
-      <div className={`${style.commentsContainer}`}>
+      <div className="commentsContainer">
         <Comments
           addComment={this.props.addComment}
           comments={this.props.comments}

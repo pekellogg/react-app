@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Photos from "../components/Photos";
+import Photos from "./Photos";
 
 class PhotosContainer extends Component {
 

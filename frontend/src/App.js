@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { fetchRovers } from "./actions/roverActions";
 import { fetchPhotos } from "./actions/photoActions";
 import NavBar from "./ui/NavBar";
-import About from "./components/About";
-import RoversContainer from "./containers/RoversContainer";
-import PhotosContainer from "./containers/PhotosContainer";
+import About from "./components/about/About";
+import RoversContainer from "./components/rovers/RoversContainer";
+import PhotosContainer from "./components/photos/PhotosContainer";
 import "./App.css";
 
 class App extends Component {

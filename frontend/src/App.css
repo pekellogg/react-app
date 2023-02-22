@@ -1,35 +1,39 @@
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:link {
+  color: black;
+}
+
+a:active,
+a:focus,
+a:hover,
+a:visited {
+  color: black;
+  background: rgb(240, 234, 214);
+}
+
+a,
+button,
+div,
+img,
+input {
+  border-radius: 10px;
+}
+
 body {
   background-color: #212426;
+  font-size: small;
 }
 
 h1,
 h2,
 h3 {
-  letter-spacing: 0.9px;
+  font-size: xx-large;
+  letter-spacing: 1px;
 }
-
-a {
-  outline: none;
-  text-decoration: none;
-  padding: 1% 0;
-}
-
-a:link {
-  color: #be7a28;
-}
-
-a:visited {
-  color: black;
-}
-
-
-a:active,
-a:focus,
-a:hover {
-  background: rgb(240, 234, 214);
-  border-radius: 10px;
-}
-
 /* @media screen and (max-width: 600px) {
   .app {
     padding: 4rem 2rem;

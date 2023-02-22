@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from "./Comment";
+import "./Comments.css";
 
 class Comments extends React.Component {
 
@@ -46,11 +47,15 @@ class Comments extends React.Component {
           <input
             name="text"
             onChange={this.onChangeHandler}
-            placeholder="Add comment"
+            placeholder="Add comment..."
             type="text"
             value={this.state.text}
           />
-          <input type="submit" />
+          <button
+            type="submit"
+          >
+            Comment
+          </button>
         </form>
         {this.displayComments()}
       </>

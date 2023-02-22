@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComment, deleteComment, editComment } from "../actions/roverActions";
-import Rovers from "../components/Rovers";
-import style from "./RoversContainer.module.css";
+import { addComment, deleteComment, editComment } from "../../actions/roverActions";
+import Rovers from "./Rovers";
+import "./RoversContainer.module.css";
 
 class RoversContainer extends Component {
 
@@ -34,7 +34,7 @@ class RoversContainer extends Component {
   render() {
     return (
       <>
-        <div className={`${style.roversContainer}`}>
+        <div className="roversContainer">
           {this.handleLoading()}
         </div>
       </>

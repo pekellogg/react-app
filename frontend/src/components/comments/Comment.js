@@ -1,5 +1,4 @@
 import React from "react";
-import classes from "./Comment.module.css";
 
 class Comment extends React.Component {
 
@@ -8,7 +7,7 @@ class Comment extends React.Component {
     showEditForm: false,
   };
 
-  onChangeHandler = (event) => {
+  changeHandler = (event) => {
     this.setState({ text: event.target.value })
   };
 
@@ -35,8 +34,11 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <div className={`${classes.comment} comment`}>
-        <p>{ this.props.text }</p>
+      <div
+        className="comment"
+        id={this.props.id}
+      >
+        { this.props.text }
         <button
           name="edit"
           onClick={this.clickHandler}
@@ -48,24 +50,29 @@ class Comment extends React.Component {
           <form name="edit" onSubmit={this.submitHandler}>
             <input
               name="edit"
-              onChange={this.onChangeHandler}
+              onChange={this.changeHandler}
               placeholder={this.props.text}
               type="text"
               value={this.state.text}
             />
-            <input type="submit" />
+            <button
+              type="submit"
+            >
+              Save
+            </button>
+            <button
+              onClick={this.clickHandler}
+              name="delete"
+              type="delete"
+            >
+              Delete
+            </button>
           </form>
         :
           <></>
         }
 
-        <button
-          onClick={this.clickHandler}
-          name="delete"
-          type="delete"
-        >
-          Delete
-        </button>
+
       </div>
     );
   };
