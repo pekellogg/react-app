@@ -39,6 +39,7 @@ fetch_rovers
 
 def fetch_rovers_latest_photos
   Rover.all.each do |rover|
+    # https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/latest_photos
     uri = [
       ENV["URI"],
       ENV["ROVERS"],
