@@ -11,23 +11,29 @@ class CommentsContainer extends Component {
   };
 
   displayComments = () => {
-    return (
-      <div className="modal">
-        <div className="modalContent">
-          <ul>
-            {this.props.comments.map((comment) => (
-              <li key={comment.id}>
-                < Comment
-                  { ...comment }
-                  key={comment.id}
-                  roverId={this.props.roverId}
-                />
-              </li>
-            ))}
-          </ul>
+    if (this.props.comments.length > 0) {
+      return (
+        <div className="modal">
+          <div className="modalContent">
+            <ul>
+              {this.props.comments.map((comment) => (
+                <>
+                  <li key={comment.id}>
+                    < Comment
+                      { ...comment }
+                      key={comment.id}
+                      roverId={this.props.roverId}
+                    />
+                  </li>
+                  <br />
+                  <br />
+                </>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
 
   toggleComments = () => {
@@ -43,9 +49,9 @@ class CommentsContainer extends Component {
   render() {
     return (
       <div className="commentsContainer">
-
         < NewComment roverId={this.props.roverId} />
-
+        
+        < br/>< br/>
         {
           this.props.comments.length > 0 ?
             <button onClick={this.toggleComments} > { this.state.buttonText } </button>
