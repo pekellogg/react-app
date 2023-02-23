@@ -18,6 +18,7 @@ def fetch_rovers
       new_rover["total_photos"] = rover["total_photos"]
       # "cameras"=>[{}]
       chomped_base = ENV["URI"].chomp("/api/v1")
+      # https://mars-photos.herokuapp.com/explore/images/Curiosity_rover.jpg
       uri = [
         chomped_base,
         ENV["ROVER_IMG_RESOURCE"],
@@ -65,8 +66,3 @@ def fetch_rovers_latest_photos
 end
 
 fetch_rovers_latest_photos
-
-# https://mars-photos.herokuapp.com/explore/images/Curiosity_rover.jpg
-# https://mars-photos.herokuapp.com/explore/images/Spirit_rover.jpg
-# https://mars-photos.herokuapp.com/explore/images/Opportunity_rover.jpg
-# https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg
