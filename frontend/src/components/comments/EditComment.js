@@ -14,14 +14,16 @@ class EditComment extends React.Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    const comment = {
-      id: this.props.id,
-      rover_id: this.props.roverId,
-      text: this.state.text
+    if (this.state.text.length > 0) {
+      const comment = {
+        id: this.props.id,
+        rover_id: this.props.roverId,
+        text: this.state.text
+      }
+      this.props.editComment(comment)
+      this.setState({ text: "" });
+      this.props.toggleEditForm()
     }
-    this.props.editComment(comment)
-    this.setState({ text: "" });
-    this.props.toggleEditForm()
   };
 
   render() {

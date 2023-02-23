@@ -14,12 +14,14 @@ class NewComment extends React.Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    const comment = {
-      rover_id: this.props.roverId,
-      text: this.state.text
+    if (this.state.text.length > 0) {
+      const comment = {
+        rover_id: this.props.roverId,
+        text: this.state.text
+      }
+      this.props.addComment(comment)
+      this.setState({ text: "" })
     }
-    this.props.addComment(comment)
-    this.setState({ text: "" })
   }
 
 
