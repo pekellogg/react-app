@@ -1,5 +1,5 @@
 .roversContainer {
-  display: flex; /* child items become flex items */
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }

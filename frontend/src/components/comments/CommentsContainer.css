@@ -1,10 +1,11 @@
 .commentsContainer {
   display: flex;
+  flex-wrap: wrap;
 }
 
 input {
   background: inherit;
   border: none;
-  height: 50px;
-  padding: 5%, 5%;
+  height: 100%;
+  width: 95%;
 }

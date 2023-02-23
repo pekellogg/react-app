@@ -17,6 +17,8 @@ class Comment extends React.Component {
 
         { this.props.text }
 
+        < br />
+
         <button
           name="edit"
           onClick={this.clickHandler}

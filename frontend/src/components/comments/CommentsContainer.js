@@ -9,11 +9,13 @@ class CommentsContainer extends Component {
     if (this.props.comments.length > 0) {
       return (
         this.props.comments.map((comment) => (
-          < Comment
-            { ...comment }
-            key={comment.id}
-            roverId={this.props.roverId}
-          />
+          <li>
+            < Comment
+              { ...comment }
+              key={comment.id}
+              roverId={this.props.roverId}
+            />
+          </li>
         ))
       );
     }
@@ -22,8 +24,13 @@ class CommentsContainer extends Component {
   render() {
     return (
       <div className="commentsContainer">
+
         < NewComment roverId={this.props.roverId} />
-        {this.displayComments()}
+
+        <div className="commentsList">
+          { this.displayComments() }
+        </div>
+        
       </div>
     );
   };
