@@ -27,7 +27,6 @@ class NewComment extends React.Component {
     return (
       <form onSubmit={this.submitHandler}>
         <input
-          name="text"
           onChange={this.onChangeHandler}
           placeholder="Add comment..."
           type="text"

@@ -18,10 +18,10 @@ class Rover extends React.Component {
       >
 
         <div className="details">
-          <h2>{this.props.name}</h2>
-          <li>{this.props.status}</li>
-          <li>Launched {this.displayDate(this.props.launch_date)}</li>
-          <li>Landed {this.displayDate(this.props.landing_date)}</li>
+          <h1>{this.props.name}</h1>
+          <p>Mission {this.props.status}</p>
+          <p>Launched {this.displayDate(this.props.launch_date)}</p>
+          <p>Landed {this.displayDate(this.props.landing_date)}</p>
           <img
             alt={`Mars rover, ${this.props.name}`}
             src={this.props.profile_pic}

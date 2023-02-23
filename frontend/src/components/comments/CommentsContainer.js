@@ -27,9 +27,9 @@ class CommentsContainer extends Component {
 
         < NewComment roverId={this.props.roverId} />
 
-        <div className="commentsList">
+        <ul>
           { this.displayComments() }
-        </div>
+        </ul>
         
       </div>
     );

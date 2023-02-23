@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Rover from "./Rover";
-import "./RoversContainer.module.css";
 
 class RoversContainer extends Component {
 
@@ -24,7 +23,7 @@ class RoversContainer extends Component {
   render() {
     return (
       <div className="roversContainer">
-        {this.displayRovers()}
+        { this.displayRovers() }
       </div>
     );
   };
