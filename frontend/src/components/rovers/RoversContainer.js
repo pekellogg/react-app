@@ -1,22 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Rovers from "./Rovers";
+import Rover from "./Rover";
 import "./RoversContainer.module.css";
 
 class RoversContainer extends Component {
 
-  handleLoading = () => {
+  displayRovers = () => {
     if (this.props.loading) {
       return `Loading...`
     } else {
-      return < Rovers rovers={this.props.rovers} />
+      return (
+        this.props.rovers.all.map((rover) => (
+          < Rover
+            { ...rover }
+            comments={rover.comments}
+            key={rover.external_id}
+          />
+        ))
+      );
     }
   };
 
   render() {
     return (
       <div className="roversContainer">
-        {this.handleLoading()}
+        {this.displayRovers()}
       </div>
     );
   };

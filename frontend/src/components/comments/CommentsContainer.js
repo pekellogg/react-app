@@ -9,7 +9,7 @@ class CommentsContainer extends Component {
     if (this.props.comments.length > 0) {
       return (
         this.props.comments.map((comment) => (
-          <li>
+          <li key={comment.id}>
             < Comment
               { ...comment }
               key={comment.id}
