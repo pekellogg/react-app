@@ -25,7 +25,7 @@ def fetch_rovers
         "_rover.jpg"
       ].join("")
       new_rover["profile_pic"] = uri
-      puts Rover.create(new_rover)
+      Rover.create(new_rover)
     end
   else
     puts "fetch_rovers failed!"
