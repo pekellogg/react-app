@@ -4,6 +4,11 @@ import "./Rover.css";
 
 class Rover extends React.Component {
 
+  displayDate = (date) => {
+    const [year, month, day] = date.split("-")
+    return month + "/" + day + "/" + year;
+  }
+
   render() {
     return (
       <div
@@ -11,24 +16,21 @@ class Rover extends React.Component {
         id={this.props.id}
         key={this.props.id}
       >
+
         <div className="details">
           <h2>{this.props.name}</h2>
           <li>{this.props.status}</li>
-          <li>Launched {this.props.displayDate(this.props.launchDate)}</li>
-          <li>Landed {this.props.displayDate(this.props.landingDate)}</li>
-          
+          <li>Launched {this.displayDate(this.props.launch_date)}</li>
+          <li>Landed {this.displayDate(this.props.landing_date)}</li>
           <img
             alt={`Mars rover, ${this.props.name}`}
-            src={this.props.profilePic}
+            src={this.props.profile_pic}
           />
         </div>
-
+        
         <CommentsContainer
-          addComment={this.props.addComment}
           comments={this.props.comments}
-          deleteComment={this.props.deleteComment}
-          editComment={this.props.editComment}
-          roverId={this.props.id}
+          roverId={this.props.external_id}
         />
 
       </div>
