@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Photos from "./Photos";
+import Photo from "./Photo";
 
 class PhotosContainer extends Component {
 
-  handleLoading = () => {
+  displayPhotos = () => {
     if (this.props.loading) {
-      return (
-        <div>
-          Loading...
-        </div>
-      );
-    } else {
-      return (
-        <Photos photos={this.props.photos.all} />
+      return "Loading...";
+    } else { return (
+        this.props.photos.all.map((photo) => (
+          <div id={photo.external_id} key={photo.external_id} >
+            < Photo
+              key={photo.external_id}
+              externalId={photo.external_id}
+              source={photo.source}
+            />
+          </div>
+        ))
       );
     }
   };
@@ -22,7 +25,7 @@ class PhotosContainer extends Component {
     return (
       <div>
         <h1>Mars Photos</h1>
-        {this.handleLoading()}
+        {this.displayPhotos()}
       </div>
     );
   };
