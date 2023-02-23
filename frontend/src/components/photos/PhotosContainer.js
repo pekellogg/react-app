@@ -11,9 +11,10 @@ class PhotosContainer extends Component {
         this.props.photos.all.map((photo) => (
           <div id={photo.external_id} key={photo.external_id} >
             < Photo
+              { ...photo }
               key={photo.external_id}
-              externalId={photo.external_id}
-              source={photo.source}
+              // externalId={photo.external_id}
+              // source={photo.source}
             />
           </div>
         ))
