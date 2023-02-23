@@ -5,10 +5,14 @@ import "./CommentsContainer.css";
 
 class CommentsContainer extends Component {
 
+  state = {
+    clicked: false
+  };
+
   displayComments = () => {
-    if (this.props.comments.length > 0) {
-      return (
-        this.props.comments.map((comment) => (
+    return (
+      <ul>
+        {this.props.comments.map((comment) => (
           <li key={comment.id}>
             < Comment
               { ...comment }
@@ -16,9 +20,13 @@ class CommentsContainer extends Component {
               roverId={this.props.roverId}
             />
           </li>
-        ))
-      );
-    }
+        ))}
+      </ul>
+    );
+  };
+
+  toggleComments = () => {
+    this.setState((prevState) => ({ clicked: !prevState.clicked }) );
   };
 
   render() {
@@ -27,9 +35,14 @@ class CommentsContainer extends Component {
 
         < NewComment roverId={this.props.roverId} />
 
-        <ul>
-          { this.displayComments() }
-        </ul>
+        {
+          this.props.comments.length > 0 ?
+            <button onClick={this.toggleComments} > Load comments </button>
+          :
+            <></>
+        }
+        
+        { this.state.clicked ? this.displayComments() : <></> }
         
       </div>
     );
