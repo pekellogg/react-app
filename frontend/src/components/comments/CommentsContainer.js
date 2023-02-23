@@ -12,17 +12,21 @@ class CommentsContainer extends Component {
 
   displayComments = () => {
     return (
-      <ul>
-        {this.props.comments.map((comment) => (
-          <li key={comment.id}>
-            < Comment
-              { ...comment }
-              key={comment.id}
-              roverId={this.props.roverId}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="modal">
+        <div className="modalContent">
+          <ul>
+            {this.props.comments.map((comment) => (
+              <li key={comment.id}>
+                < Comment
+                  { ...comment }
+                  key={comment.id}
+                  roverId={this.props.roverId}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     );
   };
 
