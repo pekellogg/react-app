@@ -6,7 +6,8 @@ import "./CommentsContainer.css";
 class CommentsContainer extends Component {
 
   state = {
-    clicked: false
+    clicked: false,
+    buttonText: "Load comments"
   };
 
   displayComments = () => {
@@ -26,7 +27,13 @@ class CommentsContainer extends Component {
   };
 
   toggleComments = () => {
-    this.setState((prevState) => ({ clicked: !prevState.clicked }) );
+    this.setState((prevState) => {
+      if (prevState.buttonText === "Load comments") {
+        return { clicked: !prevState.clicked, buttonText: "Hide comments" }
+      } else {
+        return { clicked: !prevState.clicked, buttonText: "Load comments" }
+      }
+    })
   };
 
   render() {
@@ -37,7 +44,7 @@ class CommentsContainer extends Component {
 
         {
           this.props.comments.length > 0 ?
-            <button onClick={this.toggleComments} > Load comments </button>
+            <button onClick={this.toggleComments} > { this.state.buttonText } </button>
           :
             <></>
         }
