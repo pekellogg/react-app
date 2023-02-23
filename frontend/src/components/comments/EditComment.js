@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteComment, editComment } from "../../actions/roverActions";
+import { editComment } from "../../actions/roverActions";
 
 class EditComment extends React.Component {
 
@@ -12,10 +12,6 @@ class EditComment extends React.Component {
     this.setState({ text: event.target.value })
   };
 
-  deleteHandler = () => {
-    this.props.deleteComment(this.props.id, this.props.roverId);
-  };
-
   submitHandler = (event) => {
     event.preventDefault();
     const comment = {
@@ -24,26 +20,20 @@ class EditComment extends React.Component {
       text: this.state.text
     }
     this.props.editComment(comment)
-    this.setState({ text: "", showEditForm: false });
+    this.setState({ text: "" });
+    this.props.toggleEditForm()
   };
 
   render() {
     return (
-      <form name="edit" onSubmit={this.submitHandler}>
+      <form onSubmit={this.submitHandler}>
         <input
-          name="edit"
           onChange={this.changeHandler}
           placeholder={this.props.text}
           type="text"
           value={this.state.text}
         />
         <button type="submit"> Save </button>
-        <button
-          onClick={this.deleteHandler}
-          type="delete"
-        >
-          Delete
-        </button>
       </form>
     );
   };
@@ -52,7 +42,6 @@ class EditComment extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteComment: (commentId, roverId) => dispatch(deleteComment(commentId, roverId)),
     editComment: (comment) => dispatch(editComment(comment)),
   };
 };
