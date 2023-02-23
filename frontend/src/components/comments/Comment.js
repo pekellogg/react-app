@@ -6,7 +6,8 @@ import EditComment from "./EditComment";
 class Comment extends React.Component {
 
   state = {
-    showEditForm: false
+    showEditForm: false,
+    buttonText: "Edit"
   };
 
   deleteHandler = () => {
@@ -14,8 +15,12 @@ class Comment extends React.Component {
   };
 
   toggleEditForm = () => {
-    this.setState((prevState) => { 
-      return { showEditForm: !prevState.showEditForm } 
+    this.setState((prevState) => {
+      if (prevState.buttonText === "Edit") {
+        return { showEditForm: !prevState.showEditForm, buttonText: "Cancel" }
+      } else {
+        return { showEditForm: !prevState.showEditForm, buttonText: "Edit" }
+      }
     });
   };
 
@@ -25,7 +30,7 @@ class Comment extends React.Component {
 
         { this.props.text }
 
-        <button name="edit" onClick={this.toggleEditForm} type="submit"> Edit </button>
+        <button onClick={this.toggleEditForm} type="submit"> { this.state.buttonText } </button>
         <button onClick={this.deleteHandler} type="delete"> Delete </button>
 
         { 
