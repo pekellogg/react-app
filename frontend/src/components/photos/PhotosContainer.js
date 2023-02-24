@@ -13,8 +13,6 @@ class PhotosContainer extends Component {
             < Photo
               { ...photo }
               key={photo.external_id}
-              // externalId={photo.external_id}
-              // source={photo.source}
             />
           </div>
         ))
@@ -26,7 +24,7 @@ class PhotosContainer extends Component {
     return (
       <div>
         <h1>Mars Photos</h1>
-        {this.displayPhotos()}
+        { this.displayPhotos() }
       </div>
     );
   };
