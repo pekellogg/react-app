@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_15_202333) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_24_231033) do
   create_table "comments", force: :cascade do |t|
     t.text "text"
     t.datetime "created_at", null: false
@@ -40,6 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_202333) do
     t.string "max_date"
     t.integer "total_photos"
     t.string "profile_pic"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.text "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

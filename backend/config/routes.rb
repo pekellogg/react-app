@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       end
       resources :comments, only: [:show, :update, :destroy]
       resources :photos, only: [:index]
+      resources :users
     end
   end
 end
