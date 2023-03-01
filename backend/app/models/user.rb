@@ -1,29 +1,45 @@
 class User < ApplicationRecord
-  # PW validations
+  # PW validations: length between inclusive range of 15-72, must be present, must contain at least 1 special character
   include ActiveModel::SecurePassword
-  has_secure_password # present, maximum length 72
-  # validates :password, 
+  has_secure_password
+  validates(
+    :password_digest,
+    # inclusion: { in: [
+    #   " ", "!", '"',
+    #   "#", "$", "%",
+    #   "&", "'", "(",
+    #   ")", "*", "+",
+    #   ",", "-", ".",
+    #   "/", ":", ";",
+    #   "<", "=", ">",
+    #   "?", "@", "[",
+    #   '\\', "]", "^",
+    #   "_", "`", "{",
+    #   "|", "}", "~",
+    #   '"'
+    # ] },
+    length: { in: 15..72 }
+  )
 
-  # username validations
-  validates :username, presence: true
+  # username validations: length between inclusive range of 3-50, must be present and unique
+  before_save { self.username = username.downcase if username }
+  validates(:username,
+    length: { in: 3..50 },
+    presence: true,
+    uniqueness: true
+  )
 
-  # email validations
-  validates :email, presence: true, format: { with: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: "Invalid email format!" }
-  
-  # Starting at the beginning of line (^) through the end of line ($),
-  # any word characters (/w) occurring any number of times (+), 
-  # a group consisting of a period or a minus sign optionally occurring 0 or 1 time (?), any word characters (/w) occurring any number of times (+) (something re: backtrace processing with *)
-  # an @,
-  # any word characters (/w) occurring any number of times (+),
-  # a group consisting of a period or a minus sign optionally occurring 0 or 1 time (?), any word characters (/w) occurring any number of times (+), something re: backtracing with *,
-  # a group consisting of a period and a word character (/w) occurring at least 2 and at most 3 times {2,3} occurring any number of times (+)
-  # source: https://www.w3resource.com/javascript/form/email-validation.php
+  # email validations: max length 255, must be present and unique, must have valid email format per https://www.w3resource.com/javascript/form/email-validation.php
+  before_save { self.email = email.downcase if email }
+  validates(:email,
+    format: { with: /\A\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+\z/, message: "Invalid email format!" },
+    length: { maximum: 255 },
+    presence: true,
+    uniqueness: { case_sensitive: false }
+  )
 
   # associations
   has_many :comments, through: :rovers
-end
 
-## V2 PW
-# equal to its confirmation
-# has_secure_password :recovery_password, validations: false
-# attr_accessor :password_digest, :recovery_password_digest
+  attr_accessor :password_digest, :username
+end

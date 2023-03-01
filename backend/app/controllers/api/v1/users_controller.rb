@@ -1,3 +1,5 @@
+require "pry"
+
 class Api::V1::UsersController < ApplicationController
   
   def index
@@ -6,7 +8,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.create(user_params)
+    # binding.pry
     if @user.save
       render json: @user 
     else
@@ -39,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user)
+    params.permit(:username, :email, :password_digest)
   end
   
 end
