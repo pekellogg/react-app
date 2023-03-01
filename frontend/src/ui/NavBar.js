@@ -8,15 +8,10 @@ class NavBar extends Component {
 		return (
       <header>
         <nav>
-          <NavLink to="/">
-            About
-          </NavLink>
-          <NavLink to="/rovers">
-            Rovers
-          </NavLink>
-          <NavLink to="/photos">
-            Photos
-          </NavLink>
+          <NavLink to="/"> About </NavLink>
+          <NavLink to="/rovers"> Rovers </NavLink>
+          <NavLink to="/photos"> Photos </NavLink>
+          <NavLink to="/users/new"> Create Account </NavLink>
         </nav>
       </header>
     );
