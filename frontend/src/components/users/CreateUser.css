@@ -1,0 +1,45 @@
+button#CreateUser {
+  margin-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+}
+
+div#CreateUser {
+  background: white;
+  height: 400px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  width: 400px;
+}
+
+input.CreateUser {
+  background: white;
+  border: 1px solid lightgrey;
+  height: 15px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  text-decoration-color: black;
+  width: 360px;
+}
+
+input.CreateUser:focus {
+  border: 3px solid #1a73e8;
+}
+
+input.CreateUser.Error {
+  border: 3px solid #D93025;
+}

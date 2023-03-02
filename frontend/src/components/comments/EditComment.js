@@ -30,12 +30,13 @@ class EditComment extends React.Component {
     return (
       <form onSubmit={this.submitHandler}>
         <input
+          id="EditComment"
           onChange={this.changeHandler}
           placeholder={this.props.text}
           type="text"
           value={this.state.text}
         />
-        <button type="submit"> Save </button>
+        <button id="EditComment" type="submit"> Save </button>
       </form>
     );
   };

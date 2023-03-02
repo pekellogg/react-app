@@ -30,8 +30,8 @@ class Comment extends React.Component {
 
         { this.props.text }
 
-        <button onClick={this.toggleEditForm} type="submit"> { this.state.buttonText } </button>
-        <button onClick={this.deleteHandler} type="delete"> Delete </button>
+        <button className="Comment" onClick={this.toggleEditForm} type="submit"> { this.state.buttonText } </button>
+        <button className="Comment" onClick={this.deleteHandler} type="delete"> Delete </button>
 
         { 
           this.state.showEditForm ?

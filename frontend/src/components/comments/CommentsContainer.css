@@ -17,21 +17,23 @@
   width: 85%;
 }
 
-button {
+button#CommentsContainer,
+button#EditComment,
+button#NewComment {
   float: right;
 }
 
-input {
-  display: block;
-  background: inherit;
-  border: none;
-  height: 100%;
-  margin-bottom: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  padding-bottom: 5%;
-  padding-top: 5%;
+input#EditComment,
+input#NewComment {
+  background: white;
+  border: 1px solid lightgrey;
+  height: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
   text-decoration-color: black;
   width: 100%;
 }

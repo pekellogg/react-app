@@ -54,7 +54,7 @@ class CommentsContainer extends Component {
         < br/>< br/>
         {
           this.props.comments.length > 0 ?
-            <button onClick={this.toggleComments} > { this.state.buttonText } </button>
+            <button id="CommentsContainer" onClick={this.toggleComments} > { this.state.buttonText } </button>
           :
             <></>
         }

@@ -29,12 +29,13 @@ class NewComment extends React.Component {
     return (
       <form onSubmit={this.submitHandler}>
         <input
+          id="NewComment"
           onChange={this.onChangeHandler}
           placeholder="Add comment..."
           type="text"
           value={this.state.text}
         />
-        <button type="submit"> Comment </button>
+        <button id="NewComment" type="submit"> Comment </button>
       </form>
     );
   };
