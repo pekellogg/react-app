@@ -23,5 +23,4 @@ class User < ApplicationRecord
   # associations
   has_many :comments, through: :rovers
 
-  # attr_accessor :password_digest, :username, :email
 end
