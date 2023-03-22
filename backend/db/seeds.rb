@@ -2,6 +2,7 @@ require "rest-client"
 require "pry"
 
 def fetch_rovers
+  # "https://mars-photos.herokuapp.com/api/v1/rovers"
   uri = [ENV["URI"], ENV["ROVERS"]].join("/")
   response = RestClient.get(uri)
   if response.code == 200
