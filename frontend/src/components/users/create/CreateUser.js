@@ -4,8 +4,6 @@ import { createUser } from "../../../actions/userActions";
 import { userSchema } from "../validations/userSchema";
 import { useFormik } from "formik";
 
-
-
 const CreateUser = (props) => {
 
   const onSubmit = (values, actions) => {
