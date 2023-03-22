@@ -8,6 +8,7 @@ import About from "./components/about/About";
 import RoversContainer from "./components/rovers/RoversContainer";
 import PhotosContainer from "./components/photos/PhotosContainer";
 import CreateUser from "./components/users/create/CreateUser";
+import EditUser from "./components/users/edit/EditUser";
 import Login from "./components/users/login/LoginUser";
 import "./App.css";
 
@@ -26,8 +27,10 @@ class App extends Component {
             <Route exact path="/" component={About} />
             <Route path="/rovers" component={RoversContainer} />
             <Route exact path="/photos" component={PhotosContainer} />
-            <Route exact path="/users/new" component={CreateUser} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/users/new" component={CreateUser} />
+            {/* Update to reflect dynamic user id */}
+            <Route exact path="/users/:id/edit" component={EditUser} />
         </div>
       </Router>
     );

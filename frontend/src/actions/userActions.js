@@ -20,6 +20,7 @@ export const fetchUsers = () => {
   };
 };
 
+// WIP
 export const loginUser = (email, password) => {
   return (dispatch) => {
     dispatch({
@@ -72,6 +73,7 @@ export const createUser = (user) => {
   };
 };
 
+// WIP
 export const editUser = (user) => {
   return (dispatch) => {
     dispatch({
