@@ -1,17 +1,15 @@
 require "pry"
 
 class Api::V1::UsersController < ApplicationController
-  
+  wrap_parameters false
   def index
     @users = User.all
     render json: @users
   end
 
   def create
-    binding.pry
-    @user = User.create(user_params)
     # binding.pry
-    if @user.save
+    if @user = User.create!(user_params)
       render json: @user 
     else
       render json: { status: 400 }
@@ -29,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update!(user_params)
       render json: @user
     else
       render json: { status: 400 }
@@ -43,7 +41,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :email, :password_digest)
+    params.permit(:id, :email, :password, :username)
   end
   
 end

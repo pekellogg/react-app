@@ -12,6 +12,7 @@ class NavBar extends Component {
           <NavLink to="/rovers"> Rovers </NavLink>
           <NavLink to="/photos"> Photos </NavLink>
           <NavLink to="/users/new"> Create Account </NavLink>
+          <NavLink to="/login"> Login </NavLink>
         </nav>
       </header>
     );

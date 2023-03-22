@@ -7,7 +7,8 @@ import NavBar from "./ui/NavBar";
 import About from "./components/about/About";
 import RoversContainer from "./components/rovers/RoversContainer";
 import PhotosContainer from "./components/photos/PhotosContainer";
-import CreateUser from "./components/users/CreateUser";
+import CreateUser from "./components/users/create/CreateUser";
+import Login from "./components/users/login/LoginUser";
 import "./App.css";
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path="/rovers" component={RoversContainer} />
             <Route exact path="/photos" component={PhotosContainer} />
             <Route exact path="/users/new" component={CreateUser} />
+            <Route exact path="/login" component={Login} />
         </div>
       </Router>
     );

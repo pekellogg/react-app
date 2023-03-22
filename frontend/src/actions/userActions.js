@@ -28,12 +28,39 @@ export const fetchUsers = () => {
   };
 };
 
+export const loginUser = (email, password) => {
+  return (dispatch) => {
+    dispatch({
+      type: "LOGGING_IN_USER",
+      logged_in: "in progress"
+    });
+    fetch("http://127.0.0.1:3000/api/v1/sessions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // body: JSON.stringify({email, password})
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((user) => {
+        dispatch({
+          type: "FETCHED_USERS",
+          logged_in: true,
+          user
+        })
+      }
+    );
+  };
+};
+
 export const createUser = (user) => {
+  console.log(user);
   return (dispatch) => {
     dispatch({
       type: "SAVING_USER",
       saveInProgress: true
     });
+    console.log(JSON.stringify(user));
     // fetch() returns a Promise 
     // it resolves to the Response object
     fetch(`http://127.0.0.1:3000/api/v1/users`, {
