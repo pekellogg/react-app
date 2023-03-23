@@ -1,7 +1,18 @@
 require "rest-client"
 require "pry"
 
-def fetch_rovers
+def assign_create_camera(camera)
+  new_camera = {}
+  new_camera["external_id"] = camera["id"] # 20
+  new_camera["name"] = camera["name"] # "FHAZ"
+  new_camera["rover_id"] = camera["rover_id"] # 5
+  new_camera["full_name"] = camera["full_name"] # "Front Hazard Avoidance Camera"
+  created_camera = Camera.create(new_camera)
+  # puts "created_camera exists: #{Camera.exists?(created_camera.id)}"
+  created_camera
+end
+
+def fetch_create_rovers
   # "https://mars-photos.herokuapp.com/api/v1/rovers"
   uri = [ENV["URI"], ENV["ROVERS"]].join("/")
   response = RestClient.get(uri)
@@ -17,7 +28,6 @@ def fetch_rovers
       new_rover["max_sol"] = rover["max_sol"]
       new_rover["max_date"] = rover["max_date"]
       new_rover["total_photos"] = rover["total_photos"]
-      # "cameras"=>[{}]
       chomped_base = ENV["URI"].chomp("/api/v1")
       # https://mars-photos.herokuapp.com/explore/images/Curiosity_rover.jpg
       uri = [
@@ -27,18 +37,24 @@ def fetch_rovers
         "_rover.jpg"
       ].join("")
       new_rover["profile_pic"] = uri
-      Rover.create(new_rover)
+      created_rover = Rover.create(new_rover)
+      # if rover was created, add its cameras. otherwise, print error to screen
+      if Rover.exists?(created_rover.id)
+        rover["cameras"].each { |camera| assign_create_camera(camera) }
+      else
+        puts "Rover was not created!"
+      end
     end
   else
-    puts "fetch_rovers failed!"
+    puts "fetch_create_rovers failed!"
     puts "code: #{response.code}"
     puts "description: #{response.description}"
   end
 end
 
-fetch_rovers
+fetch_create_rovers
 
-def fetch_rovers_latest_photos
+def fetch_create_rovers_latest_photos
   Rover.all.each do |rover|
     # https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/latest_photos
     uri = [
@@ -57,14 +73,15 @@ def fetch_rovers_latest_photos
         new_photo["source"] = photo["img_src"]
         new_photo["earth_date"] = photo["earth_date"]
         new_photo["rover_id"] = photo["rover"]["id"]
+        new_photo["camera_id"] = photo["camera"]["id"]
         Photo.create(new_photo)
       end
     else
-      puts "fetch_rovers_latest_photos failed!"
+      puts "fetch_create_rovers_latest_photos failed!"
       puts "code: #{response.code}"
       puts "description: #{response.description}"
     end
   end
 end
 
-fetch_rovers_latest_photos
+fetch_create_rovers_latest_photos
