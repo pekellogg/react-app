@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :rovers, only: [:index, :show] do
         resources :comments, only: [:index, :create]
       end
+      resources :cameras, only: [:index, :show]
       resources :comments, only: [:show, :update, :destroy]
       resources :photos, only: [:index]
       resources :users
