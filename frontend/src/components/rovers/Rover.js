@@ -1,5 +1,5 @@
 import React from "react";
-import CommentsContainer from "../comments/CommentsContainer";
+// import CommentsContainer from "../comments/CommentsContainer";
 import "./Rover.css";
 
 class Rover extends React.Component {
@@ -28,10 +28,7 @@ class Rover extends React.Component {
           />
         </div>
         
-        <CommentsContainer
-          comments={this.props.comments}
-          roverId={this.props.external_id}
-        />
+        {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
 
       </div>
 
