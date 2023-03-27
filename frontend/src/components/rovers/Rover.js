@@ -21,6 +21,7 @@ class Rover extends React.Component {
           <h1>{this.props.name}</h1>
           <img
             alt={`Mars rover, ${this.props.name}`}
+            className="RoverProfile"
             src={this.props.profile_pic}
           />
           <p>Mission {this.props.status}</p>
