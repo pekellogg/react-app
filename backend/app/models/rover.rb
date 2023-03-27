@@ -1,6 +1,6 @@
 class Rover < ApplicationRecord
   self.primary_key = "external_id"
-  # has_many :photos
   has_many :comments
-  has_many :cameras
+  has_many :cameras # good
+  has_many :photos, through: :cameras
 end
