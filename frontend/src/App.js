@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div id="App">
           <NavBar />
             <Route exact path="/" component={About} />
             <Route path="/rovers" component={RoversContainer} />
