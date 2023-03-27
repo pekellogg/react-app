@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Rover from "./Rover";
+import RoverCard from "./RoverCard";
 import "./RoversContainer.css";
 
 class RoversContainer extends Component {
@@ -11,7 +11,7 @@ class RoversContainer extends Component {
     } else {
       return (
         this.props.rovers.all.map((rover) => (
-          < Rover
+          < RoverCard
             { ...rover }
             comments={rover.comments}
             key={rover.external_id}
@@ -23,7 +23,7 @@ class RoversContainer extends Component {
 
   render() {
     return (
-      <div id="roversContainer">
+      <div id="RoversContainer">
         { this.displayRovers() }
       </div>
     );
