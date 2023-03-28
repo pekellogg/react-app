@@ -5,6 +5,10 @@ import "./RoversContainer.css";
 
 class RoversContainer extends Component {
 
+  revealShow = (e) => {
+    // console.log(e.target.attributes.roverid.value)
+  }
+
   displayRovers = () => {
     if (this.props.loading) {
       return `Loading...`
@@ -15,6 +19,7 @@ class RoversContainer extends Component {
             { ...rover }
             comments={rover.comments}
             key={rover.external_id}
+            revealShow={this.revealShow}
           />
         ))
       );
