@@ -13,13 +13,13 @@ class RoverCard extends React.Component {
     return (
       <div
         className="RoverCard"
-        id={this.props.id}
+        id={`RoverCard-${this.props.id}`}
         key={this.props.id}
         roverid={this.props.id}
         onClick={this.props.revealShow}
       >
 
-        <div className="details" roverid={this.props.id}>
+        <div className="RoverCardDetails" id={`RoverCardDetails-${this.props.id}`} roverid={this.props.id}>
           <h1 className="RoverCard" roverid={this.props.id}>{this.props.name}</h1>
           <img
             alt={`Mars rover, ${this.props.name}`}

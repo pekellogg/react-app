@@ -16,14 +16,16 @@ class RoversContainer extends Component {
     } else {
       return (
         this.props.rovers.all.map((rover) => (
-          [
-            < RoverCard
-              { ...rover }
-              key={`RoverCard${rover.external_id}`}
-              revealShow={this.revealShow}
-            />,
-            < RoverShow { ...rover } key={`RoverShow${rover.external_id}`} />
-          ]
+          <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
+            {[
+              < RoverCard
+                { ...rover }
+                key={`RoverCard${rover.external_id}`}
+                revealShow={this.revealShow}
+              />,
+              < RoverShow { ...rover } key={`RoverShow${rover.external_id}`} />
+            ]}
+          </div>
         ))
       );
     }
@@ -31,7 +33,7 @@ class RoversContainer extends Component {
 
   render() {
     return (
-      <div id="RoversContainer">
+      <div className="RoversContainer" id="RoversContainer">
         { this.displayRovers() }
       </div>
     );

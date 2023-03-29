@@ -3,7 +3,7 @@ import "./Camera.css";
 const Camera = (props) => {
   return (
     <>
-      <button>{props.full_name}</button>
+      <button onClick={props.handleClick}>{props.full_name}</button>
       <p className="Camera">Abbreviated name: {props.name}</p>
       <p className="Camera">ID: {props.id}</p>
       <p className="Camera">External ID: {props.external_id}</p>

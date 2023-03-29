@@ -4,15 +4,20 @@ import Camera from "./Camera";
 
 class CamerasContainer extends Component {
 
-  displayAllCameras = () => {
+  handleClick = () => {
+
+  };
+
+  displayCameras = () => {
     if (this.props.loading) {
       return "Loading...";
     } else { return (
         this.props.cameras.all.map((camera) => (
-          <div id={camera.external_id} key={camera.external_id} >
+          <div className="CameraContainer" id={`CameraContainer-${camera.external_id}`} key={camera.external_id} >
             < Camera
               { ...camera }
               key={camera.external_id}
+              onClick={this.handleClick}
             />
           </div>
         ))
@@ -22,8 +27,8 @@ class CamerasContainer extends Component {
 
   render() {
     return (
-      <div className="CamerasContainer">
-        { this.displayAllCameras() }
+      <div className="CamerasContainer" id={`CamerasContainer-${this.props.id}`}>
+        { this.displayCameras() }
       </div>
     );
   };
