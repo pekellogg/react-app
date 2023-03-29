@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import RoverCard from "./RoverCard";
+import RoverShow from "./RoverShow";
 import "./RoversContainer.css";
 
 class RoversContainer extends Component {
@@ -15,12 +16,14 @@ class RoversContainer extends Component {
     } else {
       return (
         this.props.rovers.all.map((rover) => (
-          < RoverCard
-            { ...rover }
-            comments={rover.comments}
-            key={rover.external_id}
-            revealShow={this.revealShow}
-          />
+          [
+            < RoverCard
+              { ...rover }
+              key={`RoverCard${rover.external_id}`}
+              revealShow={this.revealShow}
+            />,
+            < RoverShow { ...rover } key={`RoverShow${rover.external_id}`} />
+          ]
         ))
       );
     }

@@ -32,7 +32,6 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
         {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
-
       </div>
 
     );

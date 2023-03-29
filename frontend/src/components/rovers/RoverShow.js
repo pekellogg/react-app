@@ -1,9 +1,11 @@
-const Rover = (props) => {
+import CamerasContainer from "../cameras/CamerasContainer";
+
+const RoverShow = (props) => {
   return (
-    <div>
-      { props.children }
+    <div className="RoverShow" id={props.id}>
+      <CamerasContainer { ...props }/>
     </div>
   )
 };
 
-export default Rover;
+export default RoverShow;
