@@ -11,9 +11,10 @@ function camerasReducer(state = { all: [], loading: false, saveInProgress: false
      return {
        ...state,
        all: action.cameras,
+       // add logic to grab camera's photos
        loading: action.loading,
      }
-      
+    // add a case to update/add photos as there are new available
     default:
      return state;
   }
