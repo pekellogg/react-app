@@ -4,7 +4,11 @@ import Photo from "./Photo";
 
 class PhotosContainer extends Component {
 
-  displayPhotos = () => {
+  mappedPhotos = (cameraId) => {
+    return this.props.photos.all.map((photo) => photo.camera_id == cameraId)
+  };
+
+  displayAllPhotos = () => {
     if (this.props.loading) {
       return "Loading...";
     } else { return (
@@ -24,7 +28,7 @@ class PhotosContainer extends Component {
     return (
       <div>
         <h1>Mars Photos</h1>
-        { this.displayPhotos() }
+        { this.displayAllPhotos() }
       </div>
     );
   };
