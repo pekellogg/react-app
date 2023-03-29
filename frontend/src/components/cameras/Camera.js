@@ -1,3 +1,4 @@
+import RoverPhotosContainer from "../photos/RoverPhotosContainer";
 import "./Camera.css";
 
 const Camera = (props) => {
@@ -9,7 +10,7 @@ const Camera = (props) => {
       <p className="Camera">External ID: {props.external_id}</p>
       <p className="Camera">Created at: {props.created_at}</p>
       <p className="Camera">Updated at: {props.updated_at}</p>
-      {console.log(props.photos)}
+      <RoverPhotosContainer cameraid={props.id} photos={props.photos}/>
     </>
   )
 };

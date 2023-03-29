@@ -29,6 +29,7 @@ class CamerasContainer extends Component {
     return (
       <div className="CamerasContainer" id={`CamerasContainer-${this.props.id}`}>
         { this.displayCameras() }
+        {/* {console.log(this.props.cameras)} */}
       </div>
     );
   };

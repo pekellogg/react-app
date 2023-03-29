@@ -1,32 +1,25 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
 import Photo from "./Photo";
 
 class PhotosContainer extends Component {
 
-  mappedPhotos = (cameraId) => {
-    return this.props.photos.all.map((photo) => photo.camera_id == cameraId)
-  };
-
-  displayAllPhotos = () => {
-    if (this.props.loading) {
-      return "Loading...";
-    } else { return (
-        this.props.photos.all.map((photo) => (
-          <div id={photo.external_id} key={photo.external_id} >
-            < Photo
-              { ...photo }
-              key={photo.external_id}
-            />
-          </div>
-        ))
-      );
-    }
-  };
+  displayAllPhotos = () => (
+    this.props.photos.map((photo) => (
+      <div className="PhotoContainer" id={`PhotoContainer-${photo.id}`} key={`PhotoContainer-${photo.id}`} >
+        < Photo
+          { ...photo }
+          className="Photo"
+          id={`Photo-${photo.id}`}
+          key={photo.id}
+        />
+      </div>
+    ))
+  );
 
   render() {
     return (
-      <div>
+      <div className="PhotosContainer" id="PhotosContainer">
         <h1>Mars Photos</h1>
         { this.displayAllPhotos() }
       </div>
@@ -35,6 +28,15 @@ class PhotosContainer extends Component {
 
 };
 
-const mapStateToProps = (state) => ({ photos: state.photos });
+const mapStateToProps = (state) => { 
+  const allPhotos = [];
+  state.cameras.all.forEach(camera => {
+    if (camera.photos.length > 0) {
+      allPhotos.push(camera.photos)
+    }
+  })
+  const flatPhotos = allPhotos.flat();
+  return { photos: flatPhotos };
+};
 
 export default connect(mapStateToProps)(PhotosContainer);
