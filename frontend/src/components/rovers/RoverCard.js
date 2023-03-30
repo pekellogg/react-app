@@ -5,13 +5,6 @@ import "./RoverCard.css";
 
 class RoverCard extends React.Component {
 
-  // constructor(props) {
-    // super(props);
-    // console.log(this);
-    // this.props.onClick = this.props.onClick.bind(this); // produces error: Uncaught TypeError: Cannot assign to read only property 'onClick' of object '#<Object>'
-    // caused by "Trying to modify a state object or array in place when using a third-party library, such as React.js."
-  // }
-
   state = {
     clicked: false,
     visible: false,
