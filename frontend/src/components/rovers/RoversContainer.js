@@ -23,8 +23,8 @@ class RoversContainer extends Component {
   handleClick = (e) => {
     this.setState((prevState) => ({
       ...prevState,
-      [`roverid${[e.target.attributes.roverid.value]}`]: {
-        visible: !prevState[`roverid${[e.target.attributes.roverid.value]}`].visible,
+      [`roverid${e.target.attributes.roverid.value}`]: {
+        visible: !prevState[`roverid${e.target.attributes.roverid.value}`].visible,
       }
     }));
   };
