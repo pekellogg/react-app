@@ -1,22 +1,43 @@
 import React from "react";
 // import CommentsContainer from "../comments/CommentsContainer";
+import RoverShow from "./RoverShow";
 import "./RoverCard.css";
 
 class RoverCard extends React.Component {
 
+  // constructor(props) {
+    // super(props);
+    // console.log(this);
+    // this.props.onClick = this.props.onClick.bind(this); // produces error: Uncaught TypeError: Cannot assign to read only property 'onClick' of object '#<Object>'
+    // caused by "Trying to modify a state object or array in place when using a third-party library, such as React.js."
+  // }
+
+  state = {
+    clicked: false,
+    visible: false,
+  }; 
+
   displayDate = (date) => {
-    const [year, month, day] = date.split("-")
+    const [year, month, day] = date.split("-");
     return month + "/" + day + "/" + year;
-  }
+  };
+
+  handleClick = (e) => {
+    // console.log(e.target.attributes.roverid.value);
+    this.setState((prevState) => ({
+      clicked: !prevState.clicked,
+      visible: !prevState.visible,
+    }))
+  };
 
   render() {
     return (
       <div
         className="RoverCard"
         id={`RoverCard-${this.props.id}`}
-        key={this.props.id}
+        // onClick={this.props.onClick}
+        onClick={this.handleClick}
         roverid={this.props.id}
-        onClick={this.props.revealShow}
       >
 
         <div className="RoverCardDetails" id={`RoverCardDetails-${this.props.id}`} roverid={this.props.id}>
@@ -31,6 +52,7 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Launched {this.displayDate(this.props.launch_date)}</p>
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
+        <RoverShow { ...this.props } key={`RoverShow-${this.props.id}`} visible={this.state.visible}/>
         {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
       </div>
 

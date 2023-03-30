@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import RoverCard from "./RoverCard";
-import RoverShow from "./RoverShow";
 import "./RoversContainer.css";
 
 class RoversContainer extends Component {
+  
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     clicked: false,
+  //   }
+  //   this.handleClick = this.handleClick.bind(this);
+  // };
 
-  revealShow = (e) => {
-    // console.log(e.target.attributes.roverid.value)
-  }
+  // handleClick = (e) => {
+    // console.log(e.target.attributes.roverid.value);
+    // this.setState((prevState) => ({
+      // clicked: !prevState.clicked
+    // }))
+  // };
 
   displayRovers = () => {
     if (this.props.loading) {
@@ -17,14 +27,12 @@ class RoversContainer extends Component {
       return (
         this.props.rovers.all.map((rover) => (
           <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
-            {[
-              < RoverCard
-                { ...rover }
-                key={`RoverCard${rover.external_id}`}
-                revealShow={this.revealShow}
-              />,
-              < RoverShow { ...rover } key={`RoverShow${rover.external_id}`} />
-            ]}
+            <RoverCard
+              { ...rover }
+              // clicked={this.state.clicked}
+              key={`RoverCard-${rover.id}`}
+              // onClick={this.handleClick}
+            />
           </div>
         ))
       );

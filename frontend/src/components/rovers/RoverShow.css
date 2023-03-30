@@ -1,0 +1,7 @@
+div.RoverShowfalse {
+  display: none;
+}
+
+div.RoverShowtrue {
+  display: inline;
+}
