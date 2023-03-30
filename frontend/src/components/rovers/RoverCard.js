@@ -5,22 +5,9 @@ import "./RoverCard.css";
 
 class RoverCard extends React.Component {
 
-  state = {
-    clicked: false,
-    visible: false,
-  }; 
-
   displayDate = (date) => {
     const [year, month, day] = date.split("-");
     return month + "/" + day + "/" + year;
-  };
-
-  handleClick = (e) => {
-    // console.log(e.target.attributes.roverid.value);
-    this.setState((prevState) => ({
-      clicked: !prevState.clicked,
-      visible: !prevState.visible,
-    }))
   };
 
   render() {
@@ -28,8 +15,7 @@ class RoverCard extends React.Component {
       <div
         className="RoverCard"
         id={`RoverCard-${this.props.id}`}
-        // onClick={this.props.onClick}
-        onClick={this.handleClick}
+        onClick={this.props.onClick}
         roverid={this.props.id}
       >
 
@@ -45,7 +31,7 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Launched {this.displayDate(this.props.launch_date)}</p>
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
-        <RoverShow { ...this.props } key={`RoverShow-${this.props.id}`} visible={this.state.visible}/>
+        <RoverShow { ...this.props } key={`RoverShow-${this.props.id}`} visible={this.props.visible}/>
         {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
       </div>
 
