@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Photo from "./Photo";
 
+import "./RoverPhotosContainer.css";
+
 class RoverPhotosContainer extends Component {
 
   displayMappedPhotos = () => {
@@ -10,8 +12,8 @@ class RoverPhotosContainer extends Component {
           <div className="RoverPhotoContainer" id={`RoverPhotoContainer-${photo.id}`} key={`RoverPhotoContainer-${photo.id}`} >
             < Photo
               { ...photo }
-              className="Photo"
-              id={`Photo-${photo.id}`}
+              className="RoverPhoto"
+              id={`RoverPhoto-${photo.id}`}
               key={photo.id}
             />
           </div>

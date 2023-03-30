@@ -2,25 +2,39 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Camera from "./Camera";
 
+import "./CamerasContainer.css";
+
 class CamerasContainer extends Component {
 
-  handleClick = () => {
+  camerasWithPhotos = () => {
+    const collectCameras = [];
+    this.props.cameras.all.forEach((camera) => {
+      if (camera.photos.length > 0) {
+        collectCameras.push(camera)
+      }
+    })
+    return collectCameras.flat();
+  };
 
+  handleClick = (e) => {
+    console.log(e.target)
   };
 
   displayCameras = () => {
     if (this.props.loading) {
       return "Loading...";
     } else { return (
-        this.props.cameras.all.map((camera) => (
-          <div className="CameraContainer" id={`CameraContainer-${camera.external_id}`} key={camera.external_id} >
+        this.camerasWithPhotos().map((camera) => {
+          return (
             < Camera
               { ...camera }
-              key={camera.external_id}
+              className="Camera"
+              id={camera.id}
+              key={camera.id}
               onClick={this.handleClick}
             />
-          </div>
-        ))
+          );
+        })
       );
     }
   };
@@ -29,7 +43,6 @@ class CamerasContainer extends Component {
     return (
       <div className="CamerasContainer" id={`CamerasContainer-${this.props.id}`}>
         { this.displayCameras() }
-        {/* {console.log(this.props.cameras)} */}
       </div>
     );
   };
