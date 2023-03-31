@@ -21,6 +21,10 @@ div.RoverCard {
   width: 300px;
 }
 
+div.RoverCardfalse {
+  display: none;
+} 
+
 h1.RoverCard {
   text-align: center;
 }
