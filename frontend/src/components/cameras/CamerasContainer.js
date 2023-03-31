@@ -16,10 +16,6 @@ class CamerasContainer extends Component {
     return collectCameras.flat();
   };
 
-  handleClick = (e) => {
-    console.log(e.target)
-  };
-
   displayCameras = () => {
     if (this.props.loading) {
       return "Loading...";
@@ -31,7 +27,6 @@ class CamerasContainer extends Component {
               className="Camera"
               id={camera.id}
               key={camera.id}
-              onClick={this.handleClick}
             />
           );
         })
