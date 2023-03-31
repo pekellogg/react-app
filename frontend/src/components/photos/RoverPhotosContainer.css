@@ -1,3 +1,7 @@
 div.RoverPhotosContainer {
   display: none;
 }
+
+div.RoverPhotosContainerDisplay {
+  display: block;
+}

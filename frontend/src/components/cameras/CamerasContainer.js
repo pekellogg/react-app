@@ -36,7 +36,13 @@ class CamerasContainer extends Component {
   };
 
   handleClick = (e) => {
-    console.log(e.target);
+    console.log(e.target.nextElementSibling.className);
+    const div = e.target.nextElementSibling
+    if (div.className === "RoverPhotosContainer") {
+      div.className += "Display"
+    } else {
+      div.className = "RoverPhotosContainer"
+    }
   };
 
   render() {
