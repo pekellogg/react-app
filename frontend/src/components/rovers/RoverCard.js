@@ -1,6 +1,5 @@
 import React from "react";
 // import CommentsContainer from "../comments/CommentsContainer";
-import RoverShow from "./RoverShow";
 import "./RoverCard.css";
 
 class RoverCard extends React.Component {
@@ -13,7 +12,7 @@ class RoverCard extends React.Component {
   render() {
     return (
       <div
-        className={`RoverCard${!this.props.indexPage && !this.props.showPage ? "false" : ""}`}
+        className={`RoverCard${!this.props.roverstate.indexPage && !this.props.roverstate.showPage ? "false" : ""}`}
         id={`RoverCard-${this.props.id}`}
         onClick={this.props.onClick}
         roverid={this.props.id}
@@ -30,7 +29,6 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Launched {this.displayDate(this.props.launch_date)}</p>
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
-        <RoverShow { ...this.props } key={`RoverShow-${this.props.id}`} visible={this.props.showPage}/>
         {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
       </div>
 

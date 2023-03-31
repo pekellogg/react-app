@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import RoverCard from "./RoverCard";
+import RoverShow from "./RoverShow";
 import "./RoversContainer.css";
 
 class RoversContainer extends Component {
@@ -36,23 +37,9 @@ class RoversContainer extends Component {
   };
 
   handleClick = (e) => {
-    this.setState((prevState) => {
-      const updatedState = {
-        ...prevState,
-        [`roverid${e.target.attributes.roverid.value}`]: {
-          showPage: !prevState[`roverid${e.target.attributes.roverid.value}`].showPage,
-        }
-      }
-      console.log(updatedState);
-      return updatedState;
-    })
-  };
-
-  nestedHandleClick = (e) => {
     const target = `roverid${e.target.attributes.roverid.value}`;
     this.setState((prevState) => {
       if (prevState[target].showPage) {
-        console.log(this.initialState);
         return this.initialState;
       } else {
         const updatedState = { ...prevState };
@@ -69,7 +56,6 @@ class RoversContainer extends Component {
             }
           }
         }
-        console.log(updatedState);
         return updatedState;
       }
     })
@@ -82,13 +68,15 @@ class RoversContainer extends Component {
       return (
         this.props.rovers.all.map((rover) => (
           <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
-            <RoverCard
-              { ...rover }
-              indexPage={this.state[`roverid${rover.id}`].indexPage}
-              key={`RoverCard-${rover.id}`}
-              onClick={this.nestedHandleClick}
-              showPage={this.state[`roverid${rover.id}`].showPage}
-            />
+            {[
+              <RoverCard
+                { ...rover }
+                key={`RoverCard-${rover.id}`}
+                onClick={this.handleClick}
+                roverstate={this.state[`roverid${rover.id}`]}
+              />,
+              <RoverShow { ...rover } key={`RoverShow-${this.props.id}`} visible={this.state[`roverid${rover.id}`].showPage}/>
+            ]}
           </div>
         ))
       );
