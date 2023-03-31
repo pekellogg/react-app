@@ -27,11 +27,16 @@ class CamerasContainer extends Component {
               className="Camera"
               id={camera.id}
               key={camera.id}
+              onClick={this.handleClick}
             />
           );
         })
       );
     }
+  };
+
+  handleClick = (e) => {
+    console.log(e.target);
   };
 
   render() {
