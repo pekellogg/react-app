@@ -5,7 +5,7 @@ import "./Camera.css";
 const Camera = (props) => {
   return (
     <div className="CameraContainer" id={`CameraContainer-${props.id}`} key={props.id} >
-      <button className={"CameraButton"} onClick={props.onClick}>
+      <button className={"CameraButton"} id={`CameraButton-${props.id}`} onClick={props.onClick}>
         {props.full_name}
       </button>
       <RoverPhotosContainer cameraid={props.id} photos={props.photos}/>
