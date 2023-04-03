@@ -4,7 +4,6 @@ Rails.application.routes.draw do
       resources :rovers, only: [:index, :show]
       resources :cameras, only: [:index, :show]
       resources :photos, only: [:index]
-      resources :users
     end
   end
 end
