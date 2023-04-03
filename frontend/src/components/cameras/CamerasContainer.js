@@ -27,7 +27,7 @@ class CamerasContainer extends Component {
               className="Camera"
               id={camera.id}
               key={camera.id}
-              onClick={this.handleClick}
+              // onClick={this.handleSiblingChange}
             />
           );
         })
@@ -35,14 +35,14 @@ class CamerasContainer extends Component {
     }
   };
 
-  handleClick = (e) => {
-    const div = e.target.nextElementSibling
-    if (div.className === "RoverPhotosContainer") {
-      div.className += "Display"
-    } else {
-      div.className = "RoverPhotosContainer"
-    }
-  };
+  // handleSiblingChange = (e) => {
+  //   const div = e.target.nextElementSibling
+  //   if (div.className === "RoverPhotosContainer") {
+  //     div.className += "Display"
+  //   } else {
+  //     div.className = "RoverPhotosContainer"
+  //   }
+  // };
 
   render() {
     return (

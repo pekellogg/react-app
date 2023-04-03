@@ -1,15 +1,15 @@
 import RoverPhotosContainer from "../photos/RoverPhotosContainer";
-
+import Button from "../../ui/Button";
 import "./Camera.css";
 
 const Camera = (props) => {
   return (
-    <div className="CameraContainer" id={`CameraContainer-${props.id}`} key={props.id} >
-      <button className={"CameraButton"} id={`CameraButton-${props.id}`} onClick={props.onClick}>
-        {props.full_name}
-      </button>
+    <>
+      <Button className={"CameraButton"} id={`CameraButton-${props.id}`}> {/* onClick={props.onClick}*/}
+        { props.full_name }
+      </Button>
       <RoverPhotosContainer cameraid={props.id} photos={props.photos}/>
-    </div>
+    </>
   )
 };
 
