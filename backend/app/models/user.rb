@@ -19,8 +19,4 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: { case_sensitive: false }
   )
-
-  # associations
-  has_many :comments, through: :rovers
-
 end

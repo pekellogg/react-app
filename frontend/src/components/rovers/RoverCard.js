@@ -1,5 +1,4 @@
 import React from "react";
-// import CommentsContainer from "../comments/CommentsContainer";
 import "./RoverCard.css";
 
 class RoverCard extends React.Component {
@@ -29,7 +28,6 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Launched {this.displayDate(this.props.launch_date)}</p>
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
-        {/* <CommentsContainer comments={this.props.comments} roverId={this.props.external_id} /> */}
       </div>
 
     );
