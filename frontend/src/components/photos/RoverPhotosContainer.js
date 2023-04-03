@@ -9,14 +9,12 @@ class RoverPhotosContainer extends Component {
     if (this.props.photos.length > 0) {
       return (
         this.props.photos.map((photo) => (
-          <div className="RoverPhotoContainer" id={`RoverPhotoContainer-${photo.id}`} key={`RoverPhotoContainer-${photo.id}`} >
-            < Photo
-              { ...photo }
-              className="RoverPhoto"
-              id={`RoverPhoto-${photo.id}`}
-              key={photo.id}
-            />
-          </div>
+          < Photo
+            { ...photo }
+            className="Photo"
+            id={`Photo-${photo.id}`}
+            key={photo.id}
+          />
         ))
       );
     } else {
@@ -26,7 +24,7 @@ class RoverPhotosContainer extends Component {
 
   render() {
     return (
-      <div className="RoverPhotosContainer" id={`RoverPhotosContainer-${this.props.cameraid}`}>
+      <div className="PhotosContainer" id={`PhotosContainer-${this.props.cameraid}`}>
         { this.displayMappedPhotos() }
       </div>
     );

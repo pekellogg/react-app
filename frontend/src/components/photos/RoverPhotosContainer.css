@@ -1,8 +1,8 @@
-div.RoverPhotosContainer {
+div.PhotosContainer {
   display: none;
 }
 
-div.RoverPhotosContainerDisplay {
+div.PhotosContainerDisplay {
   background: rgb(240, 234, 214);
   height: 100%;
   padding-bottom: 5px;
@@ -12,6 +12,6 @@ div.RoverPhotosContainerDisplay {
   width: 800px;
 }
 
-div.RoverPhotosContainerDisplay img {
+div.PhotosContainerDisplay img {
   width: 100%;
 }
