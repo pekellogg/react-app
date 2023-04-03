@@ -6,23 +6,23 @@ class PhotosContainer extends Component {
 
   displayAllPhotos = () => (
     this.props.photos.map((photo) => (
-      <div className="PhotoContainer" id={`PhotoContainer-${photo.id}`} key={`PhotoContainer-${photo.id}`} >
-        < Photo
-          { ...photo }
-          className="Photo"
-          id={`Photo-${photo.id}`}
-          key={photo.id}
-        />
-      </div>
+      < Photo
+        { ...photo }
+        className="Photo"
+        id={`Photo-${photo.id}`}
+        key={photo.id}
+      />
     ))
   );
 
   render() {
     return (
-      <div className="PhotosContainer" id="PhotosContainer">
+      <>
         <h1>Mars Photos</h1>
-        { this.displayAllPhotos() }
-      </div>
+        <div className="PhotosContainer" id="PhotosContainer">
+          { this.displayAllPhotos() }
+        </div>
+      </>
     );
   };
 
