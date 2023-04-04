@@ -6,21 +6,11 @@ import "./CamerasContainer.css";
 
 class CamerasContainer extends Component {
 
-  camerasWithPhotos = () => {
-    const collectCameras = [];
-    this.props.cameras.all.forEach((camera) => {
-      if (camera.photos.length > 0) {
-        collectCameras.push(camera)
-      }
-    })
-    return collectCameras.flat();
-  };
-
   displayCameras = () => {
     if (this.props.loading) {
       return "Loading...";
     } else { return (
-        this.camerasWithPhotos().map((camera) => {
+        this.props.cameras.map((camera) => {
           return (
             < Camera
               { ...camera }
@@ -44,6 +34,14 @@ class CamerasContainer extends Component {
 
 };
 
-const mapStateToProps = (state) => ({ cameras: state.cameras });
+const mapStateToProps = (state) => {
+  const collectCameras = [];
+  state.cameras.all.forEach((camera) => {
+    if (camera.photos.length > 0) {
+      collectCameras.push(camera);
+    }
+  });
+  return { cameras: collectCameras.flat() };
+};
 
 export default connect(mapStateToProps)(CamerasContainer);
