@@ -6,6 +6,10 @@ import "./PhotosContainer.css";
 
 class PhotosContainer extends Component {
 
+  componentDidMount() {
+    { console.log("Component Mounted"); }
+  };
+  
   displayAllPhotos = () => (
     this.props.photos.map((photo) => (
       < Photo

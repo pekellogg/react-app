@@ -36,6 +36,10 @@ class RoversContainer extends Component {
     },
   };
 
+  componentDidMount() {
+    { console.log("Component Mounted"); }
+  };
+
   handleClick = (e) => {
     const target = `roverid${e.target.attributes.roverid.value}`;
     this.setState((prevState) => {
@@ -94,5 +98,4 @@ class RoversContainer extends Component {
 };
 
 const mapStateToProps = (state) => ({ rovers: state.rovers });
-
 export default connect(mapStateToProps)(RoversContainer);

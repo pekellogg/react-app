@@ -15,6 +15,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchCameras();
     this.props.fetchRovers();
+    { console.log("Component Mounted"); }
   };
   
   render() {
