@@ -27,22 +27,12 @@ class CamerasContainer extends Component {
               className="Camera"
               id={camera.id}
               key={camera.id}
-              // onClick={this.handleSiblingChange}
             />
           );
         })
       );
     }
   };
-
-  // handleSiblingChange = (e) => {
-  //   const div = e.target.nextElementSibling
-  //   if (div.className === "RoverPhotosContainer") {
-  //     div.className += "Display"
-  //   } else {
-  //     div.className = "RoverPhotosContainer"
-  //   }
-  // };
 
   render() {
     return (

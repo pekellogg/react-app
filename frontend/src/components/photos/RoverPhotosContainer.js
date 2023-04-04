@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Photo from "./Photo";
 
-import "./RoverPhotosContainer.css";
+// import "./RoverPhotosContainer.css";
 
 class RoverPhotosContainer extends Component {
 
