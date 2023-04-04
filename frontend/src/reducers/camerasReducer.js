@@ -1,9 +1,8 @@
-function camerasReducer(state = { all: [], loading: false, saveInProgress: false }, action) {
+function camerasReducer(state = { all: [], loading: false }, action) {
   switch (action.type) {
     case "LOADING_CAMERAS":
      return { 
        ...state,
-       all: [...state.all],
        loading: action.loading,
      }
  
