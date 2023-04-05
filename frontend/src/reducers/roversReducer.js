@@ -8,7 +8,7 @@ function roversReducer(state = { all: [], loading: false }, action) {
 
    case "FETCHED_ROVERS":
     return {
-      all: action.rovers,
+      all: action.payload,
       loading: action.loading,
     };
 

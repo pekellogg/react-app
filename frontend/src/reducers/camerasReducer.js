@@ -8,7 +8,7 @@ function camerasReducer(state = { all: [], loading: false }, action) {
  
     case "FETCHED_CAMERAS":
      return {
-       all: action.cameras,
+       all: action.payload,
        loading: action.loading,
      };
 
@@ -17,4 +17,4 @@ function camerasReducer(state = { all: [], loading: false }, action) {
   }
  };
  
- export default camerasReducer;
+export default camerasReducer;
