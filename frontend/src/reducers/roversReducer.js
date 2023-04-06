@@ -8,8 +8,8 @@ function roversReducer(state = {byId: {}, allIds: [], loading: false}, action) {
       const allIds = [];
       action.payload.map((rover) => {
         const cameras = rover.cameras.map((camera) => `${camera.id}`);
-        byId[`${rover.external_id}`] = {...rover, cameras};
-        allIds.push(`${rover.external_id}`);
+        byId[`${rover.id}`] = {...rover, cameras};
+        allIds.push(`${rover.id}`);
       });
       return {byId, allIds, loading: action.loading};
  
