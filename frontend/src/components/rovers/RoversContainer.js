@@ -51,12 +51,7 @@ class RoversContainer extends Component {
         this.props.rovers.map((rover) => (
           <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
             {[
-              <RoverCard
-                {...rover}
-                key={`RoverCard-${rover.id}`}
-                onClick={this.handleClick}
-                roverstate={this.state[`roverid${rover.id}`]}
-              />,
+              <RoverCard {...rover} key={`RoverCard-${rover.id}`} onClick={this.handleClick} roverstate={this.state[`roverid${rover.id}`]}/>,
               <RoverShow {...rover} key={`RoverShow-${this.props.id}`} visible={this.state[`roverid${rover.id}`].showPage}/>
             ]}
           </div>
