@@ -70,7 +70,7 @@ class RoversContainer extends Component {
       return `Loading...`
     } else {
       return (
-        this.props.rovers.all.map((rover) => (
+        this.props.rovers.map((rover) => (
           <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
             {[
               <RoverCard
@@ -97,5 +97,5 @@ class RoversContainer extends Component {
 
 };
 
-const mapStateToProps = (state) => ({ rovers: state.rovers });
+const mapStateToProps = (state) => ({ rovers: Object.values(state.rovers.byId) });
 export default connect(mapStateToProps)(RoversContainer);
