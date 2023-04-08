@@ -20,44 +20,38 @@ class RoversContainer extends Component {
     "roverid8": {showPage: false, indexPage: true},
   };
 
-  componentDidMount() {
-    {console.log("Component Mounted")}
-  };
+  // componentDidMount() {
+  //   {console.log("Component Mounted")}
+  // };
 
   handleClick = (e) => {
     const target = `roverid${e.target.attributes.roverid.value}`;
     this.setState((prevState) => {
-      if (prevState[target].showPage) {
-        return this.initialState;
-      } else {
-        const updatedState = {...prevState};
-        for (const rover in updatedState) {
-          if (rover !== target) {
-            updatedState[rover] = {showPage: false, indexPage: false}
-          } else {
-            updatedState[target] = {showPage: true, indexPage: false}
-          }
+      if (prevState[target].showPage) return this.initialState;
+      const updatedState = {...prevState};
+      for (const rover in updatedState) {
+        if (rover !== target) {
+          updatedState[rover] = {showPage: false, indexPage: false}
+        } else {
+          updatedState[target] = {showPage: true, indexPage: false}
         }
-        return updatedState;
       }
-    })
+      return updatedState;
+    });
   };
 
   displayRovers = () => {
-    if (this.props.loading) {
-      return `Loading...`
-    } else {
-      return (
-        this.props.rovers.map((rover) => (
-          <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
-            {[
-              <RoverCard {...rover} key={`RoverCard-${rover.id}`} onClick={this.handleClick} roverstate={this.state[`roverid${rover.id}`]}/>,
-              <RoverShow {...rover} key={`RoverShow-${this.props.id}`} visible={this.state[`roverid${rover.id}`].showPage}/>
-            ]}
-          </div>
-        ))
-      );
-    }
+    if (this.props.loading) return "Loading...";
+    return (
+      this.props.rovers.map((rover) => (
+        <div className="RoverContainer" id={`RoverContainer-${rover.id}`} key={`RoverContainer-${rover.id}`}>
+          {[
+            <RoverCard {...rover} key={`RoverCard-${rover.id}`} onClick={this.handleClick} roverstate={this.state[`roverid${rover.id}`]}/>,
+            <RoverShow {...rover} key={`RoverShow-${this.props.id}`} visible={this.state[`roverid${rover.id}`].showPage}/>
+          ]}
+        </div>
+      ))
+    );
   };
 
   render() {

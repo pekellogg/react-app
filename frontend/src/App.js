@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { connect } from "react-redux";
-import { fetchCameras } from "./actions/cameraActions";
-import { fetchRovers } from "./actions/roverActions";
+import React, {Component} from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {connect } from "react-redux";
+import {fetchCameras} from "./actions/cameraActions";
+import {fetchPhotos} from "./actions/photoActions";
+import {fetchRovers} from "./actions/roverActions";
 import NavBar from "./ui/NavBar";
 import About from "./components/about/About";
 import PhotosContainer from "./components/photos/PhotosContainer";
@@ -14,8 +15,9 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchCameras();
+    this.props.fetchPhotos();
     this.props.fetchRovers();
-    { console.log("Component Mounted"); }
+    // {console.log("Component Mounted")}
   };
   
   render() {
@@ -36,6 +38,7 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCameras: () => dispatch(fetchCameras()),
+    fetchPhotos: () => dispatch(fetchPhotos()),
     fetchRovers: () => dispatch(fetchRovers()),
   };
 };

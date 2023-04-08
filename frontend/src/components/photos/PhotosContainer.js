@@ -1,77 +1,37 @@
-import { connect } from "react-redux";
-import React, { Component } from "react";
+import {connect} from "react-redux";
+import React, {Component} from "react";
 import Photo from "./Photo";
 
 import "./PhotosContainer.css";
 
 class PhotosContainer extends Component {
 
-  componentDidMount() {
-    { console.log("Component Mounted"); }
-  };
+  // componentDidMount() {
+  //   {console.log("Component Mounted")}
+  // };
   
-  displayAllPhotos = () => (
-    this.props.photos.map((photo) => (
-      < Photo
-        { ...photo }
-        className="Photo"
-        id={`Photo-${photo.id}`}
-        key={photo.id}
-      />
-    ))
-  );
+  isShow = () => ("cameraphotos" in this.props) ? true : false
 
-  displayIndex = () => {
-    <>
-      <h1>Mars Photos</h1>
-      <div className="PhotosContainer" id="PhotosContainer">
-        { this.displayAllPhotos() }
-      </div>
-    </>
-  };
+  displayAllPhotos = () => this.photosRef().map((photo) => <Photo {...photo} key={photo.id}/>);
 
-  displayMappedPhotos = () => {
-    if (this.props.photos.length > 0) {
-      return (
-        <div className="PhotosContainer" id={`PhotosContainer-${this.props.cameraid}`}>
-          { this.props.photos.map((photo) => (
-              < Photo
-                { ...photo }
-                className="Photo"
-                id={`Photo-${photo.id}`}
-                key={photo.id}
-              />
-            ))
-          }
-        </div>
-      );
-    } else {
-      return "No photos!"
-    }
-  };
+  photosRef = () => this.isShow() ? this.mappedToRover() : this.props.photos
 
-
+  mappedToRover = () => this.props.photos.filter((photo) => this.props.cameraphotos.includes(photo.id.toString()));
 
   render() {
     return (
-      <>
-        { this.displayMappedPhotos() }
-        {/* { this.props.passedphotos ? this.displayMappedPhotos() : this.displayIndex() } */}
-      </>
+      <div className="PhotosContainer" id="PhotosContainer">
+        {this.displayAllPhotos()}
+      </div>
     );
   };
 
 };
 
-const mapStateToProps = (state) => { 
-  const allPhotos = [];
-  state.cameras.all.forEach(camera => {
-    if (camera.photos.length > 0) {
-      allPhotos.push(camera.photos)
-    }
-  })
-  const flatPhotos = allPhotos.flat();
-  return { photos: flatPhotos };
+const mapStateToProps = (state) => {
+  const collectPhotos = [];
+  Object.values(state.photos.byId).forEach((photo) => collectPhotos.push(photo));
+  return {photos: collectPhotos.flat()};
 };
 
 export default connect(mapStateToProps)(PhotosContainer);

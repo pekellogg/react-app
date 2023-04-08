@@ -16,5 +16,6 @@ function roversReducer(state = {byId: {}, allIds: [], loading: false}, action) {
     default:
      return state;
   }
- }
- export default roversReducer;
+}
+
+export default roversReducer;

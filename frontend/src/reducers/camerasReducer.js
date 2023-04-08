@@ -1,20 +1,21 @@
-function camerasReducer(state = { all: [], loading: false }, action) {
+function camerasReducer(state = {byId: {}, allIds: [], loading: false}, action) {
   switch (action.type) {
     case "LOADING_CAMERAS":
-     return { 
-      all: [],
-      loading: action.loading,
-     };
+      return {...state, loading: action.loading};
  
     case "FETCHED_CAMERAS":
-     return {
-       all: action.payload,
-       loading: action.loading,
-     };
+      const byId = {};
+      const allIds = [];
+      action.payload.map((camera) => {
+        const photos = camera.photos.map((photo) => `${photo.id}`);
+        byId[`${camera.id}`] = {...camera, photos};
+        allIds.push(`${camera.id}`);
+      })
+      return {byId, allIds, loading: action.loading};
 
     default:
-     return state;
+      return state;
   }
- };
+};
  
 export default camerasReducer;
