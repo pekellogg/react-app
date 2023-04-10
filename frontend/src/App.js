@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import {connect } from "react-redux";
+import {connect} from "react-redux";
 import {fetchCameras} from "./actions/cameraActions";
 import {fetchPhotos} from "./actions/photoActions";
 import {fetchRovers} from "./actions/roverActions";
@@ -17,7 +17,6 @@ class App extends Component {
     this.props.fetchCameras();
     this.props.fetchPhotos();
     this.props.fetchRovers();
-    // {console.log("Component Mounted")}
   };
   
   render() {
@@ -25,9 +24,9 @@ class App extends Component {
       <Router>
         <div id="App">
           <NavBar />
-          <Route exact path="/" component={About} />
-          <Route path="/rovers" component={RoversContainer} />
-          <Route exact path="/photos" component={PhotosContainer} />
+          <Route exact path="/" component={About}/>
+          <Route path="/rovers" component={RoversContainer}/>
+          <Route exact path="/photos" component={PhotosContainer}/>
         </div>
       </Router>
     );
