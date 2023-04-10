@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./RoverCard.css";
 
 class RoverCard extends React.Component {
@@ -29,7 +30,6 @@ class RoverCard extends React.Component {
           <p className="RoverCard" roverid={this.props.id}>Landed {this.displayDate(this.props.landing_date)}</p>
         </div>
       </div>
-
     );
   };
 
