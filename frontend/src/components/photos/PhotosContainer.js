@@ -5,10 +5,6 @@ import Photo from "./Photo";
 import "./PhotosContainer.css";
 
 class PhotosContainer extends Component {
-
-  // componentDidMount() {
-  //   {console.log("Component Mounted")}
-  // };
   
   isShow = () => ("cameraphotos" in this.props) ? true : false
 
