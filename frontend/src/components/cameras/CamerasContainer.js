@@ -6,10 +6,6 @@ import "./CamerasContainer.css";
 
 class CamerasContainer extends Component {
 
-  // componentDidMount() {
-  //   {console.log("Component Mounted")}
-  // };
-
   displayLoadingOrCameras = () => {
     return this.props.loading ? "Loading..." : this.filteredCameras()
   }
