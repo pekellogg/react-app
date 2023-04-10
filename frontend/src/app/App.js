@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {connect} from "react-redux";
-import {fetchCameras} from "./actions/cameraActions";
-import {fetchPhotos} from "./actions/photoActions";
-import {fetchRovers} from "./actions/roverActions";
-import NavBar from "./ui/NavBar";
-import About from "./components/about/About";
-import PhotosContainer from "./components/photos/PhotosContainer";
-import RoversContainer from "./components/rovers/RoversContainer";
+import {fetchCameras} from "../features/cameras/cameraActions";
+import {fetchPhotos} from "../features/photos/photoActions";
+import {fetchRovers} from "../features/rovers/roverActions";
+import NavBar from "../common/NavBar";
+import About from "../common/About";
+import PhotosContainer from "../features/photos/PhotosContainer";
+import RoversList from "../features/rovers/RoversList";
 
 import "./App.css";
 
@@ -25,7 +25,7 @@ class App extends Component {
         <div id="App">
           <NavBar />
           <Route exact path="/" component={About}/>
-          <Route path="/rovers" component={RoversContainer}/>
+          <Route path="/rovers" component={RoversList}/>
           <Route exact path="/photos" component={PhotosContainer}/>
         </div>
       </Router>
