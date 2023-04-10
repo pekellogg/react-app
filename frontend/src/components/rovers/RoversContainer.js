@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import RoverCard from "./RoverCard";
 import RoverShow from "./RoverShow";
+
 import "./RoversContainer.css";
 
 class RoversContainer extends Component {
@@ -19,10 +20,6 @@ class RoversContainer extends Component {
     "roverid7": {showPage: false, indexPage: true},
     "roverid8": {showPage: false, indexPage: true},
   };
-
-  // componentDidMount() {
-  //   {console.log("Component Mounted")}
-  // };
 
   handleClick = (e) => {
     const target = `roverid${e.target.attributes.roverid.value}`;
