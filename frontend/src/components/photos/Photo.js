@@ -3,7 +3,7 @@ const Photo = (props) => {
     <>
       <img alt="Mars" src={props.source}/>
     </>
-  )
+  );
 };
 
 export default Photo;
