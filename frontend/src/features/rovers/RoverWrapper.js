@@ -7,7 +7,7 @@ export const RoverWrapper = (props) => {
   const [isShow, setIsShow] = useToggle();
 
   return (
-    <div className="Rover" id={`Rover-${props.id}`}>
+    <div className="RoverItem" id={`RoverItem-${props.id}`} onClick={props.onClick}>
       <RoverCard {...props} onClick={setIsShow}/>
       <RoverShow {...props} visible={isShow}/>
     </div>
