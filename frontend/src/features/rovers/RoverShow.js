@@ -4,8 +4,7 @@ import "./RoverShow.css";
 
 const RoverShow = (props) => {
   return (
-    <div className="RoverShow" id={`RoverShow-${props.id}`} onClick={props.onClick}>
-      {console.log(`props.visible: ${props.visible}`)}
+    <div className={`RoverShow${props.visible}`} id={`RoverShow-${props.id}`} onClick={props.onClick}>
       <CamerasContainer {...props} cameraids={props.cameras}/>
     </div>
   );

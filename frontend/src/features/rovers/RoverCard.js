@@ -9,11 +9,11 @@ const RoverCard = (props) => {
 
   return (
     <div className="RoverCard" id={`RoverCard-${props.id}`} onClick={props.onClick}>
-      <h1>{props.name}</h1>
-      <img alt={`Mars rover, ${props.name}`} src={props.profile_pic}/>
-      <p>Mission {props.status}</p>
-      <p>Launched {displayDate(props.launch_date)}</p>
-      <p>Landed {displayDate(props.landing_date)}</p>
+      <h1 className="RoverCard">{props.name}</h1>
+      <img alt={`Mars rover, ${props.name}`} className="RoverCard" src={props.profile_pic}/>
+      <p className="RoverCard">Mission {props.status}</p>
+      <p className="RoverCard">Launched {displayDate(props.launch_date)}</p>
+      <p className="RoverCard">Landed {displayDate(props.landing_date)}</p>
     </div>
   );
 
