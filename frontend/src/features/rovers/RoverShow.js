@@ -5,7 +5,7 @@ import "./RoverShow.css";
 
 const RoverShow = (props) => {
   return (
-    <div className={`RoverShow${capitalizeWord(props.visible)}`} id={`RoverShow-${props.id}`} onClick={props.onClick}>
+    <div className={`RoverShowDisplay${capitalizeWord(props.visible)}`} id={`RoverShowDisplay-${props.id}`} onClick={props.onClick}>
       <CamerasContainer {...props} cameraids={props.cameras}/>
     </div>
   );

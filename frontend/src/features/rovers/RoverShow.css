@@ -1,7 +1,7 @@
-div.RoverShowTrue {
+div.RoverShowDisplayTrue {
   display: inline;
 }
 
-div.RoverShowFalse {
+div.RoverShowDisplayFalse {
   display: none;
 }
