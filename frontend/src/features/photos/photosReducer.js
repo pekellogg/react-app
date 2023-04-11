@@ -6,7 +6,7 @@ function photosReducer(state = {byId: {}, allIds: [], loading: false}, action) {
     case "FETCHED_PHOTOS":
       const byId = {};
       const allIds = [];
-      action.payload.map((photo) => {
+      action.payload.forEach((photo) => {
         byId[`${photo.id}`] = {...photo, camera_id: photo.camera_id, rover_id: photo.rover_id};
         allIds.push(`${photo.id}`);
       })

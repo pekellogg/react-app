@@ -6,7 +6,7 @@ function roversReducer(state = {byId: {}, allIds: [], loading: false}, action) {
     case "FETCHED_ROVERS":
       const byId = {};
       const allIds = [];
-      action.payload.map((rover) => {
+      action.payload.forEach((rover) => {
         const cameras = rover.cameras.map((camera) => `${camera.id}`);
         byId[`${rover.id}`] = {...rover, cameras};
         allIds.push(`${rover.id}`);
