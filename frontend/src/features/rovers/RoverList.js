@@ -21,7 +21,7 @@ const RoversList = (props) => {
   };
 
   return (
-    <div id="RoversList">
+    <div id="RoverList">
       {displayRovers()}
     </div>
   );

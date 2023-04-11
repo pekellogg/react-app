@@ -7,7 +7,7 @@ import {fetchRovers} from "../features/rovers/roverActions";
 import NavBar from "../common/NavBar";
 import About from "../common/About";
 import PhotosContainer from "../features/photos/PhotosContainer";
-import RoversList from "../features/rovers/RoversList";
+import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
 
@@ -25,7 +25,7 @@ class App extends Component {
         <div id="App">
           <NavBar />
           <Route exact path="/" component={About}/>
-          <Route path="/rovers" component={RoversList}/>
+          <Route path="/rovers" component={RoverList}/>
           <Route exact path="/photos" component={PhotosContainer}/>
         </div>
       </Router>
