@@ -6,13 +6,13 @@ import "./CamerasContainer.css";
 
 class CamerasContainer extends Component {
 
-  displayLoadingOrCameras = () => {
+  loadingOrCameras = () => {
     return this.props.loading ? "Loading..." : this.filteredCameras()
   }
 
   filteredCameras = () => this.props.cameras.filter((camera) => this.props.cameraids.includes(camera.id.toString()));
 
-  mapCamerasToRover = () => this.displayLoadingOrCameras().map((camera) => <Camera {...camera} key={camera.id}/>);
+  mapCamerasToRover = () => this.loadingOrCameras().map((camera) => <Camera {...camera} key={camera.id}/>);
 
   render() {
     return (

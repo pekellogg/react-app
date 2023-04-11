@@ -16,7 +16,7 @@ class PhotosContainer extends Component {
 
   render() {
     return (
-      <div className="PhotosContainer" id="PhotosContainer">
+      <div className={"PhotosContainer" + this.props.className} visible={this.props.visible}>
         {this.displayAllPhotos()}
       </div>
     );
