@@ -2,9 +2,9 @@ import {connect} from "react-redux";
 import {RoverContext} from "../../common/RoverContext";
 import {RoverWrapper} from "./RoverWrapper";
 
-import "./RoversList.css";
+import "./RoverList.css";
 
-const RoversList = (props) => {
+const RoverList = (props) => {
 
   const handleClick = (e) => {
     // console.log(e.target.attributes.roverid.value);
@@ -29,4 +29,4 @@ const RoversList = (props) => {
 };
 
 const mapStateToProps = (state) => ({rovers: Object.values(state.rovers.byId)});
-export default connect(mapStateToProps)(RoversList);
+export default connect(mapStateToProps)(RoverList);
