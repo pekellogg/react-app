@@ -1,4 +1,4 @@
-div.PhotosContainer {
+div.PhotoList {
   background: rgb(240, 234, 214);
   height: 100%;
   padding-bottom: 5px;
@@ -8,10 +8,10 @@ div.PhotosContainer {
   width: 800px;
 }
 
-div.PhotosContainer img {
+div.PhotoList img {
   width: 100%;
 }
 
-div.PhotosContainerDisplayFalse {
+div.PhotoListDisplayFalse {
   display: none;
 }

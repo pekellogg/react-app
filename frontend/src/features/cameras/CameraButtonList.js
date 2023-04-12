@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import Camera from "./Camera";
+import CameraButton from "./CameraButton";
 
-class CamerasContainer extends Component {
+class CameraButtonList extends Component {
 
   loadingOrCameras = () => {
     return this.props.loading ? "Loading..." : this.filteredCameras()
@@ -10,11 +10,11 @@ class CamerasContainer extends Component {
 
   filteredCameras = () => this.props.cameras.filter((camera) => this.props.cameraids.includes(camera.id.toString()));
 
-  mapCamerasToRover = () => this.loadingOrCameras().map((camera) => <Camera {...camera} key={camera.id}/>);
+  mapCamerasToRover = () => this.loadingOrCameras().map((camera) => <CameraButton {...camera} key={camera.id}/>);
 
   render() {
     return (
-      <div className="CamerasContainer" id={`CamerasContainer-${this.props.id}`}>
+      <div className="CameraButtonList" id={`CameraButtonList-${this.props.id}`} style={{visibility: this.props.visibility}}>
         {this.mapCamerasToRover()}
       </div>
     );
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
   return {cameras: collectCameras.flat()};
 };
 
-export default connect(mapStateToProps)(CamerasContainer);
+export default connect(mapStateToProps)(CameraButtonList);

@@ -2,9 +2,9 @@ import {connect} from "react-redux";
 import React, {Component} from "react";
 import Photo from "./Photo";
 
-import "./PhotosContainer.css";
+import "./PhotoList.css";
 
-class PhotosContainer extends Component {
+class PhotoList extends Component {
   
   isShow = () => ("cameraphotos" in this.props) ? true : false
 
@@ -16,7 +16,7 @@ class PhotosContainer extends Component {
 
   render() {
     return (
-      <div className={"PhotosContainer" + this.props.className} visible={this.props.visible}>
+      <div className={"PhotoList" + this.props.className} visible={this.props.visible}>
         {this.displayAllPhotos()}
       </div>
     );
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   return {photos: collectPhotos.flat()};
 };
 
-export default connect(mapStateToProps)(PhotosContainer);
+export default connect(mapStateToProps)(PhotoList);
