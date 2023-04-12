@@ -1,11 +1,11 @@
-import {useToggle} from "../../common/useToggle";
+import {useBooleanToggle} from "../../common/Toggle";
 import PhotoList from "../photos/PhotoList";
 
 import "./CameraButton.css";
 
 const CameraButton = (props) => {
 
-  const [isShow, setIsShow] = useToggle();
+  const [isShow, setIsShow] = useBooleanToggle();
 
   return (
     <>

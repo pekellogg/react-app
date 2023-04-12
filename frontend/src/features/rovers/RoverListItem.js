@@ -1,5 +1,5 @@
 import {RoverContext} from "../../common/RoverContext";
-import {useVisibilityToggle} from "../../common/useToggle";
+import {useVisibilityToggle} from "../../common/Toggle";
 import CameraButtonList from "../cameras/CameraButtonList";
 import RoverCard from "./RoverCard";
 
