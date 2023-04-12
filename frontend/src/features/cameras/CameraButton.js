@@ -12,7 +12,7 @@ const CameraButton = (props) => {
       <button className="CameraButton" id={`CameraButton-${props.id}`} onClick={setIsShow}>
         {props.full_name}
       </button>
-      <PhotoList cameraphotos={props.photos} className={isShow ? "" : "DisplayFalse"}/>
+      <PhotoList cameraphotos={props.photos} isshow={isShow ? "" : "DisplayFalse"}/>
     </>
   );
 };
