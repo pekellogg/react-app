@@ -12,7 +12,7 @@ export const RoverWrapper = (props) => {
   };
 
   return (
-    <div className="RoverItem" id={`RoverItem-${props.id}`} onClick={props.onClick}>
+    <div className="RoverListItem" id={`RoverListItem-${props.id}`} onClick={props.onClick}>
       <RoverContext.Provider key={props.id} value={props.id}>
         <RoverCard {...props} onClick={handleClick}/>
         <RoverShow {...props} visible={isShow}/>
