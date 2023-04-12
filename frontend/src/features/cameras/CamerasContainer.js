@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import Camera from "./Camera";
 
-import "./CamerasContainer.css";
-
 class CamerasContainer extends Component {
 
   loadingOrCameras = () => {
