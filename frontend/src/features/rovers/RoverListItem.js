@@ -7,12 +7,10 @@ export const RoverListItem = (props) => {
 
   const [visibility, setVisibility] = useVisibilityToggle();
 
-  const handleClick = (e) => setVisibility();
-
   return (
     <div className="RoverListItem" id={`RoverListItem-${props.id}`}>
       <RoverContext.Provider key={props.id} value={props.id}>
-        <RoverCard {...props} onClick={handleClick}/>
+        <RoverCard {...props} onClick={setVisibility}/>
         <CameraButtonList {...props} cameraids={props.cameras} visibility={visibility}/>
       </RoverContext.Provider>
     </div>
