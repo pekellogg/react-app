@@ -1,23 +1,26 @@
 import {connect} from "react-redux";
-import {RoverContext} from "../../common/RoverContext";
 import {RoverWrapper} from "./RoverWrapper";
+import {useState} from "react";
+import {useToggle} from "../../common/useToggle";
 
 import "./RoverList.css";
 
 const RoverList = (props) => {
 
+  const [isShow, setIsShow] = useToggle(true);
+
   const handleClick = (e) => {
-    // console.log(e.target.attributes.roverid.value);
-    console.log(e.target);
+    setRovers(rovers.map((r) => {
+      console.log(`ID: ${r.id}, isShow: ${r.visible}`);
+      return e.target.attributes.roverid.value === r.id.toString() ? {...r, visible: !!r.visible} : {...r, visible: !r.visible}
+    }))
   };
+
+  const [rovers, setRovers] = useState(props.rovers.map((rover) => ({...rover, onClick: handleClick, visible: isShow})));
 
   const displayRovers = () => {
     if (props.loading) return "Loading...";
-    return props.rovers.map((rover) => (
-      <RoverContext.Provider key={rover.id} value={rover.id}>
-        <RoverWrapper {...rover} onClick={handleClick}/>
-      </RoverContext.Provider>
-    ));
+    return rovers.map((r) => <RoverWrapper {...r} key={r.id} onClick={r.onClick} visible={r.visible}/>);
   };
 
   return (
