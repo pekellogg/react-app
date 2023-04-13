@@ -1,24 +1,21 @@
-import React, {Component} from "react";
 import {connect} from "react-redux";
 import CameraButton from "./CameraButton";
 
-class CameraButtonList extends Component {
+const CameraButtonList = (props) => {
 
-  loadingOrCameras = () => {
-    return this.props.loading ? "Loading..." : this.filteredCameras()
+  const loadingOrCameras = () => {
+    return props.loading ? "Loading..." : filteredCameras()
   }
 
-  filteredCameras = () => this.props.cameras.filter((camera) => this.props.cameraids.includes(camera.id.toString()));
+  const filteredCameras = () => props.cameras.filter((camera) => props.cameraids.includes(camera.id.toString()));
 
-  mapCamerasToRover = () => this.loadingOrCameras().map((camera) => <CameraButton {...camera} key={camera.id}/>);
+  const mapCamerasToRover = () => loadingOrCameras().map((camera) => <CameraButton {...camera} key={camera.id}/>);
 
-  render() {
-    return (
-      <div className="CameraButtonList" id={`CameraButtonList-${this.props.id}`} style={{display: this.props.display}}>
-        {this.mapCamerasToRover()}
-      </div>
-    );
-  };
+  return (
+    <div className="CameraButtonList" id={`CameraButtonList-${props.id}`} style={{display: props.display}}>
+      {mapCamerasToRover()}
+    </div>
+  );
 
 };
 
