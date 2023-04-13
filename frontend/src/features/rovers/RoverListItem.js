@@ -8,11 +8,12 @@ export const RoverListItem = (props) => {
   const [display, setDisplay] = useDisplayToggle();
 
   return (
-    <div className="RoverListItem" id={`RoverListItem-${props.id}`}>
-      <RoverContext.Provider key={props.id} value={props.id}>
+    <RoverContext.Provider key={props.id} value={props.id}>
+      {console.log(`${props.id} ${props.style.display}`)}
+      <div className="RoverListItem" display={props.display} id={`RoverListItem-${props.id}`} onClick={props.onClick}> {/* style={props.style} */}
         <RoverCard {...props} onClick={setDisplay}/>
         <CameraButtonList {...props} cameraids={props.cameras} display={display}/>
-      </RoverContext.Provider>
-    </div>
+      </div>
+    </RoverContext.Provider>
   );
 };
