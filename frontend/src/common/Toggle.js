@@ -6,10 +6,10 @@ export const useBooleanToggle = (initialState = false) => {
   return [state, toggle];
 };
 
-export const useVisibilityToggle = (initialState = "hidden") => {
+export const useDisplayToggle = (initialState = "none") => {
   const [state, setState] = useState(initialState);
   const toggle = useCallback(() => setState((prevState) => {
-    return prevState === "hidden" ? "visible" : "hidden"
+    return prevState === "none" ? "block" : "none"
   }), []);
   return [state, toggle];
 };

@@ -11,7 +11,3 @@ div.PhotoList {
 div.PhotoList img {
   width: 100%;
 }
-
-div.PhotoListDisplayFalse {
-  display: none;
-}

@@ -16,7 +16,7 @@ class PhotoList extends Component {
 
   render() {
     return (
-      <div className={`PhotoList${this.props.isshow}`}>
+      <div className="PhotoList" style={{display: this.props.display}}>
         {this.displayAllPhotos()}
       </div>
     );

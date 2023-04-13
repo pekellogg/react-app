@@ -14,7 +14,7 @@ class CameraButtonList extends Component {
 
   render() {
     return (
-      <div className="CameraButtonList" id={`CameraButtonList-${this.props.id}`} style={{visibility: this.props.visibility}}>
+      <div className="CameraButtonList" id={`CameraButtonList-${this.props.id}`} style={{display: this.props.display}}>
         {this.mapCamerasToRover()}
       </div>
     );
