@@ -1,3 +1,4 @@
 button.CameraButton:hover {
   background-color: #ed8f45;
+  box-shadow: 2px 2px 5px #ed8f45;
 }
