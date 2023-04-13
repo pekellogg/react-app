@@ -9,8 +9,7 @@ export const RoverListItem = (props) => {
 
   return (
     <RoverContext.Provider key={props.id} value={props.id}>
-      {console.log(`${props.id} ${props.style.display}`)}
-      <div className="RoverListItem" display={props.display} id={`RoverListItem-${props.id}`} onClick={props.onClick}> {/* style={props.style} */}
+      <div className="RoverListItem" display={props.display} id={`RoverListItem-${props.id}`} onClick={props.onClick} style={props.style}>
         <RoverCard {...props} onClick={setDisplay}/>
         <CameraButtonList {...props} cameraids={props.cameras} display={display}/>
       </div>

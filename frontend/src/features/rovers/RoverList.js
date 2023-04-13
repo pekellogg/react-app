@@ -8,8 +8,13 @@ const RoverList = (props) => {
 
   const handleClick = (e) => {
     const roverId = e.target.attributes.roverid.value;
-    setRovers(rovers.map((r) => {
-      return r.id.toString() === roverId ? {...r} : {...r, style: {display: "none"}};
+    setRovers((prevRovers) => prevRovers.map((r) => {
+      if (r.id.toString() === roverId) return {...r};
+      if (r.style.display === "block") {
+        return {...r, style: {display: "none"}};
+      } else {
+        return {...r, style: {display: "block"}};
+      }
     }));
   };
 
