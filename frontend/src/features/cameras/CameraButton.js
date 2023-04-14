@@ -16,7 +16,7 @@ const CameraButton = (props) => {
 
   return (
     <>
-      <button className="CameraButton" id={`CameraButton-${props.id}`} onClick={handleClick}>
+      <button className="CameraButton" id={`CameraButton-${props.id}`} onClick={handleClick} style={props.style}>
         {props.full_name}
       </button>
       <PhotoList cameraphotos={props.photos} display={display}/>

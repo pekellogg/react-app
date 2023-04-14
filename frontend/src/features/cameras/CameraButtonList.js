@@ -9,7 +9,7 @@ const CameraButtonList = (props) => {
 
   const filteredCameras = () => props.cameras.filter((camera) => props.cameraids.includes(camera.id.toString()));
 
-  const mapCamerasToRover = () => loadingOrCameras().map((camera) => <CameraButton {...camera} key={camera.id}/>);
+  const mapCamerasToRover = () => loadingOrCameras().map((camera) => <CameraButton {...camera} key={camera.id} style={{display: props.display}}/>);
 
   return (
     <div className="CameraButtonList" id={`CameraButtonList-${props.id}`} style={{display: props.display}}>
