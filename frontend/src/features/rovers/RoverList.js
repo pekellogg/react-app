@@ -7,15 +7,18 @@ import "./RoverList.css";
 const RoverList = (props) => {
 
   const handleClick = (e) => {
-    const roverId = e.target.attributes.roverid.value;
-    setRovers((prevRovers) => prevRovers.map((r) => {
-      if (r.id.toString() === roverId) return {...r};
-      if (r.style.display === "block") {
-        return {...r, style: {display: "none"}};
-      } else {
-        return {...r, style: {display: "block"}};
-      }
-    }));
+    // investigate CameraButton 'wiring' to RoverList
+    if (e.target.attributes.class.value === "RoverCard") {
+      const roverId = e.target.attributes.roverid.value;
+      setRovers((prevRovers) => prevRovers.map((r) => {
+        if (r.id.toString() === roverId) return {...r};
+        if (r.style.display === "block") {
+          return {...r, style: {display: "none"}};
+        } else {
+          return {...r, style: {display: "block"}};
+        }
+      }))
+    }
   };
 
   const [rovers, setRovers] = useState(props.rovers.map((rover) => ({...rover, onClick: handleClick, style: {display: "block"}})));
