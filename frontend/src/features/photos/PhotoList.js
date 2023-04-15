@@ -1,27 +1,23 @@
 import {connect} from "react-redux";
-import React, {Component} from "react";
 import Photo from "./Photo";
 
 import "./PhotoList.css";
 
-class PhotoList extends Component {
+const PhotoList = (props) => {
   
-  isShow = () => ("cameraphotos" in this.props) ? true : false
+  const isShow = () => ("cameraphotos" in props) ? true : false
 
-  displayAllPhotos = () => this.photosRef().map((photo) => <Photo {...photo} key={photo.id}/>);
+  const displayAllPhotos = () => photosRef().map((photo) => <Photo {...photo} key={photo.id}/>);
 
-  photosRef = () => this.isShow() ? this.mappedToRover() : this.props.photos
+  const photosRef = () => isShow() ? mappedToRover() : props.photos
 
-  mappedToRover = () => this.props.photos.filter((photo) => this.props.cameraphotos.includes(photo.id.toString()));
+  const mappedToRover = () => props.photos.filter((photo) => props.cameraphotos.includes(photo.id.toString()));
 
-  render() {
-    return (
-      <div className="PhotoList" style={{display: this.props.display}}>
-        {this.displayAllPhotos()}
-      </div>
-    );
-  };
-
+  return (
+    <div className="PhotoList" style={{display: props.display}}>
+      {displayAllPhotos()}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
