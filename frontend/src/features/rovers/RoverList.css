@@ -1,4 +1,5 @@
 div#RoverList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
