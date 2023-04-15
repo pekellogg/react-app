@@ -8,7 +8,6 @@ const CameraButton = (props) => {
   const [display, setDisplay] = useDisplayToggle();
 
   const handleClick = (e) => {
-    // hide siblings
     e.currentTarget.style.backgroundColor === "" ? e.currentTarget.style.backgroundColor = "#ed8f45" : e.currentTarget.style.backgroundColor = ""
     e.currentTarget.textContent !== "Hide Photos" ? e.currentTarget.textContent = "Hide Photos" : e.currentTarget.textContent = props.full_name
     setDisplay();
