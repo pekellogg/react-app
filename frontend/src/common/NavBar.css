@@ -1,15 +1,13 @@
 nav {
-  background: linear-gradient(
-    90deg,
-    rgba(240, 234, 214, 1) 0%,
-    rgba(249, 211, 180, 0) 100%
-  );
+  align-items: center;
+  background: rgb(240, 234, 214);
   border-radius: 10px;
   display: flex;
-  font-size: 1rem;
   height: 30px;
   justify-content: space-evenly;
-  margin: 1% 0;
-  padding: 5px;
-  width: 100%;
+  margin: 25px 25px 25px 25px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
 }
