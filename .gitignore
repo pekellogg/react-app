@@ -1,16 +1,9 @@
 # backend
-backend/.gitignore
-backend/log
-backend/tmp
-backend/rails_javascript_development
-backend/rails_javascript_test
-
-# frontend
-frontend/.gitignore
-frontend/node_modules
+rails_javascript_development
+rails_javascript_test
 
 # personal settings
-.vscode/
+/.vscode/
 
 # personal notes
 wip-scratch.txt
