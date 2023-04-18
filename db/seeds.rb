@@ -1,5 +1,5 @@
 require "rest-client"
-require "pry"
+# require "pry"
 
 def assign_create_camera(camera)
   new_camera = {}
