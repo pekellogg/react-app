@@ -6,7 +6,7 @@ ruby "3.1.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
-gem "dotenv-rails", groups: [:development, :test]
+gem "dotenv-rails", groups: [:development, :test, :production]
 
 # gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 # Use postgresql as the database for Active Record
