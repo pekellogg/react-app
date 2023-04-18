@@ -82,4 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: reactapp_production
+  database: reactapp
