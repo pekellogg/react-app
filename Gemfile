@@ -14,8 +14,6 @@ gem 'pg'
 # use rest-client for external data fetching to populate db
 gem "rest-client"
 
-# no external serializers needed if Rails version >= 5
-# Use ActiveModel::Serializer
 gem "active_model_serializers"
 
 # Use the Puma web server [https://github.com/puma/puma]
