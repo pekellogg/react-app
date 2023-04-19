@@ -8,9 +8,8 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
 gem "dotenv-rails", groups: [:development, :test, :production]
 
-# gem 'sqlite3', '~> 1.3', '>= 1.3.11'
-# Use postgresql as the database for Active Record
-gem 'pg'#, '~> 1.1'
+# Use postgresql as the database for Render deployment
+gem 'pg'
 
 gem "rest-client"
 
@@ -20,9 +19,6 @@ gem "active_model_serializers"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
