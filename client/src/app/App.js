@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+// import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import {useEffect} from "react";
 import {connect} from "react-redux";
 import {fetchCameras} from "../features/cameras/cameraActions";
 import {fetchPhotos} from "../features/photos/photoActions";
@@ -11,27 +12,24 @@ import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
 
-class App extends Component {
+function App(props) {
 
-  componentDidMount() {
-    this.props.fetchCameras();
-    this.props.fetchPhotos();
-    this.props.fetchRovers();
-  };
+  useEffect(() => {
+    props.fetchCameras();
+    props.fetchPhotos();
+    props.fetchRovers();
+  });
   
-  render() {
-    return (
-      <Router>
-        <div id="App">
-          <NavBar />
-          <Route exact path="/" component={About}/>
-          <Route path="/rovers" component={RoverList}/>
-          <Route exact path="/photos" component={PhotoList}/>
-        </div>
-      </Router>
-    );
-  };
-
+  return (
+    <Router>
+      <div id="App">
+        <NavBar />
+        <Route exact path="/" component={About}/>
+        <Route path="/rovers" component={RoverList}/>
+        <Route exact path="/photos" component={PhotoList}/>
+      </div>
+    </Router>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => {
