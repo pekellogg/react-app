@@ -11,6 +11,7 @@ gem "dotenv-rails", groups: [:development, :test, :production]
 # Use postgresql as the database for Render deployment
 gem 'pg'
 
+# use rest-client for external data fetching to populate db
 gem "rest-client"
 
 # no external serializers needed if Rails version >= 5
