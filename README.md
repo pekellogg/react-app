@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
-#### [^1]:Resources
+#### Resources
 
-This application derives data from the Mars Photo API maintained by chrisccerami.
+[^1]:This application derives data from the Mars Photo API maintained by chrisccerami.
 Explore the [repository](https://github.com/chrisccerami/mars-photo-api).
