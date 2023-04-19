@@ -1,5 +1,4 @@
 require "rest-client"
-# require "pry"
 
 def assign_create_camera(camera)
   new_camera = {}
@@ -8,7 +7,6 @@ def assign_create_camera(camera)
   new_camera["rover_id"] = camera["rover_id"] # 5
   new_camera["full_name"] = camera["full_name"] # "Front Hazard Avoidance Camera"
   created_camera = Camera.create(new_camera)
-  # puts "created_camera exists: #{Camera.exists?(created_camera.id)}"
   created_camera
 end
 
