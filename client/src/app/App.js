@@ -11,13 +11,13 @@ import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
 
-function App(props) {
+function App({fetchCameras, fetchPhotos, fetchRovers}) {
 
   useEffect(() => {
-    props.fetchCameras();
-    props.fetchPhotos();
-    props.fetchRovers();
-  });
+    fetchCameras();
+    fetchPhotos();
+    fetchRovers();
+  }, [fetchCameras, fetchPhotos, fetchRovers]);
   
   return (
     <Router>
