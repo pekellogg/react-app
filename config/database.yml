@@ -81,4 +81,5 @@ test:
 #
 production:
   <<: *default
+  database: reactapp_production
   url: <%= ENV['DATABASE_URL'] %>
