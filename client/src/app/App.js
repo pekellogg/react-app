@@ -16,23 +16,22 @@ function App({fetchCameras, fetchPhotos, fetchRovers}) {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    fetchCameras({signal: signal});
-    return () => controller.abort();
-  }, [fetchCameras]);
+  
+    Promise.all([
+      fetchCameras({ signal }),
+      fetchPhotos({ signal }),
+      fetchRovers({ signal })
+    ])
+    .finally(() => {
+      controller.abort();
+    });
+  
+    return () => {
+      controller.abort();
+    };
+  }, [fetchCameras, fetchPhotos, fetchRovers]);
+  
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    fetchPhotos({signal: signal});
-    return () => controller.abort();
-  }, [fetchPhotos]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    fetchRovers({signal: signal});
-    return () => controller.abort();
-  }, [fetchRovers]);
 
   return (
     <Router>
