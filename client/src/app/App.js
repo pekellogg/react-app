@@ -17,7 +17,7 @@ function App({fetchCameras, fetchPhotos, fetchRovers}) {
     fetchCameras();
     fetchPhotos();
     fetchRovers();
-  }, [fetchCameras, fetchPhotos, fetchRovers]);
+  });
   
   return (
     <Router>
