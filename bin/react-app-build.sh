@@ -9,4 +9,5 @@ cp -a client/build/. public/
 
 # Add deps, create if not yet created, migrate & seed rails db
 bundle install
-bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake db:seed
