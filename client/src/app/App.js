@@ -14,11 +14,26 @@ import "./App.css";
 function App({fetchCameras, fetchPhotos, fetchRovers}) {
 
   useEffect(() => {
-    fetchCameras();
-    fetchPhotos();
-    fetchRovers();
-  });
-  
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchCameras({signal: signal});
+    return () => controller.abort();
+  }, [fetchCameras]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchPhotos({signal: signal});
+    return () => controller.abort();
+  }, [fetchPhotos]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchRovers({signal: signal});
+    return () => controller.abort();
+  }, [fetchRovers]);
+
   return (
     <Router>
       <div id="App">
@@ -33,9 +48,9 @@ function App({fetchCameras, fetchPhotos, fetchRovers}) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCameras: () => dispatch(fetchCameras()),
-    fetchPhotos: () => dispatch(fetchPhotos()),
-    fetchRovers: () => dispatch(fetchRovers()),
+    fetchCameras: (signal) => dispatch(fetchCameras(signal)),
+    fetchPhotos: (signal) => dispatch(fetchPhotos(signal)),
+    fetchRovers: (signal) => dispatch(fetchRovers(signal)),
   };
 };
 
