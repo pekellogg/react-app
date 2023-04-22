@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://react-app-0w2m.onrender.com",
   "proxy": "http://localhost:3000",
   "dependencies": {
     "react": "^18.2.0",
