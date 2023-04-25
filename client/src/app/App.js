@@ -29,7 +29,7 @@ function App({fetchCameras, fetchPhotos, fetchRovers}) {
     return () => {
       controller.abort();
     };
-  }, [fetchCameras, fetchPhotos, fetchRovers]);
+  }, []);
   
 
 
