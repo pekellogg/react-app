@@ -1,7 +1,9 @@
 const Photo = (props) => {
+  const {source} = props;
+  
   return (
     <>
-      <img alt="Mars" src={props.source}/>
+      <img alt="Mars" src={source}/>
     </>
   );
 };

@@ -11,28 +11,21 @@ import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
 
-function App({fetchCameras, fetchPhotos, fetchRovers}) {
+function App(props) {
+  const {fetchCameras, fetchPhotos, fetchRovers} = props;
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-  
     Promise.all([
-      fetchCameras({ signal }),
-      fetchPhotos({ signal }),
-      fetchRovers({ signal })
+      fetchCameras({signal}),
+      fetchPhotos({signal}),
+      fetchRovers({signal})
     ])
-    .finally(() => {
-      controller.abort();
-    });
+    .finally(() => controller.abort());
+    return () => controller.abort();
+  }, [fetchCameras, fetchPhotos, fetchRovers]);
   
-    return () => {
-      controller.abort();
-    };
-  }, []);
-  
-
-
   return (
     <Router>
       <div id="App">

@@ -1,27 +1,24 @@
 import {connect} from "react-redux";
-// import {useState} from "react";
 import CameraButton from "./CameraButton";
 
 const CameraButtonList = (props) => {
+  const {cameras, cameraids, display, id, loading} = props;
 
   const loadingOrCameras = () => {
-    return props.loading ? "Loading..." : filteredCameras()
+    return loading ? "Loading..." : filteredCameras()
   };
   
-  const filteredCameras = () => props.cameras.filter((camera) => props.cameraids.includes(camera.id.toString()));
+  const filteredCameras = () => cameras.filter((camera) => cameraids.includes(camera.id.toString()));
   
   const filteredMappedCameras = () => loadingOrCameras().map((c) => ({...c}));
-  
-  // const [cameras, setCameras] = useState(filteredMappedCameras().map((c) => ({...c})));
 
-  const displayRoverCamerasList = () => filteredMappedCameras().map((c) => <CameraButton {...c} key={c.id} style={{display: props.display}}/>);
+  const displayRoverCamerasList = () => filteredMappedCameras().map((c) => <CameraButton {...c} key={c.id} style={{display: display}}/>);
 
   return (
-    <div className="CameraButtonList" id={`CameraButtonList-${props.id}`} style={{display: props.display}}>
+    <div className="CameraButtonList" id={`CameraButtonList-${id}`} style={{display: display}}>
       {displayRoverCamerasList()}
     </div>
   );
-
 };
 
 const mapStateToProps = (state) => {

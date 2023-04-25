@@ -3,19 +3,21 @@ import CameraButtonList from "../cameras/CameraButtonList";
 import RoverCard from "./RoverCard";
 
 export const RoverListItem = (props) => {
-  const [display, setDisplay] = useDisplayToggle();
+  const {cameras, display, id, onClick, style} = props;
+
+  const [localDisplay, setLocalDisplay] = useDisplayToggle();
 
   return (
     <div
       className="RoverListItem"
-      display={props.display}
-      id={`RoverListItem-${props.id}`}
-      onClick={props.onClick}
-      style={props.style}
-      roverid={props.id}
+      display={display}
+      id={`RoverListItem-${id}`}
+      onClick={onClick}
+      style={style}
+      roverid={id}
     >
-      <RoverCard {...props} onClick={setDisplay}/>
-      <CameraButtonList {...props} cameraids={props.cameras} display={display}/>
+      <RoverCard {...props} onClick={setLocalDisplay} roverid={id}/>
+      <CameraButtonList {...props} cameraids={cameras} display={localDisplay}/>
     </div>
   );
 };
