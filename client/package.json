@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://react-app-0w2m.onrender.com",
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3000/api/v1",
   "dependencies": {
+    "@tanstack/react-query": "^4.29.5",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
@@ -37,7 +39,7 @@
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.9.1",
-    "formik": "^2.2.9",
+    "@tanstack/react-query-devtools": "^4.29.6",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0"

@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./NavBar.css";
 
@@ -7,8 +7,9 @@ const NavBar = () => {
     <header>
       <nav>
         <NavLink to="/">About</NavLink>
-        <NavLink to="/rovers">Rovers</NavLink>
-        <NavLink to="/photos">Photos</NavLink>
+        <NavLink to="/cameras">All Cameras</NavLink>
+        <NavLink to="/photos">All Photos</NavLink>
+        <NavLink to="/rovers">All Rovers</NavLink>
       </nav>
     </header>
   );

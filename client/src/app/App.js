@@ -1,49 +1,27 @@
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import {useEffect} from "react";
-import {connect} from "react-redux";
-import {fetchCameras} from "../features/cameras/cameraActions";
-import {fetchPhotos} from "../features/photos/photoActions";
-import {fetchRovers} from "../features/rovers/roverActions";
-import NavBar from "../common/NavBar";
-import About from "../common/About";
-import PhotoList from "../features/photos/PhotoList";
-import RoverList from "../features/rovers/RoverList";
+import { BrowserRouter as Router } from "react-router-dom";
+import { useCameraContext } from "../features/cameras/useCameraContext";
+import { usePhotoContext } from "../features/photos/usePhotoContext";
+import { useRoverContext } from "../features/rovers/useRoverContext";
+import NavigationRoutes from "../common/NavigationRoutes";
 
 import "./App.css";
 
-function App(props) {
-  const {fetchCameras, fetchPhotos, fetchRovers} = props;
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    Promise.all([
-      fetchCameras({signal}),
-      fetchPhotos({signal}),
-      fetchRovers({signal})
-    ])
-    .finally(() => controller.abort());
-    return () => controller.abort();
-  }, [fetchCameras, fetchPhotos, fetchRovers]);
+function App() {
+  const cameras = useCameraContext();
+  const photos = usePhotoContext();
+  const rovers = useRoverContext();
   
+  if (!cameras || !photos || !rovers) {
+    return "loading...";
+  }
+
   return (
     <Router>
       <div id="App">
-        <NavBar/>
-        <Route exact path="/" component={About}/>
-        <Route path="/rovers" component={RoverList}/>
-        <Route exact path="/photos" component={PhotoList}/>
+        <NavigationRoutes />
       </div>
     </Router>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchCameras: (signal) => dispatch(fetchCameras(signal)),
-    fetchPhotos: (signal) => dispatch(fetchPhotos(signal)),
-    fetchRovers: (signal) => dispatch(fetchRovers(signal)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
