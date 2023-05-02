@@ -2,17 +2,14 @@ import { NavLink } from "react-router-dom";
 
 import "./NavBar.css";
 
-const NavBar = () => {
+export default function NavBar() {
   return (
     <header>
       <nav>
         <NavLink to="/">About</NavLink>
-        <NavLink to="/cameras">All Cameras</NavLink>
-        <NavLink to="/photos">All Photos</NavLink>
-        <NavLink to="/rovers">All Rovers</NavLink>
+        <NavLink to="/rovers">Rovers</NavLink>
+        <NavLink to="/photos">Photos</NavLink>
       </nav>
     </header>
   );
 };
-
-export default NavBar;

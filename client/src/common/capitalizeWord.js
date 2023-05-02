@@ -1,4 +1,4 @@
-export const capitalizeWord = (word) => {
+export default function capitalizeWord(word) {
   switch (typeof word) {
     case "string":
       return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;

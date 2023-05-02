@@ -3,7 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query"; // useMutation, useQueryClient
 import PhotoContext from "./PhotoContext";
 
-export const PhotoProvider = ({ children }) => {
+export default function PhotoProvider({ children }) {
   const photosQuery = useQuery({
     queryKey: ["photos"],
     queryFn: fetchPhotos,

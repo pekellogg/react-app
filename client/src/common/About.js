@@ -1,6 +1,6 @@
 import "./About.css";
 
-const About = () => {
+export default function About() {
   return (
     <div id="about">
       <p>This web application derives data from the Mars Photo API maintained by chrisccerami.</p>
@@ -8,5 +8,3 @@ const About = () => {
     </div>
   );
 };
-
-export default About;

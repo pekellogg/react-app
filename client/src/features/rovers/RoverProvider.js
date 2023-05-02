@@ -3,7 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query"; // useMutation, useQueryClient
 import RoverContext from "./RoverContext";
 
-export const RoverProvider = ({ children }) => {
+export default function RoverProvider({ children }) {
   const roversQuery = useQuery({
     queryKey: ["rovers"],
     queryFn: fetchRovers,

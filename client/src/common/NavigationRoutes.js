@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import Routes from "./Routes";
 
-const NavigationRoutes = () => {
+export default function NavigationRoutes() {
   return (
     <>
       <NavBar />
@@ -9,7 +9,3 @@ const NavigationRoutes = () => {
     </>
   );
 };
-
-
-
-export default NavigationRoutes;

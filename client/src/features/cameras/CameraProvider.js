@@ -3,12 +3,12 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query"; // useMutation, useQueryClient
 import CameraContext from "./CameraContext";
 
-export const CameraProvider = ({ children }) => {
+export default function CameraProvider({ children }) {
 
   const camerasQuery = useQuery({
     queryKey: ["cameras"],
     queryFn: fetchCameras,
-  })
+  });
 
   // display loading state
   if (camerasQuery.isLoading) return <h1>Loading...</h1>;
@@ -22,15 +22,14 @@ export const CameraProvider = ({ children }) => {
     );
   }
 
-    return (
-      <>
-        <CameraContext.Provider value={camerasQuery.data}>
-          { children }
-        </CameraContext.Provider>
-      </>
-    );
-  
-  }
+  return (
+    <>
+      <CameraContext.Provider value={camerasQuery.data}>
+        { children }
+      </CameraContext.Provider>
+    </>
+  );
+}
 
 function fetchCameras() {
   return (

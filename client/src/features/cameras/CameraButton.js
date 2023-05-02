@@ -1,11 +1,9 @@
-import {useDisplayToggle} from "../../common/Toggle";
+import { useDisplayToggle } from "../../common/Toggle";
 import PhotoList from "../photos/PhotoList";
 
 import "./CameraButton.css";
 
-const CameraButton = (props) => {
-  const {id, full_name, photos, style} = props;
-  
+export default function CameraButton({ id, full_name, photos, style }) {
   const [display, setDisplay] = useDisplayToggle();
 
   const handleClick = (e) => {
@@ -17,11 +15,9 @@ const CameraButton = (props) => {
   return (
     <>
       <button className="CameraButton" id={`CameraButton-${id}`} onClick={handleClick} style={style}>
-        {full_name}
+        { full_name }
       </button>
-      <PhotoList cameraphotos={photos} display={display}/>
+      <PhotoList cameraphotos={photos} display={display} />
     </>
   );
 };
-
-export default CameraButton;

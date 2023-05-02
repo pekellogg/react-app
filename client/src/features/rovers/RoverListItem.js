@@ -1,10 +1,8 @@
-import {useDisplayToggle} from "../../common/Toggle";
+import { useDisplayToggle } from "../../common/Toggle";
 import CameraButtonList from "../cameras/CameraButtonList";
 import RoverCard from "./RoverCard";
 
-export const RoverListItem = (props) => {
-  const {cameras, display, id, onClick, style} = props;
-
+export default function RoverListItem({ cameras, display, id, landing_date, launch_date, name, onClick, profile_pic, status, style }) {
   const [localDisplay, setLocalDisplay] = useDisplayToggle();
 
   return (
@@ -16,8 +14,21 @@ export const RoverListItem = (props) => {
       style={style}
       roverid={id}
     >
-      <RoverCard {...props} onClick={setLocalDisplay} roverid={id}/>
-      <CameraButtonList {...props} cameraids={cameras} display={localDisplay}/>
+      <RoverCard
+        id={id}
+        landingDate={landing_date}
+        launchDate={launch_date}
+        name={name}
+        onClick={setLocalDisplay}
+        profilePic={profile_pic}
+        roverid={id}
+        status={status}
+      />
+      <CameraButtonList
+        cameras={cameras}
+        display={localDisplay}
+        id={id}
+      />
     </div>
   );
 };

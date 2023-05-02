@@ -1,6 +1,6 @@
-import { useCameraContext } from "./useCameraContext";
+import useCameraContext from "./useCameraContext";
 
-const TestCameraList = () => {
+export default function CameraList() {
   const cameras = useCameraContext();
 
   return (
@@ -21,5 +21,3 @@ const TestCameraList = () => {
     </>
   );
 };
-
-export default TestCameraList;
