@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://react-app-0w2m.onrender.com",
   "proxy": "http://localhost:3000/api/v1",
   "dependencies": {
     "@tanstack/react-query": "^4.29.5",

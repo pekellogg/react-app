@@ -2,9 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import CameraProvider from "./features/cameras/CameraProvider";
-import PhotoProvider from "./features/photos/PhotoProvider";
-import RoverProvider from "./features/rovers/RoverProvider";
+import ResourceProvider from "./common/ResourceProvider";
+import CameraContext from "./features/cameras/CameraContext";
+import PhotoContext from "./features/photos/PhotoContext";
+import RoverContext from "./features/rovers/RoverContext";
 import App from "./app/App";
 
 const queryClient = new QueryClient();
@@ -15,13 +16,13 @@ const root = createRoot(domNode);
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <CameraProvider>
-        <PhotoProvider>
-          <RoverProvider>
+      <ResourceProvider resource="cameras" resourceContext={CameraContext}>
+        <ResourceProvider resource="photos" resourceContext={PhotoContext}>
+          <ResourceProvider resource="rovers" resourceContext={RoverContext}>
             <App />
-          </RoverProvider>
-        </PhotoProvider>
-      </CameraProvider>
+          </ResourceProvider>
+        </ResourceProvider>
+      </ResourceProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>

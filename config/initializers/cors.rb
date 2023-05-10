@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "*"
+    origins "https://react-app-0w2m.onrender.com"
     resource "*",
       headers: :any,
       methods: [:get, :options]
