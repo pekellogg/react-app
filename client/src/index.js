@@ -16,9 +16,9 @@ const root = createRoot(domNode);
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ResourceProvider resource="cameras" resourceContext={CameraContext}>
-        <ResourceProvider resource="photos" resourceContext={PhotoContext}>
-          <ResourceProvider resource="rovers" resourceContext={RoverContext}>
+      <ResourceProvider resource="/api/v1/cameras" resourceContext={CameraContext}>
+        <ResourceProvider resource="/api/v1/photos" resourceContext={PhotoContext}>
+          <ResourceProvider resource="/api/v1/rovers" resourceContext={RoverContext}>
             <App />
           </ResourceProvider>
         </ResourceProvider>

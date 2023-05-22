@@ -11,7 +11,7 @@ export default function ResourceProvider({ children, resource, resourceContext: 
   function fetchResource() {
     return (
       axios
-        .get(`/${resource}`)
+        .get(resource)
         .then((response) => response.data)
     );
   }

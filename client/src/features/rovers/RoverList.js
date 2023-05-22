@@ -7,6 +7,9 @@ import "./RoverList.css";
 export default function RoverList() {
   const rovers = useRoverContext();
 
+  // onClick toggle options:
+  // 1. RoverCard "index" view: all showing
+  // 2. Click RoverCard to reveal its cameras, hiding all other RoverCards
   const handleClick = (e) => {
     // investigate CameraButton 'wiring' to RoverList
     if (e.target.attributes.class.value === "RoverCard") {
