@@ -16,10 +16,10 @@ bundle install
 
 # Option 1
 # Runs setup if database does not exist, or runs migrations if it does
-# bundle exec rake db:prepare
+bundle exec rake db:prepare
 # Loads the seed data from db/seeds.rb
-# bundle exec rake db:seed
+bundle exec rake db:seed
 
 # Option 2
 # Drops and recreates all databases from their schema for the current environment and loads the seeds
-bundle exec rake db:reset
+# bundle exec rake db:reset
