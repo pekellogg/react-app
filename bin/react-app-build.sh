@@ -6,9 +6,6 @@ set -o errexit
 rm -rf public
 npm install --prefix client && npm run build --prefix client
 
-# next problem-solving steps as recommended by Ron
-# npm install --prefix client && npm run start --prefix client
-
 cp -a client/build/. public/
 
 # Add deps, create db if not yet created, migrate, seed
