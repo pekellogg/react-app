@@ -4,7 +4,6 @@ import RoverCard from "./RoverCard";
 
 export default function RoverListItem({ cameras, display, id, landing_date, launch_date, name, onClick, profile_pic, status, style }) {
   const [localDisplay, setLocalDisplay] = useDisplayToggle();
-
   return (
     <div
       className="RoverListItem"
