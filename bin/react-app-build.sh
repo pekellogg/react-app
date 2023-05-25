@@ -11,12 +11,7 @@ cp -a client/build/. public/
 # Add deps, create db if not yet created, migrate, seed
 bundle install
 
-# Option 1
-# Runs setup if database does not exist, or runs migrations if it does
-bundle exec rake db:prepare
+# Migrate the database
+bundle exec rake db:migrate
 # Loads the seed data from db/seeds.rb
 bundle exec rake db:seed
-
-# Option 2
-# Drops and recreates all databases from their schema for the current environment and loads the seeds
-# bundle exec rake db:reset
