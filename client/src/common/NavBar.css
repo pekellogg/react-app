@@ -6,8 +6,26 @@ nav {
   height: 30px;
   justify-content: space-evenly;
   margin: 25px 25px 25px 25px;
+/* Make highlight touch edges of NavBar (by removing padding): */
+/*
   padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
+*/
 }
+/*
+ * Set some styles that will be common between normal & active:
+ * reduces elements shifting position when activated
+ */
+nav a
+  {
+  padding: .25rem 2rem;
+  font-size: 1.25rem;
+  }
+/* Highlight the "active" route: */
+nav a.active
+  {
+  color: yellow;
+  background-color: gray;
+  }

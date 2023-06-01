@@ -1,3 +1,4 @@
+/* Why? Let NavBar.css handle this (especially with a.active) */
 #about {
   background: rgb(240, 234, 214);
   border-radius: 10px;

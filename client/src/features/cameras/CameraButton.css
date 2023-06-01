@@ -2,3 +2,22 @@ button.CameraButton:hover {
   background-color: #ed8f45;
   box-shadow: 2px 2px 5px #ed8f45;
 }
+
+button.CameraButton
+  {
+  /* Expand all camera selector buttons to same, full width: */
+  width: 100%;
+	/*
+	 * Override the margin-inline (left & right) on buttons with auto to centre:
+	 */
+	margin-inline: auto;
+  }
+
+/*
+ * The following class is used in a className="..." but not declared.
+ */
+.CameraButtonList
+	{
+	/* Remove this style when removed from *.jsx */
+	outline: 1px solid red;
+	}

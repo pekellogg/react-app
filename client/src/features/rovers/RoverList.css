@@ -1,5 +1,10 @@
 div#RoverList {
   display: flex;
   flex-wrap: wrap;
+	/*
+	 * On my version, RoverCards touch, but not on original version.
+	 * This is changed to guarantees spacing:
   justify-content: center;
+	 */
+  justify-content: space-evenly;
 }
