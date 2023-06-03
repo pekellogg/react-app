@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ResourceProvider from "./common/ResourceProvider";
 import CameraContext from "./features/cameras/CameraContext";
 import PhotoContext from "./features/photos/PhotoContext";
-import RoverContext from "./features/rovers/RoverContext";
+import { roverContext } from "./features/rovers/useRoverContext";
 import App from "./app/App";
 
 const queryClient = new QueryClient();
@@ -18,7 +18,7 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ResourceProvider resource="/api/v1/cameras" resourceContext={CameraContext}>
         <ResourceProvider resource="/api/v1/photos" resourceContext={PhotoContext}>
-          <ResourceProvider resource="/api/v1/rovers" resourceContext={RoverContext}>
+          <ResourceProvider resource="/api/v1/rovers" resourceContext={roverContext}>
             <App />
           </ResourceProvider>
         </ResourceProvider>
