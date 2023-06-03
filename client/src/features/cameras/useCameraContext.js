@@ -1,5 +1,6 @@
-import CameraContext from "./CameraContext";
-import { useContext } from "react";
+import React, { useContext } from "react";
 
-const useCameraContext = () => useContext(CameraContext);
-export default useCameraContext;
+const cameraContext = React.createContext();
+const useCameraContext = () => useContext(cameraContext);
+
+export { cameraContext, useCameraContext };

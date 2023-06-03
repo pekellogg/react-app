@@ -1,4 +1,4 @@
-import useCameraContext from "./useCameraContext";
+import { useCameraContext } from "./useCameraContext";
 
 export default function CameraList() {
   const cameras = useCameraContext();
