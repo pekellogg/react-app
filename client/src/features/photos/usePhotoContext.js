@@ -1,5 +1,6 @@
-import PhotoContext from "./PhotoContext";
-import { useContext } from "react";
+import React, { useContext } from "react";
 
-const usePhotoContext = () => useContext(PhotoContext);
-export default usePhotoContext;
+const photoContext = React.createContext();
+const usePhotoContext = () => useContext(photoContext);
+
+export { photoContext, usePhotoContext };

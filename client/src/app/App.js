@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import useCameraContext from "../features/cameras/useCameraContext";
-import usePhotoContext from "../features/photos/usePhotoContext";
+import { usePhotoContext } from "../features/photos/usePhotoContext";
 import { useRoverContext } from "../features/rovers/useRoverContext";
 import NavigationRoutes from "../common/NavigationRoutes";
 

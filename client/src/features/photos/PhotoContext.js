@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
-const PhotoContext = React.createContext();
-export default PhotoContext;
+// const PhotoContext = React.createContext();
+// export default PhotoContext;

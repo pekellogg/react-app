@@ -1,4 +1,4 @@
-import usePhotoContext from "./usePhotoContext";
+import { usePhotoContext } from "./usePhotoContext";
 import Photo from "./Photo";
 
 export default function PhotoList({ display }) {
