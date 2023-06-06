@@ -20,10 +20,10 @@ bundle install
 
 # 1st, 1-time execution of build script in staging
   # Migrate the database
-  bundle exec rake db:migrate
+  # bundle exec rake db:migrate
 
   # Loads the seed data from db/seeds.rb
-  bundle exec rake db:seed
+  # bundle exec rake db:seed
 
 # all future executions of build script in production should not require migration + seeding rails commands
   # see: "Production Site Reliability Troubleshooting" Trello card
