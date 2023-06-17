@@ -37,5 +37,5 @@ end
 
 group :test do
   gem "rspec-rails", "~> 6.0.0"
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers", "~> 4.5.1"
 end
