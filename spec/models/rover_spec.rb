@@ -1,5 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
+require "rover"
 
 RSpec.describe Rover, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "associations" do
+    it "has_many :cameras" do
+      is_expected.to have_many(:cameras).class_name("Camera")
+    end
+  end
 end
