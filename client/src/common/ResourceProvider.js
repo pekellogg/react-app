@@ -25,7 +25,6 @@ export default function ResourceProvider({
     <>
       <ResourceContext.Provider value={resourceQuery.data}>
         {children}
-        <pre>{JSON.stringify(resourceQuery.data)}</pre>
       </ResourceContext.Provider>
     </>
   );
