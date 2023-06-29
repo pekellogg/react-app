@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query"; // useMutation, useQueryClient
+import { useQuery } from "@tanstack/react-query";
 
 export default function ResourceProvider({
   children,
@@ -16,31 +16,11 @@ export default function ResourceProvider({
     return axios.get(resource).then((response) => response.data);
   }
 
-  // switch(resourceQuery) {
-  //   // display loading state
-  //   case resourceQuery.isLoading:
-  //     return (
-  //       <h1>Loading...</h1>
-  //     );
-  //   // display error state
-  //   case resourceQuery.isError:
-  //     return (
-  //       <pre>
-  //         { JSON.stringify(resourceQuery.error) }
-  //       </pre>
-  //     );
-  //   default:
-  //     return (
-  //       <>
-  //         <ResourceContext.Provider value={resourceQuery.data}>
-  //           { children }
-  //         </ResourceContext.Provider>
-  //       </>
-  //     );
-  // }
   if (resourceQuery.isLoading) return <h1>Loading...</h1>;
+
   if (resourceQuery.isError)
     return <pre>{JSON.stringify(resourceQuery.error)}</pre>;
+
   return (
     <>
       <ResourceContext.Provider value={resourceQuery.data}>
