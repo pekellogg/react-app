@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Route } from "react-router-dom";
 import About from "../common/About";
-// import PhotoList from "../features/photos/PhotoList";
+import PhotoList from "../features/photos/PhotoList";
 // import RoverList from "../features/rovers/RoverList";
 import TestRoverList from "../features/rovers/TestRoverList";
 
@@ -28,10 +28,10 @@ function TestApp() {
           path="/rovers"
           component={TestRoverList}
         />
-        {/* <Route
+        <Route
           path="/photos"
           component={PhotoList}
-        /> */}
+        />
       </div>
     </Router>
   );

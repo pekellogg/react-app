@@ -10,9 +10,6 @@ const queryClient = new QueryClient();
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
 
-// "/api/v1/cameras"
-// "/api/v1/photos"
-
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

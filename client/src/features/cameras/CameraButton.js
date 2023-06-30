@@ -1,5 +1,5 @@
 import { useDisplayToggle } from "../../common/Toggle";
-// import PhotoList from "../photos/PhotoList";
+import PhotoList from "../photos/PhotoList";
 
 import "./CameraButton.css";
 
@@ -26,10 +26,10 @@ export default function CameraButton({ id, full_name, photos, style }) {
       >
         {full_name}
       </button>
-      {/* <PhotoList
+      <PhotoList
         cameraphotos={photos}
         display={display}
-      /> */}
+      />
     </>
   );
 }
