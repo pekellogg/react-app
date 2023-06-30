@@ -1,12 +1,11 @@
 import React from "react";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import FetchResource from "../../common/FetchResource";
 import RoverListItem from "./RoverListItem";
 
 import "./RoverList.css";
 
 export default function RoverList() {
-  const rovers = ResourceProvider("/api/v1/rovers");
+  const rovers = FetchResource("/api/v1/rovers");
 
   if (rovers.isLoading) return <h1>Loading...</h1>;
 
@@ -23,18 +22,4 @@ export default function RoverList() {
   }
 
   if (rovers.data) return <div id="RoverList">{displayRovers()}</div>;
-}
-
-function ResourceProvider(resource) {
-  const resourceQuery = useQuery({
-    queryKey: [resource],
-    queryFn: fetchResource,
-  });
-
-  async function fetchResource() {
-    const response = await axios.get(resource);
-    return response.data;
-  }
-
-  return resourceQuery;
 }
