@@ -12,7 +12,7 @@ export default function RoverListItem({
   status,
   style,
 }) {
-  const [localDisplay, setLocalDisplay] = useDisplayToggle();
+  const [camerasDisplay, setCamerasDisplay] = useDisplayToggle();
 
   return (
     <div
@@ -26,14 +26,14 @@ export default function RoverListItem({
         landingDate={landing_date}
         launchDate={launch_date}
         name={name}
-        onClick={setLocalDisplay}
+        onClick={setCamerasDisplay}
         profilePic={profile_pic}
         roverid={id}
         status={status}
       />
       <CameraButtonList
         cameras={cameras}
-        display={localDisplay}
+        display={camerasDisplay}
         id={id}
       />
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+// import { useState } from "react";
 import FetchResource from "../../common/FetchResource";
 import RoverListItem from "./RoverListItem";
 
@@ -12,14 +12,15 @@ export default function RoverList() {
   if (rovers.isError) return <pre>{JSON.stringify(rovers.error)}</pre>;
 
   function displayRovers() {
-    return rovers.data.map((r) => (
-      <RoverListItem
-        {...r}
-        key={r.id}
-        style={{ display: "block" }}
-      />
-    ));
+    if (rovers.data)
+      return rovers.data.map((r) => (
+        <RoverListItem
+          {...r}
+          key={r.id}
+          style={{ display: "block" }}
+        />
+      ));
   }
 
-  if (rovers.data) return <div id="RoverList">{displayRovers()}</div>;
+  return <div id="RoverList">{displayRovers()}</div>;
 }
