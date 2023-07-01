@@ -1,27 +1,39 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { useCameraContext } from "../features/cameras/useCameraContext";
-import { usePhotoContext } from "../features/photos/usePhotoContext";
-import { useRoverContext } from "../features/rovers/useRoverContext";
-import NavigationRoutes from "../common/NavigationRoutes";
+import { NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
+import About from "../common/About";
+import PhotoList from "../features/photos/PhotoList";
+import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
 
 function App() {
-  const cameras = useCameraContext();
-  const photos = usePhotoContext();
-  const rovers = useRoverContext();
-  
-  if (!cameras || !photos || !rovers) {
-    return "loading...";
-  }
-
   return (
     <Router>
       <div id="App">
-        <NavigationRoutes />
+        <header>
+          <nav>
+            <NavLink to="/">About</NavLink>
+            <NavLink to="/rovers">Rovers</NavLink>
+            <NavLink to="/photos">Photos</NavLink>
+          </nav>
+        </header>
+        <Route
+          exact
+          path="/"
+          component={About}
+        />
+        <Route
+          path="/rovers"
+          component={RoverList}
+        />
+        <Route
+          path="/photos"
+          component={PhotoList}
+        />
       </div>
     </Router>
   );
-};
+}
 
 export default App;

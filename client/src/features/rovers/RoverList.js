@@ -1,52 +1,25 @@
-import { useRoverContext } from "./useRoverContext";
-import { useState } from "react";
+import FetchResource from "../../common/FetchResource";
 import RoverListItem from "./RoverListItem";
 
 import "./RoverList.css";
 
 export default function RoverList() {
-  const rovers = useRoverContext();
+  const rovers = FetchResource("/api/v1/rovers");
 
-  // onClick toggle options:
-  // 1. RoverCard "index" view: all showing
-  // 2. Click RoverCard to reveal its cameras, hiding all other RoverCards
-  const handleClick = (e) => {
-    // investigate CameraButton 'wiring' to RoverList
-    if (e.target.attributes.class.value === "RoverCard") {
-      const roverId = e.target.attributes.roverid.value;
-      setLocalRovers((prevLocalRovers) => prevLocalRovers.map((r) => {
-        if (r.id.toString() === roverId) return { ...r };
-        if (r.style.display === "block") {
-          return { ...r, style: { display: "none" } };
-        } else {
-          return { ...r, style: { display: "block" } };
-        }
-      }));
-    }
-  };
+  if (rovers.isLoading) return <h1>Loading...</h1>;
 
-  const [localRovers, setLocalRovers] =
-    useState(rovers.map((r) => ({
-      ...r,
-      onClick: handleClick,
-      style: { display: "block" }
-    })
-  ));
+  if (rovers.isError) return <pre>{JSON.stringify(rovers.error)}</pre>;
 
-  const displayRovers = () => {
-    return localRovers.map((r) => (
-      <RoverListItem
-        {...r}
-        key={r.id}
-        onClick={r.onClick}
-        style={r.style}
-      />
-    ));
-  };
+  function displayRovers() {
+    if (rovers.data)
+      return rovers.data.map((r) => (
+        <RoverListItem
+          {...r}
+          key={r.id}
+          style={{ display: "block" }}
+        />
+      ));
+  }
 
-  return (
-    <div id="RoverList">
-      { displayRovers() }
-    </div>
-  );
-};
+  return <div id="RoverList">{displayRovers()}</div>;
+}
