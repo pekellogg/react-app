@@ -17,9 +17,8 @@ export default function RoverListItem({
   return (
     <div
       className="RoverListItem"
-      id={`RoverListItem-${id}`}
+      id={id}
       style={style}
-      roverid={id}
     >
       <RoverCard
         id={id}
@@ -28,7 +27,6 @@ export default function RoverListItem({
         name={name}
         onClick={setCamerasDisplay}
         profilePic={profile_pic}
-        roverid={id}
         status={status}
       />
       <CameraButtonList
