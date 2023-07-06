@@ -15,11 +15,7 @@ export default function RoverListItem({
   const [camerasDisplay, setCamerasDisplay] = useDisplayToggle();
 
   return (
-    <div
-      className="RoverListItem"
-      id={id}
-      style={style}
-    >
+    <>
       <RoverCard
         id={id}
         landingDate={landing_date}
@@ -34,6 +30,6 @@ export default function RoverListItem({
         display={camerasDisplay}
         id={id}
       />
-    </div>
+    </>
   );
 }

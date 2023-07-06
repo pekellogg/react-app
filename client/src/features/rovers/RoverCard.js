@@ -23,7 +23,6 @@ export default function RoverCard({
         className="RoverCard"
         src={profilePic}
       />
-
       <div>
         <p>Mission {status}</p>
         <p>Launched {displayDate(launchDate)}</p>
