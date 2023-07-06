@@ -4,6 +4,9 @@ div.RoverCard:hover {
 }
 
 div.RoverCard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   background: rgb(240, 234, 214);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
   box-sizing: border-box;
@@ -21,15 +24,7 @@ div.RoverCard {
   width: 300px;
 }
 
-h1.RoverCard {
-  text-align: center;
-}
-
 img.RoverCard {
   height: 250px;
   width: 250px;
-}
-
-p.RoverCard {
-  font-size: small;
 }
