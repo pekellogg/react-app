@@ -1,6 +1,5 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { Route } from "react-router-dom";
 import About from "../common/About";
 import PhotoList from "../features/photos/PhotoList";
 import RoverList from "../features/rovers/RoverList";
@@ -32,6 +31,7 @@ function App() {
           component={PhotoList}
         />
       </Router>
+      <footer></footer>
     </>
   );
 }
