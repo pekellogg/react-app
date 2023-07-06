@@ -9,8 +9,8 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div id="App">
+    <>
+      <Router>
         <header>
           <nav>
             <NavLink to="/">About</NavLink>
@@ -31,8 +31,8 @@ function App() {
           path="/photos"
           component={PhotoList}
         />
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 }
 
