@@ -1,19 +1,20 @@
 import CameraButton from "./CameraButton";
 
-export default function CameraButtonList({ cameras, display, id }) {
+import "./CameraButtonList.css";
+
+export default function CameraButtonList({ cameras, id, isVisible }) {
   return (
     <div
       className="CameraButtonList"
       id={`CameraButtonList-${id}`}
-      style={{ display: display }}
     >
-      {cameras.map((c) => (
-        <CameraButton
-          {...c}
-          key={c.id}
-          style={{ display: display }}
-        />
-      ))}
+      {isVisible &&
+        cameras.map((c) => (
+          <CameraButton
+            {...c}
+            key={c.id}
+          />
+        ))}
     </div>
   );
 }

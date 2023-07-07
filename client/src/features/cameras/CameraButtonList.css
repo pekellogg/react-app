@@ -1,0 +1,7 @@
+div.CameraButtonList {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}

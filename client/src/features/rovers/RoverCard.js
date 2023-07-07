@@ -1,5 +1,5 @@
 import displayDate from "../../common/displayDate";
-import { useDisplayToggle } from "../../common/Toggle";
+import { useBooleanToggle } from "../../common/Toggle";
 import CameraButtonList from "../cameras/CameraButtonList";
 
 import "./RoverCard.css";
@@ -13,13 +13,13 @@ export default function RoverCard({
   profilePic,
   status,
 }) {
-  const [visibility, setVisibility] = useDisplayToggle();
+  const [isVisible, setIsVisible] = useBooleanToggle();
   return (
     <>
       <div
         className="RoverCard"
         id={id}
-        onClick={setVisibility}
+        onClick={setIsVisible}
       >
         <h1>{name}</h1>
         <img
@@ -36,7 +36,7 @@ export default function RoverCard({
       <CameraButtonList
         key={`CameraButtonList-${id}`}
         cameras={cameras}
-        display={visibility}
+        isVisible={isVisible}
         id={id}
       />
     </>
