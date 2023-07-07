@@ -3,7 +3,7 @@ import PhotoList from "../photos/PhotoList";
 
 import "./CameraButton.css";
 
-export default function CameraButton({ id, full_name, photos, style }) {
+export default function CameraButton({ id, full_name, style }) {
   const [display, setDisplay] = useDisplayToggle();
 
   const handleClick = (e) => {
@@ -26,10 +26,7 @@ export default function CameraButton({ id, full_name, photos, style }) {
       >
         {full_name}
       </button>
-      <PhotoList
-        cameraphotos={photos}
-        display={display}
-      />
+      <PhotoList display={display} />
     </>
   );
 }
