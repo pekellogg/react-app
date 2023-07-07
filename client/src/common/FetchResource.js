@@ -5,6 +5,8 @@ export default function FetchResource(resource) {
   const resourceQuery = useQuery({
     queryKey: [resource],
     queryFn: fetchResource,
+    staleTime: Infinity,
+    cacheTime: Infinity,
   });
 
   async function fetchResource() {
