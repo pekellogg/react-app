@@ -6,6 +6,7 @@ div.RoverCard:hover {
 
 div.RoverCard {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

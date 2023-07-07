@@ -23,6 +23,7 @@ export default function CameraButton({ id, full_name, style }) {
         id={`CameraButton-${id}`}
         onClick={handleClick}
         style={style}
+        type="button"
       >
         {full_name}
       </button>
