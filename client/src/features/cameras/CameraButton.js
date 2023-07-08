@@ -4,16 +4,10 @@ import PhotoList from "../photos/PhotoList";
 import "./CameraButton.css";
 
 export default function CameraButton({ id, full_name }) {
-  const [display, setDisplay] = useState(false);
+  const [displayPhotos, setDisplayPhotos] = useState(false);
 
   function handleClick(e) {
-    e.currentTarget.style.backgroundColor === ""
-      ? (e.currentTarget.style.backgroundColor = "#ed8f45")
-      : (e.currentTarget.style.backgroundColor = "");
-    e.currentTarget.textContent !== "Hide Photos"
-      ? (e.currentTarget.textContent = "Hide Photos")
-      : (e.currentTarget.textContent = full_name);
-    setDisplay(!display);
+    setDisplayPhotos(!displayPhotos);
   }
 
   return (
@@ -22,11 +16,15 @@ export default function CameraButton({ id, full_name }) {
         className="CameraButton"
         id={`CameraButton-${id}`}
         onClick={handleClick}
-        type="button"
+        style={
+          displayPhotos
+            ? { backgroundColor: "#ed8f45" }
+            : { backgroundColor: "" }
+        }
       >
-        {full_name}
+        {!displayPhotos ? full_name : "Hide Photos"}
       </button>
-      {display && <PhotoList />}
+      {displayPhotos && <PhotoList />}
     </>
   );
 }
