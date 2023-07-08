@@ -13,13 +13,13 @@ export default function RoverCard({
   profilePic,
   status,
 }) {
-  const [isVisible, setIsVisible] = useBooleanToggle();
+  const [camerasVisibility, setCamerasVisibility] = useBooleanToggle(false);
   return (
     <>
       <div
         className="RoverCard"
         id={id}
-        onClick={setIsVisible}
+        onClick={setCamerasVisibility}
       >
         <h1>{name}</h1>
         <img
@@ -36,7 +36,7 @@ export default function RoverCard({
       <CameraButtonList
         key={`CameraButtonList-${id}`}
         cameras={cameras}
-        isVisible={isVisible}
+        isVisible={camerasVisibility}
         id={id}
       />
     </>
