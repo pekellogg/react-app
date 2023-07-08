@@ -1,5 +1,5 @@
 import displayDate from "../../common/displayDate";
-import { useBooleanToggle } from "../../common/Toggle";
+import { useState } from "react";
 import CameraButtonList from "../cameras/CameraButtonList";
 
 import "./RoverCard.css";
@@ -15,7 +15,7 @@ export default function RoverCard({
   setRoversVisibility,
   status,
 }) {
-  const [camerasVisibility, setCamerasVisibility] = useBooleanToggle(false);
+  const [camerasVisibility, setCamerasVisibility] = useState(false);
 
   function handleClick(event) {
     setRoversVisibility((prevState) => {
@@ -27,7 +27,7 @@ export default function RoverCard({
       }
       return newState;
     });
-    setCamerasVisibility();
+    setCamerasVisibility(!camerasVisibility);
   }
 
   return (
