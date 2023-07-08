@@ -20,30 +20,15 @@ export default function RoverList() {
 
   function displayRovers() {
     if (rovers.data)
-      return rovers.data.map(
-        ({
-          cameras,
-          id,
-          landing_date,
-          launch_date,
-          name,
-          profile_pic,
-          status,
-        }) => (
-          <RoverCard
-            cameras={cameras}
-            id={`RoverCard-${id}`}
-            key={`RoverCard-${id}`}
-            landingDate={landing_date}
-            launchDate={launch_date}
-            name={name}
-            profilePic={profile_pic}
-            setRoversVisibility={setRoversVisibility}
-            status={status}
-            roversVisibility={roversVisibility[name]}
-          />
-        )
-      );
+      return rovers.data.map((rover) => (
+        <RoverCard
+          {...rover}
+          id={`RoverCard-${rover.id}`}
+          key={`RoverCard-${rover.id}`}
+          setRoversVisibility={setRoversVisibility}
+          roversVisibility={roversVisibility[rover.name]}
+        />
+      ));
   }
 
   return <div id="RoverList">{displayRovers()}</div>;

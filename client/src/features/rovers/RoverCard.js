@@ -7,10 +7,10 @@ import "./RoverCard.css";
 export default function RoverCard({
   cameras,
   id,
-  landingDate,
-  launchDate,
+  landing_date,
+  launch_date,
   name,
-  profilePic,
+  profile_pic,
   roversVisibility,
   setRoversVisibility,
   status,
@@ -25,7 +25,6 @@ export default function RoverCard({
           ? (newState[rover] = !prevState[rover])
           : (newState[rover] = prevState[rover]);
       }
-
       return newState;
     });
     setCamerasVisibility();
@@ -44,12 +43,12 @@ export default function RoverCard({
             <img
               alt={`Mars rover, ${name}`}
               className="RoverCard"
-              src={profilePic}
+              src={profile_pic}
             />
             <div>
               <p>Mission {status}</p>
-              <p>Launched {displayDate(launchDate)}</p>
-              <p>Landed {displayDate(landingDate)}</p>
+              <p>Launched {displayDate(launch_date)}</p>
+              <p>Landed {displayDate(landing_date)}</p>
             </div>
           </div>
           <CameraButtonList
