@@ -1,11 +1,11 @@
-import FetchResource from "../../common/FetchResource";
-import { useState } from "react"; // useMemo,
+import useFetch from "../../common/useFetch";
+import { useState } from "react";
 import RoverCard from "./RoverCard";
 
 import "./RoverList.css";
 
 export default function RoverList() {
-  const rovers = FetchResource("/api/v1/rovers");
+  const { loading, data, error } = useFetch("api/v1/rovers");
 
   const [roversVisibility, setRoversVisibility] = useState({
     Curiosity: true,
@@ -14,13 +14,15 @@ export default function RoverList() {
     Perseverance: true,
   });
 
-  if (rovers.isLoading) return <h1>Loading...</h1>;
+  if (loading) return `Loading...`;
 
-  if (rovers.isError) return <pre>{JSON.stringify(rovers.error)}</pre>;
+  if (error) {
+    return <pre>{JSON.stringify(error, null, 2)}</pre>;
+  }
 
-  function mappedRovers() {
-    if (rovers.data) {
-      return rovers.data.map((rover) => (
+  return (
+    <div id="RoverList">
+      {data.map((rover) => (
         <RoverCard
           {...rover}
           id={`RoverCard-${rover.id}`}
@@ -28,20 +30,7 @@ export default function RoverList() {
           setRoversVisibility={setRoversVisibility}
           roversVisibility={roversVisibility[rover.name]}
         />
-      ));
-    }
-  }
-
-  // const displayDemRovs = useMemo(() => mappedRovers(), [rovers.data]);
-  // https://react.dev/reference/react/useMemo
-
-  // async function asyncCall() {
-  // const result = await resolveAfter2Seconds();
-  // }
-  // await Promise.resolve('a');
-  // function resolvedRovers() {
-  //   return new Promise(resolve(rovers.data));
-  // }
-
-  return <div id="RoverList">{mappedRovers()}</div>;
+      ))}
+    </div>
+  );
 }
