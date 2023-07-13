@@ -1,30 +1,40 @@
-import FetchResource from "../../common/FetchResource";
+import useFetch from "../../common/useFetch";
 import Photo from "./Photo";
 
-export default function PhotoList({ display }) {
-  const photos = FetchResource("/api/v1/photos");
+export default function PhotoList(props) {
+  const { loading, data, error } = useFetch("/api/v1/photos");
 
-  function displayAllPhotos() {
-    if (photos.data) {
-      return photos.data.map((photo) => (
-        <Photo
-          source={photo.source}
-          key={photo.id}
-        />
-      ));
+  // Render context: Rovers page
+  if (props.photos) {
+    if (props.photos.length === 0) {
+      return <div>No photos!</div>;
+    } else {
+      return props.photos.map((photo) => {
+        return (
+          <div key={photo.id}>
+            <Photo
+              {...photo}
+              source={photo.source}
+            />
+          </div>
+        );
+      });
     }
+    // Render context: Photos page
+  } else {
+    if (loading) return `Loading...`;
+
+    if (error) {
+      return <pre>{JSON.stringify(error, null, 2)}</pre>;
+    }
+
+    return data.map((photo) => (
+      <div key={photo.id}>
+        <Photo
+          {...photo}
+          source={photo.source}
+        />
+      </div>
+    ));
   }
-
-  if (photos.isLoading) return <h1>Loading...</h1>;
-
-  if (photos.isError) return <pre>{JSON.stringify(photos.error)}</pre>;
-
-  return (
-    <div
-      className="PhotoList"
-      style={{ display: display }}
-    >
-      {displayAllPhotos()}
-    </div>
-  );
 }

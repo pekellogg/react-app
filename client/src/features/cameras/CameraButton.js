@@ -1,20 +1,22 @@
-import { useDisplayToggle } from "../../common/Toggle";
+import { useState } from "react";
+import useFetch from "../../common/useFetch";
 import PhotoList from "../photos/PhotoList";
 
 import "./CameraButton.css";
 
-export default function CameraButton({ id, full_name, photos, style }) {
-  const [display, setDisplay] = useDisplayToggle();
+export default function CameraButton({ id, full_name }) {
+  const { loading, data, error } = useFetch(`api/v1/cameras/${id}`);
+  const [displayPhotos, setDisplayPhotos] = useState(false);
 
-  const handleClick = (e) => {
-    e.currentTarget.style.backgroundColor === ""
-      ? (e.currentTarget.style.backgroundColor = "#ed8f45")
-      : (e.currentTarget.style.backgroundColor = "");
-    e.currentTarget.textContent !== "Hide Photos"
-      ? (e.currentTarget.textContent = "Hide Photos")
-      : (e.currentTarget.textContent = full_name);
-    setDisplay();
-  };
+  function handleClick(e) {
+    setDisplayPhotos(!displayPhotos);
+  }
+
+  if (loading) return `Loading...`;
+
+  if (error) {
+    return <pre>{JSON.stringify(error, null, 2)}</pre>;
+  }
 
   return (
     <>
@@ -22,14 +24,22 @@ export default function CameraButton({ id, full_name, photos, style }) {
         className="CameraButton"
         id={`CameraButton-${id}`}
         onClick={handleClick}
-        style={style}
+        style={
+          displayPhotos
+            ? { backgroundColor: "#ed8f45" }
+            : { backgroundColor: "" }
+        }
       >
-        {full_name}
+        {!displayPhotos ? full_name : "Hide Photos"}
       </button>
-      <PhotoList
-        cameraphotos={photos}
-        display={display}
-      />
+      {displayPhotos && (
+        <div
+          className={`CameraButton${id}-PhotoList`}
+          key={`CameraButton${id}-PhotoList`}
+        >
+          <PhotoList photos={data.photos} />
+        </div>
+      )}
     </>
   );
 }

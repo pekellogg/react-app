@@ -27,3 +27,6 @@ wip-scratch.txt
 /config/credentials/development.key
 /config/credentials/production.key
 /config/credentials/staging.key
+
+# Ignore scratch sheets
+background-gradient-css.txt

@@ -1,5 +1,5 @@
 import displayDate from "../../common/displayDate";
-import { useDisplayToggle } from "../../common/Toggle";
+import { useState } from "react";
 import CameraButtonList from "../cameras/CameraButtonList";
 
 import "./RoverCard.css";
@@ -7,38 +7,60 @@ import "./RoverCard.css";
 export default function RoverCard({
   cameras,
   id,
-  landingDate,
-  launchDate,
+  landing_date,
+  launch_date,
   name,
-  profilePic,
+  profile_pic,
+  roversVisibility,
+  setRoversVisibility,
   status,
 }) {
-  const [visibility, setVisibility] = useDisplayToggle();
+  const [camerasVisibility, setCamerasVisibility] = useState(false);
+
+  function handleClick(event) {
+    setRoversVisibility((prevState) => {
+      const newState = {};
+      for (const rover in prevState) {
+        rover !== name
+          ? (newState[rover] = !prevState[rover])
+          : (newState[rover] = prevState[rover]);
+      }
+      return newState;
+    });
+    setCamerasVisibility(!camerasVisibility);
+  }
+
   return (
     <>
-      <div
-        className="RoverCard"
-        id={id}
-        onClick={setVisibility}
-      >
-        <h1>{name}</h1>
-        <img
-          alt={`Mars rover, ${name}`}
-          className="RoverCard"
-          src={profilePic}
-        />
-        <div>
-          <p>Mission {status}</p>
-          <p>Launched {displayDate(launchDate)}</p>
-          <p>Landed {displayDate(landingDate)}</p>
-        </div>
-      </div>
-      <CameraButtonList
-        key={`CameraButtonList-${id}`}
-        cameras={cameras}
-        display={visibility}
-        id={id}
-      />
+      {roversVisibility ? (
+        <>
+          <div
+            className="RoverCard"
+            id={id}
+            onClick={handleClick}
+          >
+            <h1>{name}</h1>
+            <img
+              alt={`Mars rover, ${name}`}
+              className="RoverCard"
+              src={profile_pic}
+            />
+            <div>
+              <p>Mission {status}</p>
+              <p>Launched {displayDate(launch_date)}</p>
+              <p>Landed {displayDate(landing_date)}</p>
+            </div>
+          </div>
+          <CameraButtonList
+            key={`CameraButtonList-${id}`}
+            cameras={cameras}
+            isVisible={camerasVisibility}
+            id={id}
+          />
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }

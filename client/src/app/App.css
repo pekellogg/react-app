@@ -21,7 +21,30 @@ a:visited {
 }
 
 body {
-  background-color: #212426;
+  /* background-color: rgb(4, 12, 25); */
+  background-image: linear-gradient(
+      0.5turn,
+      rgba(22, 25, 34, 1),
+      rgba(36, 46, 82, 1),
+      rgba(58, 84, 141, 1),
+      rgba(91, 121, 171, 1),
+      rgba(138, 147, 190, 1),
+      rgba(171, 128, 182, 1),
+      rgba(165, 123, 99, 1),
+      rgba(147, 100, 74, 1),
+      rgba(128, 86, 64, 1),
+      rgba(143, 89, 53, 1),
+      rgba(147, 102, 83, 1),
+      rgba(168, 133, 103, 1),
+      rgba(197, 147, 96, 1),
+      rgba(194, 134, 80, 1),
+      rgba(165, 97, 62, 1)
+    ),
+    url("/public/images/jwst-carina-nebula.png");
+  /* height: 100vh; */
+  /* background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 button {
@@ -47,7 +70,9 @@ nav {
 }
 
 #root {
-  font-size: 20px;
+  font-size: 19px;
+  font-family: "Titillium Web", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-weight: 600;
   margin: 0;
   min-height: 100vh;
 }
