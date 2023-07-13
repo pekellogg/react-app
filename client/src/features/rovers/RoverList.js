@@ -1,5 +1,5 @@
 import FetchResource from "../../common/FetchResource";
-import { useState } from "react";
+import { useState } from "react"; // useMemo,
 import RoverCard from "./RoverCard";
 
 import "./RoverList.css";
@@ -18,8 +18,8 @@ export default function RoverList() {
 
   if (rovers.isError) return <pre>{JSON.stringify(rovers.error)}</pre>;
 
-  function displayRovers() {
-    if (rovers.data)
+  function mappedRovers() {
+    if (rovers.data) {
       return rovers.data.map((rover) => (
         <RoverCard
           {...rover}
@@ -29,7 +29,19 @@ export default function RoverList() {
           roversVisibility={roversVisibility[rover.name]}
         />
       ));
+    }
   }
 
-  return <div id="RoverList">{displayRovers()}</div>;
+  // const displayDemRovs = useMemo(() => mappedRovers(), [rovers.data]);
+  // https://react.dev/reference/react/useMemo
+
+  // async function asyncCall() {
+  // const result = await resolveAfter2Seconds();
+  // }
+  // await Promise.resolve('a');
+  // function resolvedRovers() {
+  //   return new Promise(resolve(rovers.data));
+  // }
+
+  return <div id="RoverList">{mappedRovers()}</div>;
 }
