@@ -1,20 +1,28 @@
-div.RoverCard:hover {
+div.RoverCardWrapper:hover {
   background-color: rgba(237, 143, 69, 0.8);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 1);
   transform: scale(1.05, 1.05);
 }
 
-div.RoverCard {
-  align-items: center;
+div.RoverCardWrapper {
+  background: rgb(240, 234, 214);
+  border: none;
   cursor: pointer;
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
-  background: rgb(240, 234, 214);
-  max-height: 500px;
   margin: 20px;
+  height: 500px;
+  width: 300px;
+}
+
+div.RoverCard {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
   text-align: center;
-  max-width: 300px;
+  height: 100%;
+  width: 100%;
 }
 
 img.RoverCard {
