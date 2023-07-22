@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useFetch from "../../common/useFetch";
-import PhotoList from "../photos/PhotoList";
+import Photo from "../photos/Photo";
 
 import "./CameraButton.css";
 
@@ -37,7 +37,17 @@ export default function CameraButton({ id, full_name }) {
           className={`CameraButton${id}-PhotoList`}
           key={`CameraButton${id}-PhotoList`}
         >
-          <PhotoList photos={data.photos} />
+          {data.photos.length === 0 ? (
+            <div>No photos!</div>
+          ) : (
+            data.photos.map((photo) => (
+              <Photo
+                {...photo}
+                key={photo.id}
+                source={photo.source}
+              />
+            ))
+          )}
         </div>
       )}
     </>
