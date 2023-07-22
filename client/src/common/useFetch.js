@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+// test performance of option 1 vs. option 2
 export default function useFetch(uri) {
   const [data, setData] = useState();
 
@@ -7,6 +7,7 @@ export default function useFetch(uri) {
 
   const [error, setError] = useState();
 
+  // option 1
   useEffect(() => {
     if (!uri) return;
     fetch(uri)
@@ -14,8 +15,24 @@ export default function useFetch(uri) {
       .then(setData)
       .then(() => setLoading(false))
       .catch(setError);
-    // create cleanUp fn; don't need to fetch resources if user has navigated away from page
   }, [uri]);
+
+  // option 2
+  // useEffect(() => {
+  //   const controller = new AbortController();
+  //   fetch(uri, { signal: controller.signal })
+  //     .then((data) => data.json())
+  //     .then(setData)
+  //     .then(() => setLoading(false))
+  //     .catch((error) => {
+  //       if (error.name !== "AbortError") {
+  //         setError(error);
+  //       }
+  //     });
+  //   return () => {
+  //     controller.abort();
+  //   };
+  // }, [uri]);
 
   return { loading, data, error };
 }
