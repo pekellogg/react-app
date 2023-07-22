@@ -3,9 +3,9 @@ import { useState } from "react";
 import RoverCard from "./RoverCard";
 import CameraButton from "../cameras/CameraButton";
 
-import "./RoverList.css";
+import "./RoversPage.css";
 
-export default function RoverList() {
+export default function RoversPage() {
   const rovers = useFetch("api/v1/rovers");
 
   const [roversVisibility, setRoversVisibility] = useState({

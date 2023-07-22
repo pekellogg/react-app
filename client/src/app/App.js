@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import About from "../common/About";
+import AboutPage from "../common/AboutPage";
 import PhotosPage from "../features/photos/PhotosPage";
-import RoverList from "../features/rovers/RoverList";
+import RoversPage from "../features/rovers/RoversPage";
 
 import "./App.css";
 
@@ -20,11 +20,11 @@ function App() {
         <Route
           exact
           path="/"
-          component={About}
+          component={AboutPage}
         />
         <Route
           path="/rovers"
-          component={RoverList}
+          component={RoversPage}
         />
         <Route
           path="/photos"
