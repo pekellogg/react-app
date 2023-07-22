@@ -1,7 +1,7 @@
 import useFetch from "../../common/useFetch";
 import Photo from "./Photo";
 
-export default function PhotoList(props) {
+export default function PhotosPage() {
   const { loading, data, error } = useFetch("/api/v1/photos");
 
   if (loading) return `Loading...`;

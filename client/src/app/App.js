@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import About from "../common/About";
-import PhotoList from "../features/photos/PhotoList";
+import PhotosPage from "../features/photos/PhotosPage";
 import RoverList from "../features/rovers/RoverList";
 
 import "./App.css";
@@ -28,7 +28,7 @@ function App() {
         />
         <Route
           path="/photos"
-          component={PhotoList}
+          component={PhotosPage}
         />
       </Router>
       <footer></footer>
