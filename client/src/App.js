@@ -4,8 +4,6 @@ import AboutPage from "./common/AboutPage";
 import PhotosPage from "./features/photos/PhotosPage";
 import RoversPage from "./features/rovers/RoversPage";
 
-import "./App.css";
-
 function App() {
   return (
     <>
