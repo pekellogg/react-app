@@ -9,7 +9,7 @@ export default function CameraButton({ id, full_name }) {
   const [displayPhotos, setDisplayPhotos] = useState(false);
 
   function handleClick(e) {
-    setDisplayPhotos(!displayPhotos);
+    setDisplayPhotos((prevState) => !prevState);
   }
 
   if (loading) return `Loading...`;

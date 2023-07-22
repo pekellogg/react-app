@@ -1,7 +1,7 @@
 import useFetch from "../../common/useFetch";
 import { useState } from "react";
 import RoverCard from "./RoverCard";
-import CameraButtonList from "../cameras/CameraButtonList";
+import CameraButton from "../cameras/CameraButton";
 
 import "./RoverList.css";
 
@@ -68,11 +68,18 @@ export default function RoverList() {
           roversVisibility={roversVisibility[rover.name].isVisible}
         />,
         roversVisibility[rover.name].camerasVisible && (
-          <CameraButtonList
-            key={`CameraButtonList-${rover.id}`}
-            cameras={rover.cameras}
-            id={rover.id}
-          />
+          <div
+            className="CameraButtonList"
+            key={rover.id}
+            id={`CameraButtonList-${rover.id}`}
+          >
+            {rover.cameras.map((c) => (
+              <CameraButton
+                {...c}
+                key={c.id}
+              />
+            ))}
+          </div>
         ),
       ])}
     </div>
