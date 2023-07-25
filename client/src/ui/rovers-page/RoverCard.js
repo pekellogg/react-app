@@ -1,4 +1,4 @@
-import displayDate from "../../common/displayDate";
+import displayDate from "../shared/utils/displayDate";
 
 import "./RoverCard.css";
 

@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 // test performance of option 1 vs. option 2
 export default function useFetch(uri) {
   const [data, setData] = useState();
-
   const [loading, setLoading] = useState(true);
-
   const [error, setError] = useState();
 
   // option 1

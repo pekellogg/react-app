@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import AboutPage from "./common/AboutPage";
-import PhotosPage from "./features/photos/PhotosPage";
-import RoversPage from "./features/rovers/RoversPage";
+import AboutPage from "./ui/about-page/ui";
+import PhotosPage from "./ui/photos-page/ui";
+import RoversPage from "./ui/rovers-page/ui";
 
 function App() {
   return (

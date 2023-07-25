@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import DataContextProvider from "./shared/DataContextProvider";
 import App from "./App";
 import "./styles.css";
 
@@ -8,6 +9,8 @@ const root = createRoot(domNode);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <DataContextProvider>
+      <App />
+    </DataContextProvider>
   </React.StrictMode>
 );

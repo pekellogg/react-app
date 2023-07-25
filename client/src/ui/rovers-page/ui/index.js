@@ -1,12 +1,11 @@
-import useFetch from "../../common/useFetch";
 import { useState } from "react";
-import RoverCard from "./RoverCard";
-import CameraButton from "../cameras/CameraButton";
-
-import "./RoversPage.css";
+import { useDataContext } from "../../../shared/DataContextProvider";
+import RoverCard from "../RoverCard";
+import CameraButton from "../CameraButton";
+import "./styles.css";
 
 export default function RoversPage() {
-  const rovers = useFetch("api/v1/rovers");
+  const { rovers } = useDataContext();
 
   const [roversVisibility, setRoversVisibility] = useState({
     Curiosity: {
