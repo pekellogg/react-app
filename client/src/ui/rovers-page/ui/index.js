@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDataContext } from "../../../shared/DataContextProvider";
+// import { useParams } from "react-router-dom";
 import RoverCard from "../RoverCard";
 import CameraButton from "../CameraButton";
 import "./styles.css";
 
 export default function RoversPage() {
+  // const obj = useParams();
   const { rovers } = useDataContext();
 
   const [roversVisibility, setRoversVisibility] = useState({
@@ -81,6 +83,7 @@ export default function RoversPage() {
           </div>
         ),
       ])}
+      {/* {console.log("rovers", obj)} */}
     </div>
   );
 }
