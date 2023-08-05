@@ -1,89 +1,26 @@
-import { useState } from "react";
-import { useDataContext } from "../../../shared/DataContextProvider";
-// import { useParams } from "react-router-dom";
-import RoverCard from "../RoverCard";
-import CameraButton from "../CameraButton";
+import { Link } from "react-router-dom";
+import useFetch from "../../../data/useFetch";
 import "./styles.css";
 
 export default function RoversPage() {
-  // const obj = useParams();
-  const { rovers } = useDataContext();
+  const request = useFetch(`/api/v1/rovers`);
 
-  const [roversVisibility, setRoversVisibility] = useState({
-    Curiosity: {
-      isVisible: true,
-      camerasVisible: false,
-    },
-    Spirit: {
-      isVisible: true,
-      camerasVisible: false,
-    },
-    Opportunity: {
-      isVisible: true,
-      camerasVisible: false,
-    },
-    Perseverance: {
-      isVisible: true,
-      camerasVisible: false,
-    },
-  });
+  if (request.loading) return `Loading...`;
 
-  if (rovers.loading) return `Loading...`;
-
-  if (rovers.error) {
-    return <pre>{JSON.stringify(rovers.error, null, 2)}</pre>;
-  }
-
-  function handleClick(event) {
-    const roverName = event.target.parentElement.attributes.name.value;
-    setRoversVisibility((prevState) => {
-      const newState = {};
-      for (const rover in prevState) {
-        // if rover was not clicked hide it
-        if (rover !== roverName) {
-          newState[`${rover}`] = {
-            isVisible: !prevState[rover].isVisible,
-            camerasVisible: prevState[rover].camerasVisible,
-          };
-          // if rover was clicked, keep it visible and show its cameras
-        } else {
-          newState[`${rover}`] = {
-            isVisible: prevState[rover].isVisible,
-            camerasVisible: !prevState[rover].camerasVisible,
-          };
-        }
-      }
-      return newState;
-    });
+  if (request.error) {
+    return <pre>{JSON.stringify(request.error, null, 2)}</pre>;
   }
 
   return (
     <div id="RoverList">
-      {rovers.data.map((rover) => [
-        <RoverCard
-          {...rover}
-          id={`RoverCard-${rover.id}`}
-          key={`RoverCard-${rover.id}`}
-          onClick={handleClick}
-          setRoversVisibility={setRoversVisibility}
-          roversVisibility={roversVisibility[rover.name].isVisible}
-        />,
-        roversVisibility[rover.name].camerasVisible && (
-          <div
-            className="CameraButtonList"
-            key={rover.id}
-            id={`CameraButtonList-${rover.id}`}
-          >
-            {rover.cameras.map((c) => (
-              <CameraButton
-                {...c}
-                key={c.id}
-              />
-            ))}
-          </div>
-        ),
-      ])}
-      {/* {console.log("rovers", obj)} */}
+      {request.data.map((rover) => (
+        <Link
+          key={rover.id}
+          to={`/rovers/${rover.id}`}
+        >
+          <h1>{rover.name}</h1>
+        </Link>
+      ))}
     </div>
   );
 }
