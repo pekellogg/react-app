@@ -4,21 +4,21 @@ Explore the Red Planet through the photos taken by NASA rovers, Curiosity, Oppor
 
 ## Usage
 
-**_Rovers tab: all rovers_**
+**_Rovers tab: click any rover to go to their page_**
 
-![Screenshot of all rovers at the Rovers tab, added in the Markdown.](/client/screenshots/mars-rovers.png)
+![Screenshot of all rovers at the Rovers tab, added in the Markdown.](/client/screenshots/rovers-page.png)
 
-**_Rovers tab: click Perseverance_**
+**_Curiosity_**
 
-![Screenshot of Perseverance rover's profile, added in the Markdown.](/client/screenshots/perseverance-show.png)
+![Screenshot of Curiosity rover's profile, added in the Markdown.](/client/screenshots/curiosity-page.png)
 
-**_Rovers tab: click any of Perseverance's cameras to view its photos_**
+**_Curiosity's photos_**
 
-![Screenshot of Perseverance's camera and its photos, added in the Markdown.](/client/screenshots/perseverance-camera-photos.png)
+![Screenshot of Curiosity's camera and its photos, added in the Markdown.](/client/screenshots/curiosity-photos.png)
 
 **_Photos tab: all photos_**
 
-![Screenshot of all photos at the Photos tab, added in the Markdown.](/client/screenshots/mars-rovers-photos-all.png)
+![Screenshot of all photos at the Photos tab, added in the Markdown.](/client/screenshots/photos-page.png)
 
 ### Contributing
 
