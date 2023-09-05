@@ -1,13 +1,12 @@
 // enable client-side routing: app renders new UI instead of requesting add'l docs from server
-import { Link } from "react-router-dom";
-import "./styles.css";
+import { NavLink } from "react-router-dom";
 
 export default function NavLinks() {
   return (
     <nav>
-      <Link to="/about">About</Link>
-      <Link to="rovers">Rovers</Link>
-      <Link to="/photos">Photos</Link>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="rovers">Rovers</NavLink>
+      <NavLink to="/photos">Photos</NavLink>
     </nav>
   );
 }

@@ -1,6 +1,6 @@
-import displayDate from "../shared/utils/displayDate";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../data/useFetch";
+import displayDate from "../shared/utils/displayDate";
 import "./RoverCard.css";
 
 export default function RoverCard() {
@@ -20,39 +20,47 @@ export default function RoverCard() {
   }
 
   // pull out properties of rover
-  const { name, profile_pic, landing_date, launch_date, status } = request.data;
+  const { cameras, name, profile_pic, landing_date, launch_date, status } =
+    request.data;
 
   // return to /rovers
   function handleClick(e) {
     navigate("/rovers");
   }
 
-  // function handleButtonClick(e) {}
+  function handleButtonClick(e) {
+    navigate(
+      `/rovers/${id}/cameras/${e.currentTarget.attributes.id.value}/photos`
+    );
+  }
 
   return (
-    <>
+    <div className="RoverCard-Cameras">
       <div
-        className="RoverCardWrapper"
-        id={id}
-        name={name}
+        className="RoverCard"
         onClick={handleClick}
       >
-        <div
-          className="RoverCard"
-          name={name}
-        >
-          <h1>{name}</h1>
-          <img
-            alt={`Mars rover, ${name}`}
-            className="RoverCard"
-            src={profile_pic}
-          />
-          <p>Mission {status}</p>
-          <p>Launched {displayDate(launch_date)}</p>
-          <p>Landed {displayDate(landing_date)}</p>
-        </div>
+        <h1>{name}</h1>
+        <img
+          alt={`Mars rover, ${name}`}
+          src={profile_pic}
+        />
+        <p>Mission {status}</p>
+        <p>Launched {displayDate(launch_date)}</p>
+        <p>Landed {displayDate(landing_date)}</p>
       </div>
-      {/* <button onClick={handleButtonClick}>Display Photos</button> */}
-    </>
+      <div className="Cameras">
+        {cameras.map((c) => (
+          <button
+            className="CameraButton"
+            key={c.id}
+            id={c.id}
+            onClick={handleButtonClick}
+          >
+            {c.full_name}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

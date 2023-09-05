@@ -10,36 +10,34 @@ import CameraButton from "../../rovers-page/CameraButton";
 // enable client-side routing: create a browser router
 export function AppRouter() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Root />}
+        >
           <Route
-            path="/"
-            element={<Root />}
-          >
-            <Route
-              path="/about"
-              element={<AboutPage />}
-            />
-            <Route
-              path="/rovers"
-              element={<RoversPage />}
-            />
-            <Route
-              path="/rovers/:id"
-              element={<RoverCard />}
-            />
-            <Route
-              path="/rovers/:id/cameras/:id"
-              element={<CameraButton />}
-            />
-            <Route
-              path="/photos"
-              element={<PhotosPage />}
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+            path="/about"
+            element={<AboutPage />}
+          />
+          <Route
+            path="/rovers"
+            element={<RoversPage />}
+          />
+          <Route
+            path="/rovers/:id/cameras"
+            element={<RoverCard />}
+          />
+          <Route
+            path="/rovers/:id/cameras/:id/photos"
+            element={<CameraButton />}
+          />
+          <Route
+            path="/photos"
+            element={<PhotosPage />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

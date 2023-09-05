@@ -1,7 +1,0 @@
-button.CameraButton {
-  cursor: pointer;
-}
-
-button.CameraButton:hover {
-  background-color: #ed8f45;
-}

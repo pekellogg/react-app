@@ -1,15 +1,19 @@
 * {
-  border-radius: 10px;
   box-sizing: border-box;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: [margin-top] 2.5% [nav] 5% [main] 90% [margin-bottom] 2.5%;
+  grid-template-columns: [margin-left] 5% [main] 90% [margin-right] 5%;
+  height: 100vh;
 }
 
 a {
   outline: none;
   text-decoration: none;
-}
-
-a:link {
   color: black;
+  cursor: pointer;
 }
 
 a:active,
@@ -17,10 +21,94 @@ a:focus,
 a:hover,
 a:visited {
   color: black;
-  background: rgb(240, 234, 214);
 }
 
-body {
+a.active {
+  background-color: rgba(237, 143, 69, 0.8);
+}
+
+button {
+  background: rgb(240, 234, 214);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: #ed8f45;
+}
+
+button.RoverButton {
+  width: 100%;
+}
+
+div {
+  border-radius: 10px;
+}
+
+div#AboutPage {
+  align-content: center;
+  align-items: center;
+  background: rgb(240, 234, 214);
+  display: flex;
+  grid-column: main;
+  grid-row: main;
+  height: 40%;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+div.Photos {
+  align-items: center;
+  background: rgb(240, 234, 214);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  grid-column: main;
+  grid-row: main;
+  height: fit-content;
+  justify-content: center;
+  margin: 30px;
+  padding: 5px;
+}
+
+div.RoverCard-Cameras {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-column: main;
+  grid-row: main;
+  margin: 30px;
+}
+
+div.RoverCard-Camera-Photos {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-column: main;
+  grid-row: main;
+}
+
+div#RoverList {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: main;
+  grid-row: main;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 1px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+html {
   background-image: linear-gradient(
     0.5turn,
     rgba(22, 25, 34, 1),
@@ -39,34 +127,18 @@ body {
     rgba(194, 134, 80, 1),
     rgba(165, 97, 62, 1)
   );
-}
-
-button {
-  margin: 10px;
-  padding: 10px;
-}
-
-h1,
-h2,
-h3 {
-  letter-spacing: 1px;
+  font-size: 19px;
+  font-family: "Titillium Web", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
 }
 
 nav {
   align-items: center;
   background: rgb(240, 234, 214);
+  border-radius: 10px;
   display: flex;
-  height: 30px;
+  grid-column: main;
+  grid-row: nav;
   justify-content: space-evenly;
-  margin: 30px;
-  padding: 30px;
   text-align: center;
-}
-
-#root {
-  font-size: 19px;
-  font-family: "Titillium Web", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 600;
-  margin: 0;
-  min-height: 100vh;
 }

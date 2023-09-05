@@ -10,12 +10,15 @@ export default function PhotosPage() {
     return <pre>{JSON.stringify(request.error, null, 2)}</pre>;
   }
 
-  return request.data.map((photo) => (
-    <div key={photo.id}>
-      <Photo
-        {...photo}
-        source={photo.source}
-      />
+  return (
+    <div className="Photos">
+      {request.data.map((photo) => (
+        <Photo
+          key={photo.id}
+          {...photo}
+          source={photo.source}
+        />
+      ))}
     </div>
-  ));
+  );
 }
